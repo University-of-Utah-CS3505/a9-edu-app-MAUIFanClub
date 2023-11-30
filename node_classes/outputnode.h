@@ -1,23 +1,16 @@
 #ifndef OUTPUTNODE_H
 #define OUTPUTNODE_H
 
-#include <QApplication>
-#include <QMouseEvent>
-#include <QWidget>
-#include "inputnode.h"
+#include <QLabel>
+#include "circuitnode.h"
 
-class OutputNode : public QWidget
+class OutputNode : public CircuitNode
 {
 public:
-    OutputNode(QWidget *parent = nullptr);
+    OutputNode();
     ~OutputNode();
 
-protected:
-    void mousePressEvent(QMouseEvent *event) override;
-    void mouseReleaseEvent(QMouseEvent *event) override;
-
-private:
-    int size = 20;
+    QLabel *outputLabel;
 };
 
 #endif // OUTPUTNODE_H

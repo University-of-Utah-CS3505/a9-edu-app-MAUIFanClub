@@ -12,17 +12,21 @@ SOURCES += \
     node_classes/andgate.cpp \
     node_classes/circuitnode.cpp \
     dragablewidget.cpp \
-    node_classes/inputnode.cpp \
     main.cpp \
     mainwindow.cpp \
+    node_classes/inputnode.cpp \
+    node_classes/nodeinputslot.cpp \
+    node_classes/nodeoutputslot.cpp \
     node_classes/outputnode.cpp
 
 HEADERS += \
     node_classes/andgate.h \
     node_classes/circuitnode.h \
     dragablewidget.h \
-    node_classes/inputnode.h \
     mainwindow.h \
+    node_classes/inputnode.h \
+    node_classes/nodeinputslot.h \
+    node_classes/nodeoutputslot.h \
     node_classes/outputnode.h
 
 FORMS += \

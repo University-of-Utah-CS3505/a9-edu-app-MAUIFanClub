@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "./node_classes/andgate.h"
 #include "./node_classes/circuitnode.h"
+#include "./node_classes/inputnode.h"
+#include "./node_classes/outputnode.h"
 #include "QLayout"
 
 QT_BEGIN_NAMESPACE

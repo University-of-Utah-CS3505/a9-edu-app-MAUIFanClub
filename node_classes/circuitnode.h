@@ -2,9 +2,9 @@
 #define CIRCUITNODE_H
 
 #include <QDebug>
+#include "nodeinputslot.h"
 #include "dragablewidget.h"
-#include "inputnode.h"
-#include "outputnode.h"
+#include "nodeoutputslot.h"
 #include <vector>
 
 using std::vector;
@@ -12,17 +12,15 @@ using std::vector;
 class CircuitNode : public DragableWidget
 {
 public:
-    CircuitNode(int inputCount);
+    CircuitNode(int inputCount, bool hasOutput);
     ~CircuitNode();
 
-    vector<InputNode *> inputs;
-    OutputNode *output;
+    vector<NodeInputSlot *> inputs;
+    NodeOutputSlot *output;
 
-    virtual void Run();
+    virtual void run();
 
 protected:
-    int inputNodeOffset = 0;
-
     int nodeSize = 200;
 };
 

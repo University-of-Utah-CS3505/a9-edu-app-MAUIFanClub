@@ -4,8 +4,8 @@
 #include <QDebug>
 #include <QMouseEvent>
 #include <QWidget>
-#include "./node_classes/inputnode.h"
-#include "./node_classes/outputnode.h"
+#include "./node_classes/nodeinputslot.h"
+#include "./node_classes/nodeoutputslot.h"
 
 class DragableWidget : public QWidget
 {

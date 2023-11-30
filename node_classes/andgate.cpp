@@ -1,7 +1,7 @@
 #include "andgate.h"
 
 AndGate::AndGate()
-    : CircuitNode(2)
+    : CircuitNode(2, true)
 {
     // Gets image from Resources.qrc file.
     QPixmap pixmap(":i/images/andGate.png");

@@ -1,20 +1,23 @@
 #ifndef INPUTNODE_H
 #define INPUTNODE_H
 
-#include <QWidget>
+#include <QObject>
+#include <QPushButton>
+#include "circuitnode.h"
 
-class InputNode : public QWidget
+class InputNode : public CircuitNode
 {
 public:
-    InputNode(QWidget *parent = nullptr);
+    InputNode();
     ~InputNode();
 
-protected:
-    void mousePressEvent(QMouseEvent *event) override;
-    void mouseReleaseEvent(QMouseEvent *event) override;
+    QPushButton *toggleBtn;
+    bool state;
 
-private:
-    int size = 20;
+signals:
+
+public slots:
+    void toggleState();
 };
 
 #endif // INPUTNODE_H

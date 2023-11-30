@@ -1,15 +1,27 @@
 #include "inputnode.h"
 
-InputNode::InputNode(QWidget *parent)
+InputNode::InputNode()
+    : CircuitNode(0, true)
 {
-    this->setParent(parent);
-    this->setObjectName("Input Node");
-    this->setStyleSheet("* {background-color:green;}");
-    this->setGeometry(QRect(0, 90, size, size));
+    state = false;
+
+    // Button for user to click. Toggles state of input node.
+    toggleBtn = new QPushButton(this);
+    toggleBtn->setText("0");
+    toggleBtn->setGeometry(QRect(25, 25, 150, 150));
+
+    // Increases font size for btn
+    QFont font = toggleBtn->font();
+    font.setPointSize(50);
+    toggleBtn->setFont(font);
+
+    connect(toggleBtn, &QPushButton::clicked, this, &InputNode::toggleState);
 }
 
 InputNode::~InputNode() {}
 
-void InputNode::mousePressEvent(QMouseEvent *event) {}
-
-void InputNode::mouseReleaseEvent(QMouseEvent *event) {}
+void InputNode::toggleState()
+{
+    state = !state;
+    toggleBtn->setText(state ? "1" : "0");
+}
