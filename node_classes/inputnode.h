@@ -8,7 +8,7 @@
 class InputNode : public CircuitNode
 {
 public:
-    InputNode();
+    InputNode(QWidget *parent = nullptr);
     ~InputNode();
 
     QPushButton *toggleBtn;

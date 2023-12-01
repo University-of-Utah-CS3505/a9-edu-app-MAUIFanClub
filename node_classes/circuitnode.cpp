@@ -1,7 +1,8 @@
 #include "circuitnode.h"
 
-CircuitNode::CircuitNode(int inputCount, bool hasOutput)
+CircuitNode::CircuitNode(int inputCount, bool hasOutput, QWidget *parent)
 {
+    this->setParent(parent);
     this->setObjectName("circuitNode");
     this->setAccessibleName("circuitNode");
 
@@ -18,7 +19,7 @@ CircuitNode::CircuitNode(int inputCount, bool hasOutput)
     }
 
     if (hasOutput) {
-        NodeOutputSlot outputSlot = new NodeOutputSlot(this);
+        output = new NodeOutputSlot(parent, this);
     }
 }
 

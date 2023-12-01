@@ -1,7 +1,7 @@
 #include "orgate.h"
 
-OrGate::OrGate()
-    : CircuitNode(2, true)
+OrGate::OrGate(QWidget *parent)
+    : CircuitNode(2, true, parent)
 {
     // Gets image from Resources.qrc file.
     QPixmap pixmap(":i/images/orGate.png");

@@ -7,26 +7,20 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    InputNode *inputNode1 = new InputNode();
+    InputNode *inputNode1 = new InputNode(this);
     inputNode1->move(QPoint(inputNode1->x() + 10, inputNode1->y() + 10));
 
-    InputNode *inputNode2 = new InputNode();
+    InputNode *inputNode2 = new InputNode(this);
     inputNode2->move(QPoint(inputNode2->x() + 10, inputNode2->y() + 215));
 
-    AndGate *andGate = new AndGate();
+    AndGate *andGate = new AndGate(this);
     andGate->move(QPoint(andGate->x() + 215, andGate->y() + 10));
 
-    OrGate *orGate = new OrGate();
+    OrGate *orGate = new OrGate(this);
     orGate->move(QPoint(orGate->x() + 215, orGate->y() + 215));
 
-    outputNode = new OutputNode();
+    outputNode = new OutputNode(this);
     outputNode->move(QPoint(outputNode->x() + 420, outputNode->y() + 10));
-
-    this->layout()->addWidget(inputNode1);
-    this->layout()->addWidget(inputNode2);
-    this->layout()->addWidget(andGate);
-    this->layout()->addWidget(orGate);
-    this->layout()->addWidget(outputNode);
 }
 
 MainWindow::~MainWindow()

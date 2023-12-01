@@ -1,8 +1,10 @@
 #include "nodeoutputslot.h"
 #include "node_classes/circuitnode.h"
 
-NodeOutputSlot::NodeOutputSlot(QWidget *parent)
+NodeOutputSlot::NodeOutputSlot(QWidget *mainWindow, QWidget *parent)
 {
+    this->lineManager = new NodeLineConnectionManager(mainWindow);
+
     this->setParent(parent);
     this->setObjectName("Output Node");
     this->setStyleSheet("* {background-color:red;}");
@@ -14,10 +16,20 @@ NodeOutputSlot::NodeOutputSlot(QWidget *parent)
 
 NodeOutputSlot::~NodeOutputSlot() {}
 
-void NodeOutputSlot::mousePressEvent(QMouseEvent *event) {}
+void NodeOutputSlot::mousePressEvent(QMouseEvent *event)
+{
+    lineManager->startLineDraw(event->scenePosition().toPoint());
+}
+
+void NodeOutputSlot::mouseMoveEvent(QMouseEvent *event)
+{
+    lineManager->updateLineDraw(event->scenePosition().toPoint());
+}
 
 void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
 {
+    lineManager->endLineDraw();
+
     QPoint pos = event->globalPosition().toPoint();
     NodeInputSlot *inputSlot = dynamic_cast<NodeInputSlot *>(QApplication::widgetAt(pos));
 

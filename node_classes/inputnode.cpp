@@ -1,7 +1,7 @@
 #include "inputnode.h"
 
-InputNode::InputNode()
-    : CircuitNode(0, true)
+InputNode::InputNode(QWidget *parent)
+    : CircuitNode(0, true, parent)
 {
     state = false;
 

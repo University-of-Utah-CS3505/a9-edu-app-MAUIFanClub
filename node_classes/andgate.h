@@ -11,7 +11,7 @@
 class AndGate : public CircuitNode
 {
 public:
-    AndGate();
+    AndGate(QWidget *parent = nullptr);
 
     virtual bool run();
 };

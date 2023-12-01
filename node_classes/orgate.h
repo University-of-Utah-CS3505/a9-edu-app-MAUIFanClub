@@ -7,7 +7,7 @@
 class OrGate : public CircuitNode
 {
 public:
-    OrGate();
+    OrGate(QWidget *parent = nullptr);
 
     virtual bool run();
 };

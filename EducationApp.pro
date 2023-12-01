@@ -16,6 +16,7 @@ SOURCES += \
     mainwindow.cpp \
     node_classes/inputnode.cpp \
     node_classes/nodeinputslot.cpp \
+    node_classes/nodelineconnectionmanager.cpp \
     node_classes/nodeoutputslot.cpp \
     node_classes/orgate.cpp \
     node_classes/outputnode.cpp
@@ -27,6 +28,7 @@ HEADERS += \
     mainwindow.h \
     node_classes/inputnode.h \
     node_classes/nodeinputslot.h \
+    node_classes/nodelineconnectionmanager.h \
     node_classes/nodeoutputslot.h \
     node_classes/orgate.h \
     node_classes/outputnode.h

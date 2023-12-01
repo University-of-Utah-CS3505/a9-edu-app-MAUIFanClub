@@ -12,7 +12,7 @@ using std::vector;
 class CircuitNode : public DragableWidget
 {
 public:
-    CircuitNode(int inputCount, bool hasOutput);
+    CircuitNode(int inputCount, bool hasOutput, QWidget *parent = nullptr);
     ~CircuitNode();
 
     vector<NodeInputSlot *> inputs;

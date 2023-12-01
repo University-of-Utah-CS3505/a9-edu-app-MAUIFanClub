@@ -1,7 +1,7 @@
 #include "outputnode.h"
 
-OutputNode::OutputNode()
-    : CircuitNode(1, false)
+OutputNode::OutputNode(QWidget *parent)
+    : CircuitNode(1, false, parent)
 {
     outputLabel = new QLabel(this);
     outputLabel->setGeometry(QRect(25, 25, 150, 150));

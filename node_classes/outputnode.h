@@ -7,7 +7,7 @@
 class OutputNode : public CircuitNode
 {
 public:
-    OutputNode();
+    OutputNode(QWidget *parent = nullptr);
     ~OutputNode();
 
     QLabel *outputLabel;
