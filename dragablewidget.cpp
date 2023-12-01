@@ -29,7 +29,6 @@ void DragableWidget::mouseMoveEvent(QMouseEvent *event)
     if ((movePos.x() <= 0 || movePos.x() >= 600) || (movePos.y() <= 0 || movePos.y() >= 500)) {
         return;
     }
-
     moveWidget();
 }
 

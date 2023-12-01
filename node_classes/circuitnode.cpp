@@ -53,7 +53,11 @@ void CircuitNode::moveWidget()
         inputs[i]->connection->updateLinePos(inputPos, outputPos);
     }
 
-    if (output == nullptr || output->connection == nullptr) {
+    if (output == nullptr) {
+        return;
+    }
+
+    if (output->connection == nullptr) {
         return;
     }
 
