@@ -6,11 +6,18 @@
 #include <QWidget>
 #include "nodeinputslot.h"
 
+class CircuitNode;
+
 class NodeOutputSlot : public QWidget
 {
 public:
     NodeOutputSlot(QWidget *parent = nullptr);
     ~NodeOutputSlot();
+
+    NodeInputSlot *connection = nullptr;
+
+    void disconnect();
+    CircuitNode *node;
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;

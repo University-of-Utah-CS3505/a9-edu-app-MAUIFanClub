@@ -11,6 +11,8 @@ public:
     ~OutputNode();
 
     QLabel *outputLabel;
+
+    virtual bool run();
 };
 
 #endif // OUTPUTNODE_H

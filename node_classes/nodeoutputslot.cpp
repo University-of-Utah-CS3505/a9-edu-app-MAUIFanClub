@@ -1,4 +1,5 @@
-#include "nodeoutputslot.h".h "
+#include "nodeoutputslot.h"
+#include "node_classes/circuitnode.h"
 
 NodeOutputSlot::NodeOutputSlot(QWidget *parent)
 {
@@ -8,6 +9,7 @@ NodeOutputSlot::NodeOutputSlot(QWidget *parent)
     this->setGeometry(QRect(180, 90, size, size));
 
     this->setProperty("class", "circuitNode");
+    this->node = static_cast<CircuitNode *>(parent);
 }
 
 NodeOutputSlot::~NodeOutputSlot() {}
@@ -25,4 +27,15 @@ void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
     }
 
     qDebug() << "INPUT NODE FOUND: " << inputSlot->objectName() << " AT: " << pos;
+    if (inputSlot->connection != nullptr) {
+        inputSlot->connection->disconnect();
+    }
+
+    connection = inputSlot;
+    inputSlot->connection = this;
+}
+
+void NodeOutputSlot::disconnect()
+{
+    connection = nullptr;
 }

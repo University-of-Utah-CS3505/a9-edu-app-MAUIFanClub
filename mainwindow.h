@@ -1,12 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QLayout>
 #include <QMainWindow>
 #include "./node_classes/andgate.h"
 #include "./node_classes/circuitnode.h"
 #include "./node_classes/inputnode.h"
+#include "./node_classes/orgate.h"
 #include "./node_classes/outputnode.h"
-#include "QLayout"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,6 +22,10 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    OutputNode *outputNode;
+
+private slots:
+    void on_runBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

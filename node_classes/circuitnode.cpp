@@ -24,4 +24,8 @@ CircuitNode::CircuitNode(int inputCount, bool hasOutput)
 
 CircuitNode::~CircuitNode() {}
 
-void CircuitNode::run() {}
+bool CircuitNode::run()
+{
+    qDebug() << " Base CircuitNode RUN() ";
+    return true;
+}

@@ -14,6 +14,8 @@ public:
     QPushButton *toggleBtn;
     bool state;
 
+    virtual bool run();
+
 signals:
 
 public slots:

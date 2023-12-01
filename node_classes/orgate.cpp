@@ -1,10 +1,10 @@
-#include "andgate.h"
+#include "orgate.h"
 
-AndGate::AndGate()
+OrGate::OrGate()
     : CircuitNode(2, true)
 {
     // Gets image from Resources.qrc file.
-    QPixmap pixmap(":i/images/andGate.png");
+    QPixmap pixmap(":i/images/orGate.png");
     QLabel *imageLabel = new QLabel(this);
 
     imageLabel->setGeometry(QRect(0, 0, 200, 200));
@@ -12,11 +12,11 @@ AndGate::AndGate()
 
     imageLabel->lower();
 
-    inputs[0]->move(QPoint(0, 70));
-    inputs[1]->move(QPoint(0, 110));
+    inputs[0]->move(QPoint(0, 62));
+    inputs[1]->move(QPoint(0, 118));
 }
 
-bool AndGate::run()
+bool OrGate::run()
 {
-    return inputs[0]->connection->node->run() && inputs[1]->connection->node->run();
+    return inputs[0]->connection->node->run() || inputs[1]->connection->node->run();
 }

@@ -14,3 +14,12 @@ OutputNode::OutputNode()
 }
 
 OutputNode::~OutputNode() {}
+
+bool OutputNode::run()
+{
+    bool runResult = inputs[0]->connection->node->run();
+
+    outputLabel->setText(runResult ? "1" : "0");
+
+    return true;
+}

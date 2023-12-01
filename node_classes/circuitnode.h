@@ -18,7 +18,7 @@ public:
     vector<NodeInputSlot *> inputs;
     NodeOutputSlot *output;
 
-    virtual void run();
+    virtual bool run();
 
 protected:
     int nodeSize = 200;

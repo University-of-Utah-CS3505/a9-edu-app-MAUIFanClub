@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/i">
         <file>images/andGate.png</file>
+        <file>images/orGate.png</file>
     </qresource>
 </RCC>

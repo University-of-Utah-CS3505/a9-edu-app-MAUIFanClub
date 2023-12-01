@@ -13,7 +13,7 @@ class AndGate : public CircuitNode
 public:
     AndGate();
 
-    void Run();
+    virtual bool run();
 };
 
 #endif // ANDGATE_H

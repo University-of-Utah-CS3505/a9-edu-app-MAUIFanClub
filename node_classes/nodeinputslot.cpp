@@ -1,4 +1,5 @@
 #include "nodeinputslot.h"
+#include "node_classes/circuitnode.h"
 
 NodeInputSlot::NodeInputSlot(QWidget *parent)
 {
@@ -8,6 +9,7 @@ NodeInputSlot::NodeInputSlot(QWidget *parent)
     this->setGeometry(QRect(0, 90, size, size));
 
     this->setProperty("class", "circuitNode");
+    this->node = static_cast<CircuitNode *>(parent);
 }
 
 NodeInputSlot::~NodeInputSlot() {}

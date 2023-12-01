@@ -25,3 +25,8 @@ void InputNode::toggleState()
     state = !state;
     toggleBtn->setText(state ? "1" : "0");
 }
+
+bool InputNode::run()
+{
+    return state;
+}

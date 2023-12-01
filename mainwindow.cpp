@@ -16,16 +16,25 @@ MainWindow::MainWindow(QWidget *parent)
     AndGate *andGate = new AndGate();
     andGate->move(QPoint(andGate->x() + 215, andGate->y() + 10));
 
-    OutputNode *outputNode = new OutputNode();
+    OrGate *orGate = new OrGate();
+    orGate->move(QPoint(orGate->x() + 215, orGate->y() + 215));
+
+    outputNode = new OutputNode();
     outputNode->move(QPoint(outputNode->x() + 420, outputNode->y() + 10));
 
     this->layout()->addWidget(inputNode1);
     this->layout()->addWidget(inputNode2);
     this->layout()->addWidget(andGate);
+    this->layout()->addWidget(orGate);
     this->layout()->addWidget(outputNode);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_runBtn_clicked()
+{
+    outputNode->run();
 }
