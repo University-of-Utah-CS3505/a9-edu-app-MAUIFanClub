@@ -17,3 +17,8 @@ NodeInputSlot::~NodeInputSlot() {}
 void NodeInputSlot::mousePressEvent(QMouseEvent *event) {}
 
 void NodeInputSlot::mouseReleaseEvent(QMouseEvent *event) {}
+
+void NodeInputSlot::disconnect()
+{
+    connection = nullptr;
+}

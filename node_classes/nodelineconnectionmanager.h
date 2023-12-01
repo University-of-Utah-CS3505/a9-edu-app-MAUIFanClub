@@ -14,6 +14,10 @@ public:
     void updateLineDraw(QPoint drawPoint);
     void endLineDraw();
 
+    void drawLine(QPoint p1, QPoint p2);
+
+    void clearCanvas();
+
     bool draw = false;
 
 private:
@@ -24,8 +28,6 @@ private:
 
     QLabel *paintCanvas;
     QWidget mainWindow;
-
-    void clearCanvas();
 };
 
 #endif // NODELINECONNECTIONMANAGER_H

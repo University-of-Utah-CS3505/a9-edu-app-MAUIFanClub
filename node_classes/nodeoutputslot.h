@@ -18,16 +18,17 @@ public:
     NodeInputSlot *connection = nullptr;
     NodeLineConnectionManager *lineManager;
 
-    void disconnect();
     CircuitNode *node;
+
+    int size = 20;
+
+    void disconnect();
+    void updateLinePos(QPoint p1, QPoint p2);
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
-
-private:
-    int size = 20;
 };
 
 #endif // NODEOUTPUTSLOT_H

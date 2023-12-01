@@ -3,6 +3,7 @@
 
 #include <QDebug>
 #include <QMouseEvent>
+#include <QObject>
 #include <QWidget>
 #include "./node_classes/nodeinputslot.h"
 #include "./node_classes/nodeoutputslot.h"
@@ -13,6 +14,8 @@ public:
     DragableWidget(QWidget *parent = nullptr);
     ~DragableWidget();
 
+    virtual void moveWidget();
+
 protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
@@ -21,6 +24,8 @@ protected:
 private:
     QPoint dragOffset;
     bool clicked;
+
+    QPoint movePos;
 };
 
 #endif // DRAGABLEWIDGET_H

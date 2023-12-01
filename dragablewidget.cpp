@@ -23,12 +23,17 @@ void DragableWidget::mouseMoveEvent(QMouseEvent *event)
         return;
     }
 
-    QPoint movePos = event->scenePosition().toPoint() - dragOffset;
+    movePos = event->scenePosition().toPoint() - dragOffset;
 
     // BOUNDS :: X: 0 - 600 | Y: 0 - 500
     if ((movePos.x() <= 0 || movePos.x() >= 600) || (movePos.y() <= 0 || movePos.y() >= 500)) {
         return;
     }
 
+    moveWidget();
+}
+
+void DragableWidget::moveWidget()
+{
     this->move(movePos);
 }

@@ -26,7 +26,6 @@ void NodeLineConnectionManager::startLineDraw(QPoint startPoint)
 
     clearCanvas();
 
-    paintCanvas->setPixmap(*pixmap);
     this->startPoint = startPoint;
 }
 
@@ -36,11 +35,7 @@ void NodeLineConnectionManager::updateLineDraw(QPoint drawPoint)
         return;
     }
 
-    clearCanvas();
-
-    line.setLine(startPoint.x(), startPoint.y(), drawPoint.x(), drawPoint.y());
-    painter->drawLine(line);
-    paintCanvas->setPixmap(*pixmap);
+    drawLine(startPoint, drawPoint);
 }
 
 void NodeLineConnectionManager::endLineDraw()
@@ -48,9 +43,20 @@ void NodeLineConnectionManager::endLineDraw()
     draw = false;
 }
 
+void NodeLineConnectionManager::drawLine(QPoint p1, QPoint p2)
+{
+    clearCanvas();
+
+    line.setLine(p1.x(), p1.y(), p2.x(), p2.y());
+    painter->drawLine(line);
+    paintCanvas->setPixmap(*pixmap);
+}
+
 void NodeLineConnectionManager::clearCanvas()
 {
     painter->end();
+    delete pixmap;
+
     pixmap = new QPixmap(800, 600);
     pixmap->fill(Qt::transparent);
     painter->begin(pixmap);
@@ -58,4 +64,6 @@ void NodeLineConnectionManager::clearCanvas()
     QPen pen;
     pen.setWidth(4);
     painter->setPen(pen);
+
+    paintCanvas->setPixmap(*pixmap);
 }

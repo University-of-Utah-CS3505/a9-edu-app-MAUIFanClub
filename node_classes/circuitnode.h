@@ -2,8 +2,9 @@
 #define CIRCUITNODE_H
 
 #include <QDebug>
-#include "nodeinputslot.h"
+#include "circuitsignalhandler.h"
 #include "dragablewidget.h"
+#include "nodeinputslot.h"
 #include "nodeoutputslot.h"
 #include <vector>
 
@@ -18,10 +19,17 @@ public:
     vector<NodeInputSlot *> inputs;
     NodeOutputSlot *output;
 
+    CircuitSignalHandler *circuitSignalHandler;
+
     virtual bool run();
+    virtual void moveWidget();
+
+    void deleteNode();
 
 protected:
     int nodeSize = 200;
+
+    void mousePressEvent(QMouseEvent *event) override;
 };
 
 #endif // CIRCUITNODE_H

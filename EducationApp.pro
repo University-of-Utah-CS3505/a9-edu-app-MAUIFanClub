@@ -14,6 +14,7 @@ SOURCES += \
     dragablewidget.cpp \
     main.cpp \
     mainwindow.cpp \
+    node_classes/circuitsignalhandler.cpp \
     node_classes/inputnode.cpp \
     node_classes/nodeinputslot.cpp \
     node_classes/nodelineconnectionmanager.cpp \
@@ -26,6 +27,7 @@ HEADERS += \
     node_classes/circuitnode.h \
     dragablewidget.h \
     mainwindow.h \
+    node_classes/circuitsignalhandler.h \
     node_classes/inputnode.h \
     node_classes/nodeinputslot.h \
     node_classes/nodelineconnectionmanager.h \

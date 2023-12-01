@@ -18,7 +18,14 @@ NodeOutputSlot::~NodeOutputSlot() {}
 
 void NodeOutputSlot::mousePressEvent(QMouseEvent *event)
 {
-    lineManager->startLineDraw(event->scenePosition().toPoint());
+    QPoint slotScenePos = this->parentWidget()->pos() + this->pos() + QPoint(size - 2, size / 2);
+
+    if (connection != nullptr) {
+        connection->disconnect();
+    }
+    disconnect();
+
+    lineManager->startLineDraw(slotScenePos);
 }
 
 void NodeOutputSlot::mouseMoveEvent(QMouseEvent *event)
@@ -34,11 +41,10 @@ void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
     NodeInputSlot *inputSlot = dynamic_cast<NodeInputSlot *>(QApplication::widgetAt(pos));
 
     if (inputSlot == NULL) {
-        qDebug() << "NO INPUT SLOT FOUND";
+        lineManager->clearCanvas();
         return;
     }
 
-    qDebug() << "INPUT NODE FOUND: " << inputSlot->objectName() << " AT: " << pos;
     if (inputSlot->connection != nullptr) {
         inputSlot->connection->disconnect();
     }
@@ -50,4 +56,10 @@ void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
 void NodeOutputSlot::disconnect()
 {
     connection = nullptr;
+    lineManager->clearCanvas();
+}
+
+void NodeOutputSlot::updateLinePos(QPoint p1, QPoint p2)
+{
+    lineManager->drawLine(p1, p2);
 }
