@@ -21,6 +21,13 @@ MainWindow::MainWindow(QWidget *parent)
         nodeDeleted(inputNode2);
     });
 
+    InputNode *inputNode3 = new InputNode(this);
+    inputNode3->move(QPoint(inputNode3->x() + 10, inputNode3->y() + 420));
+    nodes.push_back(inputNode3);
+    connect(inputNode3->circuitSignalHandler, &CircuitSignalHandler::nodeDeleted, this, [=]() {
+        nodeDeleted(inputNode3);
+    });
+
     AndGate *andGate = new AndGate(this);
     andGate->move(QPoint(andGate->x() + 215, andGate->y() + 10));
     nodes.push_back(andGate);

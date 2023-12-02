@@ -17,7 +17,7 @@ public:
     ~CircuitNode();
 
     vector<NodeInputSlot *> inputs;
-    NodeOutputSlot *output;
+    NodeOutputSlot *output = nullptr;
 
     CircuitSignalHandler *circuitSignalHandler;
 

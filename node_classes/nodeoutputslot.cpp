@@ -35,8 +35,6 @@ void NodeOutputSlot::mouseMoveEvent(QMouseEvent *event)
 
 void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
 {
-    lineManager->endLineDraw();
-
     QPoint pos = event->globalPosition().toPoint();
     NodeInputSlot *inputSlot = dynamic_cast<NodeInputSlot *>(QApplication::widgetAt(pos));
 
@@ -51,6 +49,13 @@ void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
 
     connection = inputSlot;
     inputSlot->connection = this;
+
+    QPoint slotScenePos = this->parentWidget()->pos() + this->pos() + QPoint(size - 2, size / 2);
+    QPoint inputSlotPos = inputSlot->node->pos() + inputSlot->pos()
+                          + QPoint(2, inputSlot->size / 2);
+
+    lineManager->drawLine(slotScenePos, inputSlotPos);
+    lineManager->endLineDraw();
 }
 
 void NodeOutputSlot::disconnect()

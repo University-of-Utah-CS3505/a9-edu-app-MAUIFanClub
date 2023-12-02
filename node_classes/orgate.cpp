@@ -8,7 +8,8 @@ OrGate::OrGate(QWidget *parent)
     QLabel *imageLabel = new QLabel(this);
 
     imageLabel->setGeometry(QRect(0, 0, 200, 200));
-    imageLabel->setPixmap(pixmap.scaled(QSize(200, 200), Qt::KeepAspectRatio));
+    imageLabel->setPixmap(
+        pixmap.scaled(QSize(200, 200), Qt::KeepAspectRatio, Qt::SmoothTransformation));
 
     imageLabel->lower();
 

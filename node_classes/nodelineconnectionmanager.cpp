@@ -2,7 +2,7 @@
 #include <QDebug>
 NodeLineConnectionManager::NodeLineConnectionManager(QWidget *mainWindow)
 {
-    pixmap = new QPixmap(800, 600);
+    pixmap = new QPixmap(1200, 800);
     pixmap->fill(Qt::transparent);
     painter = new QPainter(pixmap);
     painter->setBackgroundMode(Qt::TransparentMode);
@@ -15,7 +15,7 @@ NodeLineConnectionManager::NodeLineConnectionManager(QWidget *mainWindow)
     painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
 
     paintCanvas = new QLabel(mainWindow);
-    paintCanvas->setGeometry(QRect(0, 0, 800, 600));
+    paintCanvas->setGeometry(QRect(0, 0, 1200, 800));
     paintCanvas->lower();
     paintCanvas->setPixmap(*pixmap);
 }
@@ -57,13 +57,15 @@ void NodeLineConnectionManager::clearCanvas()
     painter->end();
     delete pixmap;
 
-    pixmap = new QPixmap(800, 600);
+    pixmap = new QPixmap(1200, 800);
     pixmap->fill(Qt::transparent);
     painter->begin(pixmap);
 
     QPen pen;
     pen.setWidth(4);
     painter->setPen(pen);
+    painter->setRenderHint(QPainter::Antialiasing, true);
+    painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
 
     paintCanvas->setPixmap(*pixmap);
 }

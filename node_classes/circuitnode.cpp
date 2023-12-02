@@ -43,8 +43,7 @@ void CircuitNode::moveWidget()
             continue;
         }
 
-        QPoint inputPos = this->pos() + inputs[i]->pos()
-                          + QPoint(inputs[i]->size - 2, inputs[i]->size / 2);
+        QPoint inputPos = this->pos() + inputs[i]->pos() + QPoint(2, inputs[i]->size / 2);
 
         QPoint outputPos = inputs[i]->connection->node->pos() + inputs[i]->connection->pos()
                            + QPoint(inputs[i]->connection->size - 2,
@@ -65,7 +64,7 @@ void CircuitNode::moveWidget()
     QPoint outputPos = this->pos() + output->pos() + QPoint(output->size - 2, output->size / 2);
 
     QPoint inputPos = output->connection->node->pos() + output->connection->pos()
-                      + QPoint(output->connection->size - 2, output->connection->size / 2);
+                      + QPoint(2, output->connection->size / 2);
 
     output->updateLinePos(outputPos, inputPos);
 }
