@@ -39,6 +39,7 @@ void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
     NodeInputSlot *inputSlot = dynamic_cast<NodeInputSlot *>(QApplication::widgetAt(pos));
 
     if (inputSlot == NULL) {
+        lineManager->endLineDraw();
         lineManager->clearCanvas();
         return;
     }

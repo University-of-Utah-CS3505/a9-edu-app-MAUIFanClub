@@ -109,6 +109,9 @@ QPushButton::hover{
     </property>
    </widget>
    <widget class="QPushButton" name="level2Button">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -137,6 +140,9 @@ QPushButton::hover{
     </property>
    </widget>
    <widget class="QPushButton" name="level3Button">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -165,6 +171,9 @@ QPushButton::hover{
     </property>
    </widget>
    <widget class="QPushButton" name="sandboxLevelButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>50</x>

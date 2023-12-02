@@ -1,5 +1,7 @@
 #include "nodelineconnectionmanager.h"
 #include <QDebug>
+#include <QLayout>
+#include <QMainWindow>
 NodeLineConnectionManager::NodeLineConnectionManager(QWidget *mainWindow)
 {
     pixmap = new QPixmap(1200, 800);
@@ -14,7 +16,9 @@ NodeLineConnectionManager::NodeLineConnectionManager(QWidget *mainWindow)
     painter->setRenderHint(QPainter::Antialiasing, true);
     painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
 
-    paintCanvas = new QLabel(mainWindow);
+    paintCanvas = new QLabel();
+
+    mainWindow->layout()->addWidget(paintCanvas);
     paintCanvas->setGeometry(QRect(0, 0, 1200, 800));
     paintCanvas->lower();
     paintCanvas->setPixmap(*pixmap);

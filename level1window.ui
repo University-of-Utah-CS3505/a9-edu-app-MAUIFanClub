@@ -6,37 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1200</width>
+    <height>800</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1200</width>
+    <height>800</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QWidget" name="lvlLayout" native="true">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>801</width>
-      <height>581</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(0, 0, 0, 100);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QWidget" name="testlay" native="true">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>300</width>
-      <height>350</height>
+      <width>1200</width>
+      <height>800</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -53,8 +49,8 @@
     </property>
     <property name="maximumSize">
      <size>
-      <width>250</width>
-      <height>300</height>
+      <width>1200</width>
+      <height>800</height>
      </size>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4"/>
@@ -65,7 +61,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1200</width>
      <height>21</height>
     </rect>
    </property>

@@ -3,6 +3,9 @@
 InputNode::InputNode(QWidget *parent)
     : CircuitNode(0, true, parent)
 {
+    this->setObjectName("inputNode");
+    this->setAccessibleName("inputNode");
+
     state = false;
 
     // Button for user to click. Toggles state of input node.

@@ -1,7 +1,7 @@
 #include "circuitnode.h"
 
 CircuitNode::CircuitNode(int inputCount, bool hasOutput, QWidget *parent)
-{    
+{
     this->setParent(parent);
     this->setObjectName("circuitNode");
     this->setAccessibleName("circuitNode");
@@ -38,7 +38,7 @@ void CircuitNode::moveWidget()
     DragableWidget::moveWidget();
 
     // Update inputs line
-    for (int i = 0; i < inputs.size(); i++) {
+    for (unsigned long i = 0; i < inputs.size(); i++) {
         if (inputs[i]->connection == nullptr) {
             continue;
         }

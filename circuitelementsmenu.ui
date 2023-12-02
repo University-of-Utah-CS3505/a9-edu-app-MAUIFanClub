@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>250</width>
-    <height>300</height>
+    <height>350</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>250</width>
-    <height>300</height>
+    <height>350</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>250</width>
-    <height>300</height>
+    <height>350</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -32,9 +32,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>30</y>
      <width>251</width>
-     <height>301</height>
+     <height>321</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -48,10 +48,13 @@
      <number>9</number>
     </property>
     <property name="bottomMargin">
-     <number>0</number>
+     <number>9</number>
     </property>
     <item>
      <widget class="QPushButton" name="CircuitElementsButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="text">
        <string>Elements</string>
       </property>
@@ -89,28 +92,28 @@
            <widget class="QWidget" name="logicGatesGrid" native="true">
             <layout class="QGridLayout" name="gridLayout">
              <item row="0" column="1">
-              <widget class="QPushButton" name="test2">
+              <widget class="QPushButton" name="orGateBtn">
                <property name="text">
                 <string>OR</string>
                </property>
               </widget>
              </item>
              <item row="0" column="0">
-              <widget class="QPushButton" name="test">
+              <widget class="QPushButton" name="andGateBtn">
                <property name="text">
                 <string>AND</string>
                </property>
               </widget>
              </item>
              <item row="1" column="0">
-              <widget class="QPushButton" name="test3">
+              <widget class="QPushButton" name="nandGateBtn">
                <property name="text">
                 <string>NAND</string>
                </property>
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QPushButton" name="test1">
+              <widget class="QPushButton" name="norGateBtn">
                <property name="text">
                 <string>NOR</string>
                </property>
@@ -153,17 +156,17 @@
           <item>
            <widget class="QWidget" name="inputsGrid" native="true">
             <layout class="QGridLayout">
-             <item row="0" column="1">
-              <widget class="QPushButton" name="falseInput">
+             <item row="0" column="0">
+              <widget class="QPushButton" name="newInputBtn">
                <property name="text">
-                <string>0</string>
+                <string>New Input</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="0">
-              <widget class="QPushButton" name="trueInput">
+             <item row="0" column="1">
+              <widget class="QPushButton" name="newOutputBtn">
                <property name="text">
-                <string>1</string>
+                <string>New Output</string>
                </property>
               </widget>
              </item>
@@ -176,7 +179,27 @@
       </layout>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="runBtn">
+      <property name="text">
+       <string>Run</string>
+      </property>
+     </widget>
+    </item>
    </layout>
+  </widget>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>251</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">* {background-color:gray;}</string>
+   </property>
   </widget>
  </widget>
  <resources/>

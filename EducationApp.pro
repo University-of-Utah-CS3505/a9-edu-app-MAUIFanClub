@@ -15,7 +15,6 @@ SOURCES += \
     level3window.cpp \
     main.cpp \
     mainmenu.cpp \
-    mainwindow.cpp \
     node_classes/andgate.cpp \
     node_classes/circuitnode.cpp \
     dragablewidget.cpp \
@@ -33,7 +32,6 @@ HEADERS += \
     level2window.h \
     level3window.h \
     mainmenu.h \
-    mainwindow.h \
     node_classes/andgate.h \
     node_classes/circuitnode.h \
     dragablewidget.h \
@@ -50,8 +48,7 @@ FORMS += \
     level1window.ui \
     level2window.ui \
     level3window.ui \
-    mainmenu.ui \
-    mainwindow.ui
+    mainmenu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

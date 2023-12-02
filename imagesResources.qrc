@@ -4,4 +4,8 @@
         <file>1171867.png</file>
         <file>circuit2.jpg</file>
     </qresource>
+    <qresource prefix="/logicGates">
+        <file>images/andGate.png</file>
+        <file>images/orGate.png</file>
+    </qresource>
 </RCC>

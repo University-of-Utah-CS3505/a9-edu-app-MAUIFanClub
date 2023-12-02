@@ -3,6 +3,9 @@
 OutputNode::OutputNode(QWidget *parent)
     : CircuitNode(1, false, parent)
 {
+    this->setObjectName("outputNode");
+    this->setAccessibleName("outputNode");
+
     outputLabel = new QLabel(this);
     outputLabel->setGeometry(QRect(25, 25, 150, 150));
     outputLabel->setText("0");
