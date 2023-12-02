@@ -7,6 +7,8 @@
 #include "dragablewidget.h"
 #include "node_classes/andgate.h"
 #include "node_classes/inputnode.h"
+#include "node_classes/nandgate.h"
+#include "node_classes/norgate.h"
 #include "node_classes/orgate.h"
 #include "node_classes/outputnode.h"
 #include <vector>

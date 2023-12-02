@@ -7,5 +7,7 @@
     <qresource prefix="/logicGates">
         <file>images/andGate.png</file>
         <file>images/orGate.png</file>
+        <file>images/nAndGate.png</file>
+        <file>images/nOrGate.png</file>
     </qresource>
 </RCC>

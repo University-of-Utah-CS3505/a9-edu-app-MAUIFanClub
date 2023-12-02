@@ -20,9 +20,11 @@ SOURCES += \
     dragablewidget.cpp \
     node_classes/circuitsignalhandler.cpp \
     node_classes/inputnode.cpp \
+    node_classes/nandgate.cpp \
     node_classes/nodeinputslot.cpp \
     node_classes/nodelineconnectionmanager.cpp \
     node_classes/nodeoutputslot.cpp \
+    node_classes/norgate.cpp \
     node_classes/orgate.cpp \
     node_classes/outputnode.cpp
 
@@ -37,9 +39,11 @@ HEADERS += \
     dragablewidget.h \
     node_classes/circuitsignalhandler.h \
     node_classes/inputnode.h \
+    node_classes/nandgate.h \
     node_classes/nodeinputslot.h \
     node_classes/nodelineconnectionmanager.h \
     node_classes/nodeoutputslot.h \
+    node_classes/norgate.h \
     node_classes/orgate.h \
     node_classes/outputnode.h
 

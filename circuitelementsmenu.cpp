@@ -78,9 +78,29 @@ void circuitElementsMenu::on_orGateBtn_clicked()
     });
 }
 
-void circuitElementsMenu::on_nandGateBtn_clicked() {}
+void circuitElementsMenu::on_nandGateBtn_clicked()
+{
+    nAndGate *nAndGateNode = new nAndGate(levelWidget);
+    levelWidget->layout()->addWidget(nAndGateNode);
+    nAndGateNode->move(QPoint(nAndGateNode->x() + 10, nAndGateNode->y() + 10));
 
-void circuitElementsMenu::on_norGateBtn_clicked() {}
+    nodes.push_back(nAndGateNode);
+    connect(nAndGateNode->circuitSignalHandler, &CircuitSignalHandler::nodeDeleted, this, [=]() {
+        nodeDeleted(nAndGateNode);
+    });
+}
+
+void circuitElementsMenu::on_norGateBtn_clicked()
+{
+    nOrGate *nOrGateNode = new nOrGate(levelWidget);
+    levelWidget->layout()->addWidget(nOrGateNode);
+    nOrGateNode->move(QPoint(nOrGateNode->x() + 10, nOrGateNode->y() + 10));
+
+    nodes.push_back(nOrGateNode);
+    connect(nOrGateNode->circuitSignalHandler, &CircuitSignalHandler::nodeDeleted, this, [=]() {
+        nodeDeleted(nOrGateNode);
+    });
+}
 
 void circuitElementsMenu::on_newInputBtn_clicked()
 {
