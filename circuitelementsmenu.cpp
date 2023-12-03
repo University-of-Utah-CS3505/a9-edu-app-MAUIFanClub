@@ -143,39 +143,46 @@ void circuitElementsMenu::on_runBtn_clicked()
     }
 }
 
+void circuitElementsMenu::on_clearBtn_clicked()
+{
+	for (auto currentNode : nodes) {
+		currentNode->deleteNode();
+	}
+}
+
 // Checks to see if the graph is fully filled out. Each slot has a connection of some sort.
 bool circuitElementsMenu::isGraphCompleted()
 {
-    // Loops over each node
-    for (unsigned long i = 0; i < nodes.size(); i++) {
-        // Loops over nodes input slots
-        for (unsigned long inputIndex = 0; inputIndex < nodes[i]->inputs.size(); inputIndex++) {
-            if (nodes[i]->inputs[inputIndex]->connection == nullptr) {
-                return false;
-            }
-        }
+	// Loops over each node
+	for (unsigned long i = 0; i < nodes.size(); i++) {
+		// Loops over nodes input slots
+		for (unsigned long inputIndex = 0; inputIndex < nodes[i]->inputs.size(); inputIndex++) {
+			if (nodes[i]->inputs[inputIndex]->connection == nullptr) {
+				return false;
+			}
+		}
 
-        // Checks output slot (if instantiated)
-        if (nodes[i]->output != nullptr && nodes[i]->output->connection == nullptr) {
-            return false;
-        }
-    }
+		// Checks output slot (if instantiated)
+		if (nodes[i]->output != nullptr && nodes[i]->output->connection == nullptr) {
+			return false;
+		}
+	}
 
-    return true;
+	return true;
 }
 
 void circuitElementsMenu::nodeDeleted(CircuitNode *deletedNode)
 {
-    nodes.erase(std::remove(nodes.begin(), nodes.end(), deletedNode), nodes.end());
+	nodes.erase(std::remove(nodes.begin(), nodes.end(), deletedNode), nodes.end());
 
-    if (deletedNode->objectName() == "outputNode") {
-        outputNodes.erase(std::remove(nodes.begin(), nodes.end(), deletedNode), nodes.end());
-    }
+	if (deletedNode->objectName() == "outputNode") {
+		outputNodes.erase(std::remove(nodes.begin(), nodes.end(), deletedNode), nodes.end());
+	}
 }
 
 void circuitElementsMenu::runEachOutput()
 {
-    for (unsigned long i = 0; i < outputNodes.size(); i++) {
-        outputNodes[i]->run();
-    }
+	for (unsigned long i = 0; i < outputNodes.size(); i++) {
+		outputNodes[i]->run();
+	}
 }

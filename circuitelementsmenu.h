@@ -42,6 +42,7 @@ private slots:
     void on_newOutputBtn_clicked();
 
     void on_runBtn_clicked();
+	void on_clearBtn_clicked();
 
 private:
     Ui::circuitElementsMenu *ui;
