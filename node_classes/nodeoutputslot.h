@@ -5,7 +5,6 @@
 #include <QMouseEvent>
 #include <QWidget>
 #include "nodeinputslot.h"
-#include "nodelineconnectionmanager.h"
 
 class CircuitNode;
 
@@ -16,14 +15,13 @@ public:
     ~NodeOutputSlot();
 
     NodeInputSlot *connection = nullptr;
-    NodeLineConnectionManager *lineManager;
 
+    bool clicked = false;
     CircuitNode *node;
 
     int size = 20;
 
     void disconnect();
-    void updateLinePos(QPoint p1, QPoint p2);
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;

@@ -2,8 +2,11 @@
 #include <QDebug>
 #include <QLayout>
 #include <QMainWindow>
-NodeLineConnectionManager::NodeLineConnectionManager(QWidget *mainWindow)
+NodeLineConnectionManager::NodeLineConnectionManager(vector<CircuitNode *> *nodes,
+                                                     QWidget *mainWindow)
 {
+    this->nodes = nodes;
+
     pixmap = new QPixmap(1200, 800);
     pixmap->fill(Qt::transparent);
     painter = new QPainter(pixmap);
@@ -24,34 +27,71 @@ NodeLineConnectionManager::NodeLineConnectionManager(QWidget *mainWindow)
     paintCanvas->setPixmap(*pixmap);
 }
 
-void NodeLineConnectionManager::startLineDraw(QPoint startPoint)
+void NodeLineConnectionManager::updateLines()
 {
-    draw = true;
-
     clearCanvas();
 
-    this->startPoint = startPoint;
-}
+    CircuitNode *currentNode;
 
-void NodeLineConnectionManager::updateLineDraw(QPoint drawPoint)
-{
-    if (!draw) {
-        return;
+    // Loops over each node in the circuit
+    for (int i = 0; i < nodes->size(); i++) {
+        currentNode = (*nodes)[i];
+
+        //    Input Connection Draws     //
+
+        // Loops over each input slot
+        for (int inputIndex = 0; inputIndex < currentNode->inputs.size(); inputIndex++) {
+            // Checks if input has a connection
+            if (currentNode->inputs[inputIndex]->connection == nullptr) {
+                continue;
+            }
+
+            // Current Node Input Point
+            QPoint inputScenePos = currentNode->inputs[inputIndex]->parentWidget()->pos()
+                                   + currentNode->inputs[inputIndex]->pos()
+                                   + QPoint(2, currentNode->inputs[inputIndex]->size / 2);
+
+            // Current Node Input Connection Point
+            QPoint inputConnectionScenePos
+                = currentNode->inputs[inputIndex]->connection->parentWidget()->pos()
+                  + currentNode->inputs[inputIndex]->connection->pos()
+                  + QPoint(currentNode->inputs[inputIndex]->connection->size - 2,
+                           currentNode->inputs[inputIndex]->connection->size / 2);
+
+            drawLine(inputScenePos, inputConnectionScenePos);
+        }
+
+        // Checks if output slot exists / has a connection
+        if (currentNode->output == nullptr || currentNode->output->connection == nullptr) {
+            continue;
+        }
+
+        //    Output Connection Draws     //
+
+        // Current Node Output Point
+        QPoint outputScenePos = currentNode->output->parentWidget()->pos()
+                                + currentNode->output->pos()
+                                + QPoint(currentNode->output->size - 2,
+                                         currentNode->output->size / 2);
+
+        // Current Node Output Connection Point
+        QPoint outputConnectionScenePos = currentNode->output->connection->parentWidget()->pos()
+                                          + currentNode->output->connection->pos()
+                                          + QPoint(2, currentNode->output->connection->size / 2);
+
+        drawLine(outputScenePos, outputConnectionScenePos);
     }
-
-    drawLine(startPoint, drawPoint);
 }
 
-void NodeLineConnectionManager::endLineDraw()
+void NodeLineConnectionManager::updateLinesDrag(QPoint slotPos, QPoint mousePos)
 {
-    draw = false;
+    updateLines();
+    drawLine(slotPos, mousePos);
 }
 
 void NodeLineConnectionManager::drawLine(QPoint p1, QPoint p2)
 {
-    clearCanvas();
-
-    line.setLine(p1.x(), p1.y(), p2.x(), p2.y());
+    QLine line(p1.x(), p1.y(), p2.x(), p2.y());
     painter->drawLine(line);
     paintCanvas->setPixmap(*pixmap);
 }

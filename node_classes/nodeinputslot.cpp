@@ -14,9 +14,15 @@ NodeInputSlot::NodeInputSlot(QWidget *parent)
 
 NodeInputSlot::~NodeInputSlot() {}
 
-void NodeInputSlot::mousePressEvent(QMouseEvent *event) {}
+void NodeInputSlot::mousePressEvent(QMouseEvent *event)
+{
+    clicked = true;
+}
 
-void NodeInputSlot::mouseReleaseEvent(QMouseEvent *event) {}
+void NodeInputSlot::mouseReleaseEvent(QMouseEvent *event)
+{
+    clicked = false;
+}
 
 void NodeInputSlot::disconnect()
 {

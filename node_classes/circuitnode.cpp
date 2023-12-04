@@ -12,7 +12,7 @@ CircuitNode::CircuitNode(int inputCount, bool hasOutput, QWidget *parent)
                         ".circuitNode:hover{border: 3px solid #000000;}");
     this->setProperty("class", "circuitNode");
 
-    // Create n input nodes from InputCount | Y Displacement temp for right now.
+    // Create n input nodes from InputCount
     for (int i = 0; i < inputCount; i++) {
         NodeInputSlot *inputSlot = new NodeInputSlot(this);
         inputs.push_back(inputSlot);
@@ -29,7 +29,7 @@ CircuitNode::~CircuitNode() {}
 
 bool CircuitNode::run()
 {
-    qDebug() << " Base CircuitNode RUN() ";
+    qDebug() << " Base CircuitNode RUN() :|: How Did You Get Here? >:)";
     return true;
 }
 
@@ -37,36 +37,25 @@ void CircuitNode::moveWidget()
 {
     DragableWidget::moveWidget();
 
-    // Update inputs line
+    bool inputsHaveConnection = false;
+
+    // Checks used to see if the rest of the canvas needs to be updated. //
+
+    // Checks if input connections have a connection.
     for (unsigned long i = 0; i < inputs.size(); i++) {
         if (inputs[i]->connection == nullptr) {
             continue;
         }
-
-        QPoint inputPos = this->pos() + inputs[i]->pos() + QPoint(2, inputs[i]->size / 2);
-
-        QPoint outputPos = inputs[i]->connection->node->pos() + inputs[i]->connection->pos()
-                           + QPoint(inputs[i]->connection->size - 2,
-                                    inputs[i]->connection->size / 2);
-
-        inputs[i]->connection->updateLinePos(inputPos, outputPos);
+        inputsHaveConnection = true;
+        break;
     }
 
-    if (output == nullptr) {
+    // Checks if output exists / has connection & if inputs have a connection. Returns if both are false.
+    if ((output == nullptr || output->connection == nullptr) && !inputsHaveConnection) {
         return;
     }
 
-    if (output->connection == nullptr) {
-        return;
-    }
-
-    // Update output line
-    QPoint outputPos = this->pos() + output->pos() + QPoint(output->size - 2, output->size / 2);
-
-    QPoint inputPos = output->connection->node->pos() + output->connection->pos()
-                      + QPoint(2, output->connection->size / 2);
-
-    output->updateLinePos(outputPos, inputPos);
+    emit circuitSignalHandler->updateLines();
 }
 
 void CircuitNode::mousePressEvent(QMouseEvent *event)

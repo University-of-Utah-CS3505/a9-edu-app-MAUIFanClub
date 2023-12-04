@@ -3,6 +3,7 @@
 CircuitManager::CircuitManager(QWidget *levelWidget)
 {
     this->levelWidget = levelWidget;
+    lineManager = new NodeLineConnectionManager(&nodes, levelWidget);
 }
 
 void CircuitManager::run()
@@ -25,10 +26,6 @@ void CircuitManager::runEachOutput()
 {
     for (unsigned long i = 0; i < outputNodes.size(); i++) {
         outputNodes[i]->run();
-    }
-
-    for (int i = 0; i < levelWidget->children().size(); i++) {
-        qDebug() << levelWidget->children().at(i);
     }
 }
 
@@ -80,9 +77,25 @@ void CircuitManager::handleNewNode(CircuitNode *node)
 
     node->move(nodePos);
     nodes.push_back(node);
+
+    // Node Deleted Connection
     connect(node->circuitSignalHandler, &CircuitSignalHandler::nodeDeleted, this, [=]() {
         deleteNode(node);
+        lineManager->updateLines();
     });
+
+    // Update Lines Connection
+    connect(node->circuitSignalHandler, &CircuitSignalHandler::updateLines, this, [=]() {
+        lineManager->updateLines();
+    });
+
+    // Slot Drag Connection
+    connect(node->circuitSignalHandler,
+            &CircuitSignalHandler::nodeSlotDrag,
+            this,
+            [=](QPoint slotPos, QPoint mousePos) {
+                lineManager->updateLinesDrag(slotPos, mousePos);
+            });
 }
 
 void CircuitManager::createAndGate()

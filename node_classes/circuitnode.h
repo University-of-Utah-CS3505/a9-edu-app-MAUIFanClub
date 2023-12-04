@@ -5,7 +5,6 @@
 #include "circuitsignalhandler.h"
 #include "dragablewidget.h"
 #include "nodeinputslot.h"
-#include "nodelineconnectionmanager.h"
 #include "nodeoutputslot.h"
 #include <vector>
 
@@ -21,7 +20,6 @@ public:
     NodeOutputSlot *output = nullptr;
 
     CircuitSignalHandler *circuitSignalHandler;
-    NodeLineConnectionManager *lineManager; /// DECIDE IF LINE MANAGER SHOULD BE HERE OR NOT
 
     virtual bool run();
     virtual void moveWidget();
@@ -30,7 +28,6 @@ public:
 
 protected:
     int nodeSize = 200;
-
     void mousePressEvent(QMouseEvent *event) override;
 };
 

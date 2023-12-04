@@ -14,6 +14,7 @@ public:
 
     CircuitNode *node;
 
+    bool clicked = false;
     int size = 20;
 
     NodeOutputSlot *connection = nullptr;

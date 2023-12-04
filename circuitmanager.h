@@ -12,6 +12,7 @@
 #include "node_classes/circuitsignalhandler.h"
 #include "node_classes/inputnode.h"
 #include "node_classes/nandgate.h"
+#include "node_classes/nodelineconnectionmanager.h"
 #include "node_classes/norgate.h"
 #include "node_classes/orgate.h"
 #include "node_classes/outputnode.h"
@@ -24,6 +25,9 @@ public:
     CircuitManager(QWidget *levelWidget);
 
     QWidget *levelWidget;
+
+    vector<CircuitNode *> nodes;
+    vector<OutputNode *> outputNodes;
 
     void run();
     void runEachOutput();
@@ -39,9 +43,7 @@ public:
     void createOutputNode();
 
 private:
-    vector<CircuitNode *> nodes;
-    vector<OutputNode *> outputNodes;
-
+    NodeLineConnectionManager *lineManager;
     void handleNewNode(CircuitNode *node);
 };
 

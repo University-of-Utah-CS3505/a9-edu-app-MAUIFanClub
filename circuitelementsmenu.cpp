@@ -9,6 +9,8 @@ circuitElementsMenu::circuitElementsMenu(CircuitManager *circuitManager, QWidget
     x.push_back(ui->inputsGrid);
     x.push_back(ui->logicGatesGrid);
 
+    this->move(QPoint(20, 200));
+
     for (QWidget *currentWidget : x) {
         currentWidget->setHidden(true);
     }
