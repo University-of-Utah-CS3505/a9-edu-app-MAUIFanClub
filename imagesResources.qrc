@@ -10,4 +10,12 @@
         <file>images/nAndGate.png</file>
         <file>images/nOrGate.png</file>
     </qresource>
+    <qresource prefix="/menuIcons">
+        <file>menuIcons/andGateIcon.png</file>
+        <file>menuIcons/nAndGateIcon.png</file>
+        <file>menuIcons/nOrGateIcon.png</file>
+        <file>menuIcons/orGateIcon.png</file>
+        <file>menuIcons/inputPlaceholderIcon.png</file>
+        <file>menuIcons/outputPlaceholderIcon.png</file>
+    </qresource>
 </RCC>

@@ -6,54 +6,99 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>250</width>
-    <height>350</height>
+    <width>255</width>
+    <height>353</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>250</width>
-    <height>350</height>
+    <height>300</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>250</width>
-    <height>350</height>
+    <width>16777215</width>
+    <height>16777215</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgba(53, 53, 53, 50);</string>
+   <string notr="true">border: 2px solid #000000;
+</string>
   </property>
   <widget class="QWidget" name="ElementsLayout" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>30</y>
-     <width>251</width>
-     <height>321</height>
+     <width>250</width>
+     <height>350</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true"/>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="minimumSize">
+    <size>
+     <width>250</width>
+     <height>350</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 2px solid #000000;
+background-color: rgb(52, 52, 52);</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
     <property name="spacing">
      <number>0</number>
     </property>
+    <property name="sizeConstraint">
+     <enum>QLayout::SetMinAndMaxSize</enum>
+    </property>
     <property name="topMargin">
-     <number>9</number>
+     <number>0</number>
     </property>
     <property name="bottomMargin">
-     <number>9</number>
+     <number>0</number>
     </property>
     <item>
      <widget class="QPushButton" name="CircuitElementsButton">
       <property name="enabled">
        <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>250</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border: 1px solid #000000;
+	font: 12pt &quot;Segoe MDL2 Assets&quot;;
+	color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+border: 2px solid #000000;
+}</string>
       </property>
       <property name="text">
        <string>Elements</string>
@@ -61,18 +106,66 @@
      </widget>
     </item>
     <item>
-     <widget class="QWidget" name="elementsList" native="true">
+     <widget class="QFrame" name="elementsList">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid #000000;</string>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMinimumSize</enum>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
-        <widget class="QWidget" name="gatesLayout" native="true">
+        <widget class="QFrame" name="gatesLayout">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border: 0px solid #000000;</string>
+         </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinimumSize</enum>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <property name="bottomMargin">
+           <number>9</number>
+          </property>
           <item>
            <widget class="QPushButton" name="logicGatesButton">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+             <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>35</height>
+             </size>
             </property>
             <property name="maximumSize">
              <size>
@@ -83,39 +176,167 @@
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+border: 1px solid #000000;
+	font: 12pt &quot;Segoe MDL2 Assets&quot;;
+	color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+border: 2px solid #000000;
+}</string>
+            </property>
             <property name="text">
              <string>Logic Gates</string>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>8</width>
+              <height>5</height>
+             </size>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QWidget" name="logicGatesGrid" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>200</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>200</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
+            </property>
             <layout class="QGridLayout" name="gridLayout">
              <item row="0" column="1">
               <widget class="QPushButton" name="orGateBtn">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border-image: url(:/menuIcons/menuIcons/orGateIcon.png);
+}
+QPushButton::hover{
+	background-color: rgb(72, 72, 72);
+}
+</string>
+               </property>
                <property name="text">
-                <string>OR</string>
+                <string/>
                </property>
               </widget>
              </item>
              <item row="0" column="0">
               <widget class="QPushButton" name="andGateBtn">
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border-image: url(:/menuIcons/menuIcons/andGateIcon.png);
+}
+QPushButton::hover{
+	background-color: rgb(72, 72, 72);
+}
+
+</string>
+               </property>
                <property name="text">
-                <string>AND</string>
+                <string/>
                </property>
               </widget>
              </item>
              <item row="1" column="0">
               <widget class="QPushButton" name="nandGateBtn">
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border-image: url(:/menuIcons/menuIcons/nAndGateIcon.png);
+}
+QPushButton::hover{
+	background-color: rgb(72, 72, 72);
+}
+</string>
+               </property>
                <property name="text">
-                <string>NAND</string>
+                <string/>
                </property>
               </widget>
              </item>
              <item row="1" column="1">
               <widget class="QPushButton" name="norGateBtn">
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border-image: url(:/menuIcons/menuIcons/nOrGateIcon.png);
+}
+QPushButton::hover{
+	background-color: rgb(72, 72, 72);
+}
+</string>
+               </property>
                <property name="text">
-                <string>NOR</string>
+                <string/>
                </property>
               </widget>
              </item>
@@ -127,7 +348,25 @@
        </item>
        <item>
         <widget class="QWidget" name="inputsLayout" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border: 0px solid #000000;</string>
+         </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <property name="bottomMargin">
+           <number>9</number>
+          </property>
           <item>
            <widget class="QPushButton" name="inputsButton">
             <property name="sizePolicy">
@@ -139,7 +378,7 @@
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>0</height>
+              <height>35</height>
              </size>
             </property>
             <property name="maximumSize">
@@ -148,6 +387,16 @@
               <height>30</height>
              </size>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+border: 1px solid #000000;
+	font: 12pt &quot;Segoe MDL2 Assets&quot;;
+	color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+border: 2px solid #000000;
+}</string>
+            </property>
             <property name="text">
              <string>Inputs</string>
             </property>
@@ -155,18 +404,71 @@
           </item>
           <item>
            <widget class="QWidget" name="inputsGrid" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
+            </property>
             <layout class="QGridLayout">
              <item row="0" column="0">
               <widget class="QPushButton" name="newInputBtn">
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border-image: url(:/menuIcons/menuIcons/inputPlaceholderIcon.png);
+}
+QPushButton::hover{
+	background-color: rgb(72, 72, 72);
+}
+
+</string>
+               </property>
                <property name="text">
-                <string>New Input</string>
+                <string/>
                </property>
               </widget>
              </item>
              <item row="0" column="1">
               <widget class="QPushButton" name="newOutputBtn">
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border-image: url(:/menuIcons/menuIcons/outputPlaceholderIcon.png);
+}
+QPushButton::hover{
+	background-color: rgb(72, 72, 72);
+}
+
+</string>
+               </property>
                <property name="text">
-                <string>New Output</string>
+                <string/>
                </property>
               </widget>
              </item>
@@ -181,6 +483,16 @@
     </item>
     <item>
      <widget class="QPushButton" name="runBtn">
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border: 1px solid #000000;
+	font: 12pt &quot;Segoe MDL2 Assets&quot;;
+	color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+border: 2px solid #000000;
+}</string>
+      </property>
       <property name="text">
        <string>Run</string>
       </property>
@@ -198,7 +510,14 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">* {background-color:gray;}</string>
+    <string notr="true">QWidget {
+background-color:gray;
+}
+QWidget::hover{
+background-color:rgb(40, 40, 40);
+}
+
+</string>
    </property>
   </widget>
  </widget>

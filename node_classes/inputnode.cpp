@@ -33,3 +33,4 @@ bool InputNode::run()
 {
     return state;
 }
+

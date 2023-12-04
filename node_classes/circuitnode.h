@@ -23,7 +23,7 @@ public:
 
     virtual bool run();
     virtual void moveWidget();
-
+    void drawNode(float sizeMultiplier, QPoint pos);
     void deleteNode();
 
 protected:
