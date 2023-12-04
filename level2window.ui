@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Level 2</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="lvlLayout" native="true">
@@ -65,6 +65,24 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuSave">
+    <property name="title">
+     <string>Save</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuLoad">
+    <property name="title">
+     <string>Load</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuClear">
+    <property name="title">
+     <string>Clear</string>
+    </property>
+   </widget>
+   <addaction name="menuSave"/>
+   <addaction name="menuLoad"/>
+   <addaction name="menuClear"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

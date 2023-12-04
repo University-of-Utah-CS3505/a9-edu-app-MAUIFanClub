@@ -14,6 +14,7 @@ SOURCES += \
     level1window.cpp \
     level2window.cpp \
     level3window.cpp \
+    levelsandboxwindow.cpp \
     main.cpp \
     mainmenu.cpp \
     node_classes/andgate.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     level1window.h \
     level2window.h \
     level3window.h \
+    levelsandboxwindow.h \
     mainmenu.h \
     node_classes/andgate.h \
     node_classes/circuitnode.h \
@@ -54,6 +56,7 @@ FORMS += \
     level1window.ui \
     level2window.ui \
     level3window.ui \
+    levelsandboxwindow.ui \
     mainmenu.ui
 
 # Default rules for deployment.

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Level1Window</class>
- <widget class="QMainWindow" name="Level1Window">
+ <class>LevelSandboxWindow</class>
+ <widget class="QMainWindow" name="LevelSandboxWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,39 +23,9 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Level 1</string>
+   <string>Sandbox</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="lvlLayout" native="true">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>1200</width>
-      <height>800</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>0</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>1200</width>
-      <height>800</height>
-     </size>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_4"/>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -84,6 +54,7 @@
    <addaction name="menuLoad"/>
    <addaction name="menuClear"/>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

@@ -1,10 +1,10 @@
-#include "level1window.h"
+#include "levelsandboxwindow.h"
 #include "circuitelementsmenu.h"
-#include "ui_level1window.h"
+#include "ui_levelsandboxwindow.h"
 
-Level1Window::Level1Window(QWidget *parent) :
+LevelSandboxWindow::LevelSandboxWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::Level1Window)
+    ui(new Ui::LevelSandboxWindow)
 {
     ui->setupUi(this);
     CircuitManager *circuitManager = new CircuitManager(this);
@@ -12,11 +12,7 @@ Level1Window::Level1Window(QWidget *parent) :
     this->layout()->addWidget(instance);
 }
 
-Level1Window::~Level1Window()
+LevelSandboxWindow::~LevelSandboxWindow()
 {
     delete ui;
 }
-
-
-
-

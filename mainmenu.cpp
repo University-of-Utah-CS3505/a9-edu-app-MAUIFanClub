@@ -1,8 +1,10 @@
 #include "mainmenu.h"
-#include "ui_mainmenu.h"
 #include "level1window.h"
 #include "level2window.h"
 #include "level3window.h"
+#include "levelsandboxwindow.h"
+#include "ui_mainmenu.h"
+
 MainMenu::MainMenu(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainMenu)
@@ -36,3 +38,9 @@ void MainMenu::on_level3Button_clicked()
     this->close();
 }
 
+void MainMenu::on_sandboxLevelButton_clicked()
+{
+    LevelSandboxWindow *x = new LevelSandboxWindow();
+    x->show();
+    this->close();
+}
