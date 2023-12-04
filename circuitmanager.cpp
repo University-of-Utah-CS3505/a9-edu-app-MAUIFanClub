@@ -1,7 +1,5 @@
 #include "circuitmanager.h"
 
-/// CREATE WINDOW POPUP INTERFACE
-
 CircuitManager::CircuitManager(QWidget *levelWidget)
 {
     this->levelWidget = levelWidget;
@@ -10,16 +8,16 @@ CircuitManager::CircuitManager(QWidget *levelWidget)
 void CircuitManager::run()
 {
     if (nodes.size() == 0) {
-        //QMessageBox::information(this, tr("Error"), tr("THERE ARE NO NODES!"));
+        QMessageBox::information(levelWidget, tr("Error"), tr("THERE ARE NO NODES!"));
         return;
     }
 
     if (isGraphCompleted()) {
         runEachOutput();
     } else {
-        //        QMessageBox::information(this,
-        //                                 tr("Error"),
-        //                                 tr("GRAPH IS NOT COMPLETED! \n\n - Right Click To Delete Nodes"));
+        QMessageBox::information(levelWidget,
+                                 tr("Error"),
+                                 tr("GRAPH IS NOT COMPLETED! \n\n - Right Click To Delete Nodes"));
     }
 }
 
@@ -27,6 +25,10 @@ void CircuitManager::runEachOutput()
 {
     for (unsigned long i = 0; i < outputNodes.size(); i++) {
         outputNodes[i]->run();
+    }
+
+    for (int i = 0; i < levelWidget->children().size(); i++) {
+        qDebug() << levelWidget->children().at(i);
     }
 }
 

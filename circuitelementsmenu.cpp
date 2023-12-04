@@ -12,8 +12,6 @@ circuitElementsMenu::circuitElementsMenu(CircuitManager *circuitManager, QWidget
     for (QWidget *currentWidget : x) {
         currentWidget->setHidden(true);
     }
-
-    raise();
 }
 
 circuitElementsMenu::~circuitElementsMenu()
