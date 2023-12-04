@@ -2,6 +2,15 @@
 #include <QDebug>
 #include <QLayout>
 #include <QMainWindow>
+
+struct drawnLines
+{
+    QPoint p1;
+    QPoint p2;
+};
+
+vector<drawnLines> linesDrawn;
+
 NodeLineConnectionManager::NodeLineConnectionManager(vector<CircuitNode *> *nodes,
                                                      QWidget *mainWindow)
 {
@@ -11,6 +20,8 @@ NodeLineConnectionManager::NodeLineConnectionManager(vector<CircuitNode *> *node
     pixmap->fill(Qt::transparent);
     painter = new QPainter(pixmap);
     painter->setBackgroundMode(Qt::TransparentMode);
+
+    clearPixmap = *pixmap;
 
     QPen pen;
     pen.setWidth(4);
@@ -30,6 +41,7 @@ NodeLineConnectionManager::NodeLineConnectionManager(vector<CircuitNode *> *node
 void NodeLineConnectionManager::updateLines()
 {
     clearCanvas();
+    linesDrawn = vector<drawnLines>();
 
     CircuitNode *currentNode;
 
@@ -91,6 +103,18 @@ void NodeLineConnectionManager::updateLinesDrag(QPoint slotPos, QPoint mousePos)
 
 void NodeLineConnectionManager::drawLine(QPoint p1, QPoint p2)
 {
+    for (int i = 0; i < linesDrawn.size(); i++) {
+        if ((linesDrawn[i].p1 == p1 && linesDrawn[i].p2 == p2)
+            || (linesDrawn[i].p1 == p2 && linesDrawn[i].p2 == p1)) {
+            return;
+        }
+    }
+
+    drawnLines newLine;
+    newLine.p1 = p1;
+    newLine.p2 = p2;
+    linesDrawn.push_back(newLine);
+
     QLine line(p1.x(), p1.y(), p2.x(), p2.y());
     painter->drawLine(line);
     paintCanvas->setPixmap(*pixmap);
@@ -99,10 +123,7 @@ void NodeLineConnectionManager::drawLine(QPoint p1, QPoint p2)
 void NodeLineConnectionManager::clearCanvas()
 {
     painter->end();
-    delete pixmap;
-
-    pixmap = new QPixmap(1200, 800);
-    pixmap->fill(Qt::transparent);
+    *pixmap = clearPixmap;
     painter->begin(pixmap);
 
     QPen pen;

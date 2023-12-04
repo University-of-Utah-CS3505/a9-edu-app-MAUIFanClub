@@ -19,6 +19,7 @@ public:
 
 private:
     QPixmap *pixmap;
+    QPixmap clearPixmap;
     QPainter *painter;
     QLabel *paintCanvas;
     QWidget mainWindow;

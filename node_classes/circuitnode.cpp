@@ -7,7 +7,7 @@ CircuitNode::CircuitNode(int inputCount, bool hasOutput, QWidget *parent)
     this->setAccessibleName("circuitNode");
 
     this->setGeometry(QRect(0, 0, nodeSize, nodeSize));
-    this->setStyleSheet(".circuitNode {background-color: lightblue; border: 3px solid "
+    this->setStyleSheet(".circuitNode {background-color: white; border: 3px solid "
                         "#a4a4a4; border-radius: 5px;} "
                         ".circuitNode:hover{border: 3px solid #000000;}");
     this->setProperty("class", "circuitNode");
