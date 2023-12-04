@@ -15,7 +15,15 @@ NodeOutputSlot::NodeOutputSlot(QWidget *mainWindow, QWidget *parent)
 }
 
 NodeOutputSlot::~NodeOutputSlot() {}
-
+float clampTemp1(float d, float min, float max) {
+    const float t = d < min ? min : d;
+    return t > max ? max : t;
+}
+void NodeOutputSlot::redrawSlot(float multiplier)
+{
+    float localMultiplier = clampTemp1(multiplier, 0.6, 1);
+    this->setGeometry(QRect(180*(multiplier - 0.02), 90*(multiplier - 0.05), size*localMultiplier, size*localMultiplier));
+}
 void NodeOutputSlot::mousePressEvent(QMouseEvent *event)
 {
     QPoint slotScenePos = this->parentWidget()->pos() + this->pos() + QPoint(size - 2, size / 2);

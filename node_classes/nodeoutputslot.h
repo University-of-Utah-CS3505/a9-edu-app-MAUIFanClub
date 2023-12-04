@@ -19,7 +19,7 @@ public:
     NodeLineConnectionManager *lineManager;
 
     CircuitNode *node;
-
+    void redrawSlot(float multiplier);
     int size = 20;
 
     void disconnect();

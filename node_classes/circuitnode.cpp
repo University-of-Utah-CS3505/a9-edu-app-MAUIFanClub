@@ -1,5 +1,6 @@
 #include "circuitnode.h"
-
+#include "nodeinputslot.h"
+#include "nodeoutputslot.h"
 CircuitNode::CircuitNode(int inputCount, bool hasOutput, QWidget *parent)
 {
     this->setParent(parent);
@@ -32,6 +33,13 @@ void CircuitNode::drawNode(float sizeMultiplier, QPoint pos)
     this->setStyleSheet(".circuitNode {background-color: lightblue; border: 3px solid "
                         "#a4a4a4; border-radius: 5px;} "
                         ".circuitNode:hover{border: 3px solid #000000;}");
+    for(NodeInputSlot* x : inputs)
+    {
+        x->redrawSlot(sizeMultiplier);
+    }
+
+    if(output)
+    output->redrawSlot(sizeMultiplier);
 }
 bool CircuitNode::run()
 {

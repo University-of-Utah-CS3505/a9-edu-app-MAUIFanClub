@@ -19,7 +19,7 @@ public:
     NodeOutputSlot *connection = nullptr;
 
     void disconnect();
-
+    void redrawSlot(float multiplier);
 protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
