@@ -2,6 +2,7 @@
 #define LEVEL3WINDOW_H
 
 #include <QMainWindow>
+#include "circuitmanager.h"
 
 namespace Ui {
 class Level3Window;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::Level3Window *ui;
+    CircuitManager *circuitManager;
 };
 
 #endif // LEVEL3WINDOW_H

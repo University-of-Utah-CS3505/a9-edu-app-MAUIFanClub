@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     circuitelementsmenu.cpp \
+    circuitmanager.cpp \
     level1window.cpp \
     level2window.cpp \
     level3window.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 
 HEADERS += \
     circuitelementsmenu.h \
+    circuitmanager.h \
     level1window.h \
     level2window.h \
     level3window.h \

@@ -7,7 +7,8 @@ Level2Window::Level2Window(QWidget *parent) :
     ui(new Ui::Level2Window)
 {
     ui->setupUi(this);
-    circuitElementsMenu *instance = new circuitElementsMenu(this);
+    CircuitManager *circuitManager = new CircuitManager(this);
+    circuitElementsMenu *instance = new circuitElementsMenu(circuitManager, this);
     ui->lvlLayout->layout()->addWidget(instance);
 }
 

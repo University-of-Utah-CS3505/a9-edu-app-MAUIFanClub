@@ -15,8 +15,6 @@ MainMenu::~MainMenu()
     delete ui;
 }
 
-
-
 void MainMenu::on_level1Button_clicked()
 {
     Level1Window *x = new Level1Window();
@@ -24,15 +22,12 @@ void MainMenu::on_level1Button_clicked()
     this->close();
 }
 
-
-
 void MainMenu::on_level2Button_clicked()
 {
     Level2Window *x = new Level2Window();
     x->show();
     this->close();
 }
-
 
 void MainMenu::on_level3Button_clicked()
 {
