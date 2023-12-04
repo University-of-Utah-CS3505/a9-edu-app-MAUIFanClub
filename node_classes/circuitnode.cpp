@@ -29,7 +29,10 @@ CircuitNode::CircuitNode(int inputCount, bool hasOutput, QWidget *parent)
 CircuitNode::~CircuitNode() {}
 void CircuitNode::drawNode(float sizeMultiplier, QPoint pos)
 {
-    this->setGeometry(QRect(pos.x(), pos.y(), nodeSize*sizeMultiplier, nodeSize*sizeMultiplier));
+    int offSetSize = currentSize - (nodeSize*sizeMultiplier);
+    this->setGeometry(QRect((pos.x() + offSetSize/2) , pos.y() + offSetSize/2, nodeSize*sizeMultiplier, nodeSize*sizeMultiplier));
+    //this->setFixedSize(this->currentSize * sizeMultiplier, this->currentSize * sizeMultiplier);
+    currentSize = nodeSize * sizeMultiplier;
     this->setStyleSheet(".circuitNode {background-color: lightblue; border: 3px solid "
                         "#a4a4a4; border-radius: 5px;} "
                         ".circuitNode:hover{border: 3px solid #000000;}");
@@ -37,7 +40,6 @@ void CircuitNode::drawNode(float sizeMultiplier, QPoint pos)
     {
         x->redrawSlot(sizeMultiplier);
     }
-
     if(output)
     output->redrawSlot(sizeMultiplier);
 }
