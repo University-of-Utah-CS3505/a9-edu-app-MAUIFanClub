@@ -6,42 +6,50 @@ CircuitNode::CircuitNode(int inputCount, bool hasOutput, QWidget *parent)
     this->setParent(parent);
     this->setObjectName("circuitNode");
     this->setAccessibleName("circuitNode");
-    drawNode(1, QPoint(0,0));
-//    this->setGeometry(QRect(0, 0, nodeSize, nodeSize));
-//    this->setStyleSheet(".circuitNode {background-color: lightblue; border: 3px solid "
-//                        "#a4a4a4; border-radius: 5px;} "
-//                        ".circuitNode:hover{border: 3px solid #000000;}");
+    drawNode(1, QPoint(0, 0));
+    //    this->setGeometry(QRect(0, 0, nodeSize, nodeSize));
+    //    this->setStyleSheet(".circuitNode {background-color: lightblue; border: 3px solid "
+    //                        "#a4a4a4; border-radius: 5px;} "
+    //                        ".circuitNode:hover{border: 3px solid #000000;}");
     this->setProperty("class", "circuitNode");
 
     // Create n input nodes from InputCount | Y Displacement temp for right now.
     for (int i = 0; i < inputCount; i++) {
-        NodeInputSlot *inputSlot = new NodeInputSlot(this);
+        NodeInputSlot *inputSlot = new NodeInputSlot(&currentSize, this);
         inputs.push_back(inputSlot);
     }
 
     if (hasOutput) {
-        output = new NodeOutputSlot(parent, this);
+        output = new NodeOutputSlot(parent, &currentSize, this);
     }
 
     circuitSignalHandler = new CircuitSignalHandler();
 }
 
 CircuitNode::~CircuitNode() {}
+
 void CircuitNode::drawNode(float sizeMultiplier, QPoint pos)
 {
-    int offSetSize = currentSize - (nodeSize*sizeMultiplier);
-    this->setGeometry(QRect((pos.x() + offSetSize/2) , pos.y() + offSetSize/2, nodeSize*sizeMultiplier, nodeSize*sizeMultiplier));
-    //this->setFixedSize(this->currentSize * sizeMultiplier, this->currentSize * sizeMultiplier);
+    // Offset size ends up being -20, 0, 20. However there is a small deviation by one. So the number gets hard set below.
+    float offSetSize = currentSize - (nodeSize * sizeMultiplier);
+    if (offSetSize != 0) {
+        offSetSize = (offSetSize < 0) ? -20 : 20;
+    }
+
     currentSize = nodeSize * sizeMultiplier;
+    this->setGeometry(
+        QRect((pos.x() + offSetSize / 2), pos.y() + offSetSize / 2, currentSize, currentSize));
+
     this->setStyleSheet(".circuitNode {background-color: lightblue; border: 3px solid "
                         "#a4a4a4; border-radius: 5px;} "
                         ".circuitNode:hover{border: 3px solid #000000;}");
-    for(NodeInputSlot* x : inputs)
-    {
+
+    for (NodeInputSlot *x : inputs) {
         x->redrawSlot(sizeMultiplier);
     }
-    if(output)
-    output->redrawSlot(sizeMultiplier);
+
+    if (output)
+        output->redrawSlot(sizeMultiplier);
 }
 bool CircuitNode::run()
 {

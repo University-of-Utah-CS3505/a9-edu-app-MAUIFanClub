@@ -16,8 +16,13 @@ OrGate::OrGate(QWidget *parent)
 
     imageLabel->lower();
 
-    inputs[0]->move(QPoint(0, 62));
-    inputs[1]->move(QPoint(0, 118));
+    QPoint i0(0,62);
+    inputs[0]->move(i0);
+    inputs[0]->position = i0;
+
+    QPoint i1(0,118);
+    inputs[1]->move(i1);
+    inputs[1]->position = i1;
 }
 
 bool OrGate::run()

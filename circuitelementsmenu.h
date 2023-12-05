@@ -45,7 +45,7 @@ private slots:
 
 private:
     Ui::circuitElementsMenu *ui;
-    std::vector <QWidget*> x;
+    std::vector<QWidget *> x;
     QWidget *levelWidget;
     QLayout *levelLayout;
 

@@ -20,6 +20,7 @@ class Level1Window : public QMainWindow
 public:
     explicit Level1Window(QWidget *parent = nullptr);
     ~Level1Window();
+
 protected:
     void wheelEvent(QWheelEvent *event) override;
 

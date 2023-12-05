@@ -28,10 +28,9 @@ public:
 
 protected:
     int nodeSize = 200;
+    int currentSize = 200;
 
     void mousePressEvent(QMouseEvent *event) override;
-private:
-    int currentSize = 200;
 };
 
 #endif // CIRCUITNODE_H

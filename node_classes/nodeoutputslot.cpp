@@ -1,9 +1,10 @@
 #include "nodeoutputslot.h"
 #include "node_classes/circuitnode.h"
 
-NodeOutputSlot::NodeOutputSlot(QWidget *mainWindow, QWidget *parent)
+NodeOutputSlot::NodeOutputSlot(QWidget *mainWindow, int *currentNodeSize, QWidget *parent)
 {
     this->lineManager = new NodeLineConnectionManager(mainWindow);
+    this->currentNodeSize = currentNodeSize;
 
     this->setParent(parent);
     this->setObjectName("Output Node");
@@ -15,15 +16,20 @@ NodeOutputSlot::NodeOutputSlot(QWidget *mainWindow, QWidget *parent)
 }
 
 NodeOutputSlot::~NodeOutputSlot() {}
-float clampTemp1(float d, float min, float max) {
+
+float clamp2(float d, float min, float max)
+{
     const float t = d < min ? min : d;
     return t > max ? max : t;
 }
+
 void NodeOutputSlot::redrawSlot(float multiplier)
 {
-    float localMultiplier = clampTemp1(multiplier, 0.6, 1);
-    this->setGeometry(QRect(180*(multiplier - 0.02), 90*(multiplier - 0.05), size*localMultiplier, size*localMultiplier));
+    int currentSize = size * clamp2(multiplier, 0.6, 1);
+    int currentLocation = *currentNodeSize - currentSize;
+    this->setGeometry(QRect(currentLocation, currentLocation / 2, currentSize, currentSize));
 }
+
 void NodeOutputSlot::mousePressEvent(QMouseEvent *event)
 {
     QPoint slotScenePos = this->parentWidget()->pos() + this->pos() + QPoint(size - 2, size / 2);
