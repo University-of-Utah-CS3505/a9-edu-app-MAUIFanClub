@@ -26,6 +26,8 @@ public:
 
     QWidget *levelWidget;
 
+    float currentZoom = 1;
+
     vector<CircuitNode *> nodes;
     vector<OutputNode *> outputNodes;
 
@@ -34,6 +36,9 @@ public:
     bool isGraphCompleted();
 
     void deleteNode(CircuitNode *nodeToDelete);
+
+    void zoomIn();
+    void zoomOut();
 
     void createAndGate();
     void createNAndGate();

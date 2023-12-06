@@ -104,6 +104,32 @@ void CircuitManager::handleNewNode(CircuitNode *node)
     });
 }
 
+/*  ZOOM FUNCTIONS  */
+
+float clamp(float d, float min, float max)
+{
+    const float t = d < min ? min : d;
+    return t > max ? max : t;
+}
+
+void CircuitManager::zoomIn()
+{ // Mouse wheel moved up
+    for (CircuitNode *x : nodes) {
+        currentZoom = clamp(currentZoom + 0.1, 0.4, 1);
+        x->drawNode(currentZoom, x->pos());
+    }
+}
+
+void CircuitManager::zoomOut()
+{
+    for (CircuitNode *x : nodes) {
+        currentZoom = clamp(currentZoom - 0.1, 0.4, 1);
+        x->drawNode(currentZoom, x->pos());
+    }
+}
+
+/*  NODE CREATION FUNCTIONS  */
+
 void CircuitManager::createAndGate()
 {
     handleNewNode(new AndGate(levelWidget));

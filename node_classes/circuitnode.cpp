@@ -6,8 +6,9 @@ CircuitNode::CircuitNode(int inputCount, bool hasOutput, QWidget *parent)
     this->setParent(parent);
     this->setObjectName("circuitNode");
     this->setAccessibleName("circuitNode");
-    drawNode(1, QPoint(0, 0));
     this->setProperty("class", "circuitNode");
+
+    drawNode(1, QPoint(0, 0));
 
     // Create n input nodes from InputCount
     for (int i = 0; i < inputCount; i++) {
@@ -44,9 +45,11 @@ void CircuitNode::drawNode(float sizeMultiplier, QPoint pos)
         x->redrawSlot(sizeMultiplier);
     }
 
-    if (output)
+    if (output) {
         output->redrawSlot(sizeMultiplier);
+    }
 }
+
 bool CircuitNode::run()
 {
     qDebug() << " Base CircuitNode RUN() :|: How Did You Get Here? >:)";
