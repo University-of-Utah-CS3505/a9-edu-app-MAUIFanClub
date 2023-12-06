@@ -28,10 +28,10 @@ CircuitNode::~CircuitNode() {}
 void CircuitNode::drawNode(float sizeMultiplier, QPoint pos)
 {
     // Offset size ends up being -20, 0, 20. However there is a small deviation by one. So the number gets hard set below.
-    float offSetSize = currentSize - (nodeSize * sizeMultiplier);
-    if (offSetSize != 0) {
-        offSetSize = (offSetSize < 0) ? -20 : 20;
-    }
+    float offSetSize = (float)currentSize - (nodeSize * sizeMultiplier);
+//    if (offSetSize != 0) {
+//        //offSetSize = (offSetSize < 0) ? -20 : 20;
+//    }
 
     currentSize = nodeSize * sizeMultiplier;
     this->setGeometry(

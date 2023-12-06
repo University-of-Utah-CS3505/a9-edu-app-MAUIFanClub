@@ -8,9 +8,11 @@ Level1Window::Level1Window(QWidget *parent)
     , ui(new Ui::Level1Window)
 {
     ui->setupUi(this);
-    circuitManager = new CircuitManager(this);
-    instance = new circuitElementsMenu(circuitManager, this);
+    zoomWidget = new class zoomWidget(this);
+    levelManager = new class levelManager(this, zoomWidget);
+    instance = new circuitElementsMenu(levelManager->circuitManager, this);
     this->layout()->addWidget(instance);
+    this->layout()->addWidget(zoomWidget);
 }
 
 Level1Window::~Level1Window()
@@ -20,16 +22,6 @@ Level1Window::~Level1Window()
 
 void Level1Window::wheelEvent(QWheelEvent *event)
 {
-    // Detect the direction of the mouse wheel movement
-    if (event->angleDelta().y() > 0) {
-        // Mouse wheel moved up
-        circuitManager->zoomIn();
-    } else {
-        //Mouse wheel moved down
-        circuitManager->zoomOut();
-    }
+    levelManager->handleZoom(event);
     QMainWindow::wheelEvent(event);
-    // You can also access the exact delta value using event->delta()
-
-    // Pass the event to the base class for default handling
 }

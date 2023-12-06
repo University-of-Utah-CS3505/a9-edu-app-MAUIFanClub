@@ -14,6 +14,7 @@ SOURCES += \
     level1window.cpp \
     level2window.cpp \
     level3window.cpp \
+    levelmanager.cpp \
     levelsandboxwindow.cpp \
     main.cpp \
     mainmenu.cpp \
@@ -28,7 +29,9 @@ SOURCES += \
     node_classes/nodeoutputslot.cpp \
     node_classes/norgate.cpp \
     node_classes/orgate.cpp \
-    node_classes/outputnode.cpp
+    node_classes/outputnode.cpp \
+    zoommanager.cpp \
+    zoomwidget.cpp
 
 HEADERS += \
     circuitelementsmenu.h \
@@ -36,6 +39,7 @@ HEADERS += \
     level1window.h \
     level2window.h \
     level3window.h \
+    levelmanager.h \
     levelsandboxwindow.h \
     mainmenu.h \
     node_classes/andgate.h \
@@ -49,7 +53,9 @@ HEADERS += \
     node_classes/nodeoutputslot.h \
     node_classes/norgate.h \
     node_classes/orgate.h \
-    node_classes/outputnode.h
+    node_classes/outputnode.h \
+    zoommanager.h \
+    zoomwidget.h
 
 FORMS += \
     circuitelementsmenu.ui \
@@ -57,7 +63,9 @@ FORMS += \
     level2window.ui \
     level3window.ui \
     levelsandboxwindow.ui \
-    mainmenu.ui
+    mainmenu.ui \
+    zoommanager.ui \
+    zoomwidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

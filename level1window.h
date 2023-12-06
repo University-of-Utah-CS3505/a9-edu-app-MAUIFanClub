@@ -3,13 +3,8 @@
 #include <QDebug>
 #include <QMainWindow>
 #include "circuitelementsmenu.h"
-#include "node_classes/andgate.h"
-#include "node_classes/inputnode.h"
-#include "node_classes/nandgate.h"
-#include "node_classes/norgate.h"
-#include "node_classes/orgate.h"
-#include "node_classes/outputnode.h"
-#include "circuitmanager.h"
+#include "levelmanager.h"
+#include "zoomwidget.h"
 
 namespace Ui {
 class Level1Window;
@@ -31,7 +26,8 @@ private slots:
 private:
     Ui::Level1Window *ui;
     circuitElementsMenu *instance;
-    CircuitManager *circuitManager;
+    zoomWidget *zoomWidget;
+    levelManager * levelManager;
 };
 
 #endif // LEVEL1WINDOW_H

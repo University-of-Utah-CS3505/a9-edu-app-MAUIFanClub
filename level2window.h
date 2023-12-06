@@ -3,8 +3,7 @@
 
 #include <QMainWindow>
 #include "circuitelementsmenu.h"
-#include "circuitmanager.h"
-
+#include "levelmanager.h"
 namespace Ui {
 class Level2Window;
 }
@@ -23,7 +22,7 @@ protected:
 private:
     Ui::Level2Window *ui;
     circuitElementsMenu *instance;
-    CircuitManager *circuitManager;
+    levelManager * levelManager;
 };
 
 #endif // LEVEL2WINDOW_H
