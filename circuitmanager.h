@@ -35,11 +35,12 @@ public:
 
     void run();
     void runEachOutput();
-    bool isGraphCompleted();
+	bool isGraphCompleted();
 
-    void deleteNode(CircuitNode *nodeToDelete);
+	void deleteNode(CircuitNode *nodeToDelete);
+	void clearAllNodes();
 
-    void zoomIn();
+	void zoomIn();
     void zoomOut();
 
     void createAndGate();

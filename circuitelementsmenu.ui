@@ -154,6 +154,23 @@ border: 2px solid #000000;
            <number>9</number>
           </property>
           <item>
+           <widget class="QPushButton" name="clearBtn">
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+border: 1px solid #000000;
+	font: 12pt &quot;Segoe MDL2 Assets&quot;;
+	color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+border: 2px solid #000000;
+}</string>
+            </property>
+            <property name="text">
+             <string>Clear</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="logicGatesButton">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Ignored" vsizetype="Fixed">

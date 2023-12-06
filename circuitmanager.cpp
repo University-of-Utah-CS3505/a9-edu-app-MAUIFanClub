@@ -29,6 +29,12 @@ void CircuitManager::runEachOutput()
     }
 }
 
+void CircuitManager::clearAllNodes()
+{
+	for (int i = 0; i < nodes.size(); i++) {
+		nodes[i--]->deleteNode();
+	}
+}
 // Checks to see if the graph is fully filled out. Each slot has a connection of some sort.
 bool CircuitManager::isGraphCompleted()
 {

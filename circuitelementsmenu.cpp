@@ -59,6 +59,11 @@ void circuitElementsMenu::on_inputsButton_clicked()
     }
 }
 
+void circuitElementsMenu::on_clearBtn_clicked()
+{
+	circuitManager->clearAllNodes();
+}
+
 void circuitElementsMenu::on_andGateBtn_clicked()
 {
     circuitManager->createAndGate();
