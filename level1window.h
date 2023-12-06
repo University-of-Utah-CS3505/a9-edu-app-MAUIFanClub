@@ -31,7 +31,6 @@ private slots:
 private:
     Ui::Level1Window *ui;
     circuitElementsMenu *instance;
-    float currentZoom = 1;
     CircuitManager *circuitManager;
 };
 

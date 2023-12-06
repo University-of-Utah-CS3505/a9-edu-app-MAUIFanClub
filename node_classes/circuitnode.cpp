@@ -37,6 +37,31 @@ void CircuitNode::drawNode(float sizeMultiplier, QPoint pos)
     this->setGeometry(
         QRect((pos.x() + offSetSize / 2), pos.y() + offSetSize / 2, currentSize, currentSize));
 
+    // Scales Children
+    if (this->children().size() != 0) {
+        // Node Image Scale
+        if (imagePath != "") {
+            QLabel *imageLabel = static_cast<QLabel *>(this->children()[0]);
+            imageLabel->setGeometry(QRect(0, 0, currentSize, currentSize));
+            imageLabel->setPixmap(QPixmap(imagePath).scaled(QSize(currentSize, currentSize),
+                                                            Qt::KeepAspectRatio,
+                                                            Qt::SmoothTransformation));
+        }
+        // Input Node Button Scale
+        else if (this->objectName() == "inputNode") {
+            QPushButton *inputBtn = static_cast<QPushButton *>(this->children()[1]);
+            inputBtn->setGeometry(QRect(25 * sizeMultiplier,
+                                        25 * sizeMultiplier,
+                                        150 * sizeMultiplier,
+                                        150 * sizeMultiplier));
+        }
+        // Output Node Text Label Scale
+        else {
+            QLabel *outputLabel = static_cast<QLabel *>(this->children()[1]);
+            outputLabel->setGeometry(0, 0, currentSize, currentSize);
+        }
+    }
+
     this->setStyleSheet(".circuitNode {background-color: white; border: 3px solid "
                         "#a4a4a4; border-radius: 5px;} "
                         ".circuitNode:hover{border: 3px solid #000000;}");

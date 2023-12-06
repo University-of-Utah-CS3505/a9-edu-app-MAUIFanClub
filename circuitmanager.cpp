@@ -106,7 +106,7 @@ void CircuitManager::handleNewNode(CircuitNode *node)
 
 /*  ZOOM FUNCTIONS  */
 
-float clamp(float d, float min, float max)
+float CircuitManager::clamp(float d, float min, float max)
 {
     const float t = d < min ? min : d;
     return t > max ? max : t;

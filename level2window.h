@@ -2,6 +2,7 @@
 #define LEVEL2WINDOW_H
 
 #include <QMainWindow>
+#include "circuitelementsmenu.h"
 #include "circuitmanager.h"
 
 namespace Ui {
@@ -16,8 +17,12 @@ public:
     explicit Level2Window(QWidget *parent = nullptr);
     ~Level2Window();
 
+protected:
+    void wheelEvent(QWheelEvent *event) override;
+
 private:
     Ui::Level2Window *ui;
+    circuitElementsMenu *instance;
     CircuitManager *circuitManager;
 };
 

@@ -7,7 +7,8 @@ AndGate::AndGate(QWidget *parent)
     this->setAccessibleName("andGateNode");
 
     // Gets image from Resources.qrc file.
-    QPixmap pixmap(":logicGates/images/andGate.png");
+    imagePath = ":logicGates/images/andGate.png";
+    QPixmap pixmap(imagePath);
     QLabel *imageLabel = new QLabel(this);
 
     imageLabel->setGeometry(QRect(0, 0, 200, 200));

@@ -7,7 +7,8 @@ nOrGate::nOrGate(QWidget *parent)
     this->setAccessibleName("nOrGateNode");
 
     // Gets image from Resources.qrc file.
-    QPixmap pixmap(":logicGates/images/nOrGate.png");
+    imagePath = ":logicGates/images/nOrGate.png";
+    QPixmap pixmap(imagePath);
     QLabel *imageLabel = new QLabel(this);
 
     imageLabel->setGeometry(QRect(0, 0, 200, 200));

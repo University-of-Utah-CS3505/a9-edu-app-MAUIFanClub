@@ -2,6 +2,7 @@
 #define LEVEL3WINDOW_H
 
 #include <QMainWindow>
+#include "circuitelementsmenu.h"
 #include "circuitmanager.h"
 
 namespace Ui {
@@ -16,8 +17,12 @@ public:
     explicit Level3Window(QWidget *parent = nullptr);
     ~Level3Window();
 
+protected:
+    void wheelEvent(QWheelEvent *event) override;
+
 private:
     Ui::Level3Window *ui;
+    circuitElementsMenu *instance;
     CircuitManager *circuitManager;
 };
 

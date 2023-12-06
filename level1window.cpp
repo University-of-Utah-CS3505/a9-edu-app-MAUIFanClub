@@ -1,6 +1,4 @@
 #include "level1window.h"
-#include <QGraphicsScene>
-#include <QGraphicsView>
 #include <QWheelEvent>
 #include "ui_level1window.h"
 #include <iostream>

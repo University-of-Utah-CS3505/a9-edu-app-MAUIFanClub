@@ -2,6 +2,8 @@
 #define CIRCUITNODE_H
 
 #include <QDebug>
+#include <QLabel>
+#include <QPushButton>
 #include "circuitsignalhandler.h"
 #include "dragablewidget.h"
 #include "nodeinputslot.h"
@@ -17,6 +19,7 @@ public:
     ~CircuitNode();
 
     int nodeSize = 200;
+    QString imagePath;
 
     vector<NodeInputSlot *> inputs;
     NodeOutputSlot *output = nullptr;

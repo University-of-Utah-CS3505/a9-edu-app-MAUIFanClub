@@ -28,6 +28,8 @@ public:
 
     float currentZoom = 1;
 
+    float clamp(float d, float min, float max);
+
     vector<CircuitNode *> nodes;
     vector<OutputNode *> outputNodes;
 
