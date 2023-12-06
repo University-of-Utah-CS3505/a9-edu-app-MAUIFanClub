@@ -20,7 +20,6 @@ public:
     int size = 20;
     int *currentNodeSize;
 
-    NodeOutputSlot *connection = nullptr;
     QPoint position;
 
     void disconnect();

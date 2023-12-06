@@ -10,8 +10,8 @@ Level1Window::Level1Window(QWidget *parent)
     , ui(new Ui::Level1Window)
 {
     ui->setupUi(this);
-    CircuitManager *circuitManager = new CircuitManager(this);
-    circuitElementsMenu *instance = new circuitElementsMenu(circuitManager, this);
+    circuitManager = new CircuitManager(this);
+    instance = new circuitElementsMenu(circuitManager, this);
     this->layout()->addWidget(instance);
 }
 
@@ -31,13 +31,13 @@ void Level1Window::wheelEvent(QWheelEvent *event)
     // Detect the direction of the mouse wheel movement
     if (event->angleDelta().y() > 0) {
         // Mouse wheel moved up
-        for (CircuitNode *x : instance->nodes) {
+        for (CircuitNode *x : circuitManager->nodes) {
             currentZoom = clamp(currentZoom + 0.1, 0.4, 1);
             x->drawNode(currentZoom, x->pos());
         }
     } else {
         //Mouse wheel moved down
-        for (CircuitNode *x : instance->nodes) {
+        for (CircuitNode *x : circuitManager->nodes) {
             currentZoom = clamp(currentZoom - 0.1, 0.4, 1);
             x->drawNode(currentZoom, x->pos());
         }

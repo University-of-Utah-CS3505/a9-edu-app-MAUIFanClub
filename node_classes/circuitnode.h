@@ -29,7 +29,6 @@ public:
     void deleteNode();
 
 protected:
-    int nodeSize = 200;
     int currentSize = 200;
 
     void mousePressEvent(QMouseEvent *event) override;

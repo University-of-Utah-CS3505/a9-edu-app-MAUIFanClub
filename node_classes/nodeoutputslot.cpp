@@ -3,7 +3,6 @@
 
 NodeOutputSlot::NodeOutputSlot(QWidget *mainWindow, int *currentNodeSize, QWidget *parent)
 {
-    this->lineManager = new NodeLineConnectionManager(mainWindow);
     this->currentNodeSize = currentNodeSize;
 
     this->setParent(parent);
