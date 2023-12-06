@@ -5,29 +5,49 @@
 #include <QPainter>
 #include <QWidget>
 #include "circuitnode.h"
+#include <map>
 #include <vector>
 
-using std::vector;
+using std::vector, std::map, std::pair;
 
 class NodeLineConnectionManager
 {
 public:
+    struct NodeCanvas
+    {
+        QPixmap *pixmap;
+        QPainter *painter;
+        QLabel *paintCanvas;
+    };
+
     NodeLineConnectionManager(vector<CircuitNode *> *nodes, QWidget *mainWindow);
 
-    void updateLines();
-    void updateLinesDrag(QPoint slotPos, QPoint mousePos);
+    /// Creates a new canvas for the circuit node. Adding the canvas to the main Ui.
+    void createCanvas(CircuitNode *circuitNode);
+    /// Handles when a node is deleted. Deleting created data.
+    void nodeDeleted(CircuitNode *deletedNode);
+
+    /// Updates the circuit nodes canvas. Clearing the canvas and drawing new lines to its connections.
+    void updateCanvas(CircuitNode *circuitNode);
+    /// Draws a line from the dragged slot pos to the mouse pos.
+    void drawSlotDrag(CircuitNode *, QPoint slotPos, QPoint mousePos);
+    /// Takes in a Output & Input slot and draws a line between them. The circuit node in the arguments is the canvas to draw to.
+    void connectSlots(CircuitNode *circuitNode, NodeOutputSlot *outSlot, NodeInputSlot *inSlot);
+    /// Handles when a node is moved. Updating its Ui and the connections Ui.
+    void nodeMoved(CircuitNode *circuitNode);
 
 private:
-    QPixmap *pixmap;
-    QPixmap clearPixmap;
-    QPainter *painter;
-    QLabel *paintCanvas;
-    QWidget mainWindow;
+    map<CircuitNode *, NodeCanvas *> canvases;
 
-    void drawLine(QPoint p1, QPoint p2);
-    void clearCanvas();
+    QPixmap *clearPixmap;
+    QWidget *mainWindow;
 
     vector<CircuitNode *> *nodes;
+
+    /// Helper method to draw a line on the canvas.
+    void drawLine(NodeCanvas *nodeCanvas, QPoint p1, QPoint p2);
+    /// Clears the canvas of all drawings.
+    void clearCanvas(NodeCanvas *nodeCanvas);
 };
 
 #endif // NODELINECONNECTIONMANAGER_H

@@ -20,8 +20,6 @@ void NodeOutputSlot::mousePressEvent(QMouseEvent *event)
 {
     clicked = true;
 
-    QPoint slotScenePos = this->parentWidget()->pos() + this->pos() + QPoint(size - 2, size / 2);
-
     if (connection != nullptr) {
         connection->disconnect();
     }
@@ -74,5 +72,5 @@ void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
 void NodeOutputSlot::disconnect()
 {
     connection = nullptr;
-    //    emit node->circuitSignalHandler->updateLines();
+    emit node->circuitSignalHandler->updateLines();
 }

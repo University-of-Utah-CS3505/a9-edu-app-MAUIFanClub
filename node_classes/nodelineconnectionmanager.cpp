@@ -15,122 +15,115 @@ NodeLineConnectionManager::NodeLineConnectionManager(vector<CircuitNode *> *node
                                                      QWidget *mainWindow)
 {
     this->nodes = nodes;
+    this->mainWindow = mainWindow;
 
-    pixmap = new QPixmap(1200, 800);
-    pixmap->fill(Qt::transparent);
-    painter = new QPainter(pixmap);
-    painter->setBackgroundMode(Qt::TransparentMode);
+    clearPixmap = new QPixmap(1200, 800);
+    clearPixmap->fill(Qt::transparent);
+}
 
-    clearPixmap = *pixmap;
+void NodeLineConnectionManager::createCanvas(CircuitNode *circuitNode)
+{
+    NodeCanvas *nodeCanvas = new NodeCanvas();
+
+    // Creates pixmap / painter
+    nodeCanvas->pixmap = new QPixmap(1200, 800);
+    nodeCanvas->pixmap->fill(Qt::transparent);
+    nodeCanvas->painter = new QPainter(nodeCanvas->pixmap);
+    nodeCanvas->painter->setBackgroundMode(Qt::TransparentMode);
 
     QPen pen;
     pen.setWidth(4);
 
-    painter->setPen(pen);
-    painter->setRenderHint(QPainter::Antialiasing, true);
-    painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
+    // Assigns painter values
+    nodeCanvas->painter->setPen(pen);
+    nodeCanvas->painter->setRenderHint(QPainter::Antialiasing, true);
+    nodeCanvas->painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
 
-    paintCanvas = new QLabel();
+    nodeCanvas->paintCanvas = new QLabel();
 
-    mainWindow->layout()->addWidget(paintCanvas);
-    paintCanvas->setGeometry(QRect(0, 0, 1200, 800));
-    paintCanvas->lower();
-    paintCanvas->setPixmap(*pixmap);
+    // Adds canvas to ui.
+    mainWindow->layout()->addWidget(nodeCanvas->paintCanvas);
+    nodeCanvas->paintCanvas->setGeometry(QRect(0, 0, 1200, 800));
+    nodeCanvas->paintCanvas->lower();
+    nodeCanvas->paintCanvas->setPixmap(*nodeCanvas->pixmap);
+
+    canvases.insert(pair<CircuitNode *, NodeCanvas *>(circuitNode, nodeCanvas));
 }
 
-void NodeLineConnectionManager::updateLines()
+void NodeLineConnectionManager::nodeDeleted(CircuitNode *deletedNode)
 {
-    clearCanvas();
-    linesDrawn = vector<drawnLines>();
+    clearCanvas(canvases[deletedNode]);
 
-    CircuitNode *currentNode;
+    delete canvases[deletedNode]->paintCanvas;
+    delete canvases[deletedNode]->painter;
+    delete canvases[deletedNode]->pixmap;
+    delete canvases[deletedNode];
 
-    // Loops over each node in the circuit
-    for (int i = 0; i < nodes->size(); i++) {
-        currentNode = (*nodes)[i];
+    canvases.erase(deletedNode);
+}
 
-        //    Input Connection Draws     //
+void NodeLineConnectionManager::updateCanvas(CircuitNode *circuitNode)
+{
+    clearCanvas(canvases[circuitNode]);
 
-        // Loops over each input slot
-        for (int inputIndex = 0; inputIndex < currentNode->inputs.size(); inputIndex++) {
-            // Checks if input has a connection
-            if (currentNode->inputs[inputIndex]->connection == nullptr) {
-                continue;
-            }
-
-            // Current Node Input Point
-            QPoint inputScenePos = currentNode->inputs[inputIndex]->parentWidget()->pos()
-                                   + currentNode->inputs[inputIndex]->pos()
-                                   + QPoint(2, currentNode->inputs[inputIndex]->size / 2);
-
-            // Current Node Input Connection Point
-            QPoint inputConnectionScenePos
-                = currentNode->inputs[inputIndex]->connection->parentWidget()->pos()
-                  + currentNode->inputs[inputIndex]->connection->pos()
-                  + QPoint(currentNode->inputs[inputIndex]->connection->size - 2,
-                           currentNode->inputs[inputIndex]->connection->size / 2);
-
-            drawLine(inputScenePos, inputConnectionScenePos);
-        }
-
-        // Checks if output slot exists / has a connection
-        if (currentNode->output == nullptr || currentNode->output->connection == nullptr) {
-            continue;
-        }
-
-        //    Output Connection Draws     //
-
-        // Current Node Output Point
-        QPoint outputScenePos = currentNode->output->parentWidget()->pos()
-                                + currentNode->output->pos()
-                                + QPoint(currentNode->output->size - 2,
-                                         currentNode->output->size / 2);
-
-        // Current Node Output Connection Point
-        QPoint outputConnectionScenePos = currentNode->output->connection->parentWidget()->pos()
-                                          + currentNode->output->connection->pos()
-                                          + QPoint(2, currentNode->output->connection->size / 2);
-
-        drawLine(outputScenePos, outputConnectionScenePos);
+    if (circuitNode->output && circuitNode->output->connection) {
+        connectSlots(circuitNode, circuitNode->output, circuitNode->output->connection);
     }
 }
 
-void NodeLineConnectionManager::updateLinesDrag(QPoint slotPos, QPoint mousePos)
+void NodeLineConnectionManager::drawSlotDrag(CircuitNode *circuitNode,
+                                             QPoint slotPos,
+                                             QPoint mousePos)
 {
-    updateLines();
-    drawLine(slotPos, mousePos);
+    updateCanvas(circuitNode);
+
+    drawLine(canvases[circuitNode], slotPos, mousePos);
 }
 
-void NodeLineConnectionManager::drawLine(QPoint p1, QPoint p2)
+void NodeLineConnectionManager::connectSlots(CircuitNode *circuitNode,
+                                             NodeOutputSlot *outSlot,
+                                             NodeInputSlot *inSlot)
 {
-    for (int i = 0; i < linesDrawn.size(); i++) {
-        if ((linesDrawn[i].p1 == p1 && linesDrawn[i].p2 == p2)
-            || (linesDrawn[i].p1 == p2 && linesDrawn[i].p2 == p1)) {
-            return;
+    QPoint outPoint = outSlot->parentWidget()->pos() + outSlot->pos()
+                      + QPoint(outSlot->size - 2, outSlot->size / 2);
+
+    QPoint inPoint = inSlot->parentWidget()->pos() + inSlot->pos() + QPoint(2, inSlot->size / 2);
+
+    drawLine(canvases[circuitNode], outPoint, inPoint);
+}
+
+void NodeLineConnectionManager::nodeMoved(CircuitNode *circuitNode)
+{
+    updateCanvas(circuitNode);
+
+    // Loops over each input. If connection exists it updates its canvas.
+    for (int i = 0; i < circuitNode->inputs.size(); i++) {
+        if (circuitNode->inputs[i]->connection) {
+            updateCanvas(circuitNode->inputs[i]->connection->node);
         }
     }
+}
 
-    drawnLines newLine;
-    newLine.p1 = p1;
-    newLine.p2 = p2;
-    linesDrawn.push_back(newLine);
-
+void NodeLineConnectionManager::drawLine(NodeCanvas *nodeCanvas, QPoint p1, QPoint p2)
+{
     QLine line(p1.x(), p1.y(), p2.x(), p2.y());
-    painter->drawLine(line);
-    paintCanvas->setPixmap(*pixmap);
+    nodeCanvas->painter->drawLine(line);
+    nodeCanvas->paintCanvas->setPixmap(*nodeCanvas->pixmap);
 }
 
-void NodeLineConnectionManager::clearCanvas()
+void NodeLineConnectionManager::clearCanvas(NodeCanvas *nodeCanvas)
 {
-    painter->end();
-    *pixmap = clearPixmap;
-    painter->begin(pixmap);
+    // Sets pixmap data to clear pixmap
+    nodeCanvas->painter->end();
+    *nodeCanvas->pixmap = *clearPixmap;
+    nodeCanvas->painter->begin(nodeCanvas->pixmap);
 
+    // Assigns pen / painter values
     QPen pen;
     pen.setWidth(4);
-    painter->setPen(pen);
-    painter->setRenderHint(QPainter::Antialiasing, true);
-    painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
+    nodeCanvas->painter->setPen(pen);
+    nodeCanvas->painter->setRenderHint(QPainter::Antialiasing, true);
+    nodeCanvas->painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
 
-    paintCanvas->setPixmap(*pixmap);
+    nodeCanvas->paintCanvas->setPixmap(*nodeCanvas->pixmap);
 }

@@ -17,14 +17,57 @@ NodeInputSlot::~NodeInputSlot() {}
 void NodeInputSlot::mousePressEvent(QMouseEvent *event)
 {
     clicked = true;
+
+    if (connection != nullptr) {
+        connection->disconnect();
+    }
+    disconnect();
+}
+
+void NodeInputSlot::mouseMoveEvent(QMouseEvent *event)
+{
+    if (!clicked) {
+        return;
+    }
+
+    QPoint slotScenePos = this->parentWidget()->pos() + this->pos() + QPoint(2, size / 2);
+    emit node->circuitSignalHandler->nodeSlotDrag(slotScenePos, event->scenePosition().toPoint());
 }
 
 void NodeInputSlot::mouseReleaseEvent(QMouseEvent *event)
 {
     clicked = false;
+
+    QPoint pos = event->globalPosition().toPoint();
+
+    // Converts object mouse was over to inputSlot. If it is not an input slot it return null;
+    NodeOutputSlot *outputSlot = dynamic_cast<NodeOutputSlot *>(QApplication::widgetAt(pos));
+
+    // Check if mouse was over input slot
+    if (outputSlot == NULL) {
+        emit node->circuitSignalHandler->updateLines();
+        return;
+    }
+
+    // Checks to make sure input slot is not on same node
+    if (node->output == outputSlot) {
+        return;
+    }
+
+    // Disconnects the input slots previous connection
+    if (outputSlot->connection != nullptr) {
+        outputSlot->connection->disconnect();
+    }
+
+    connection = outputSlot;
+    outputSlot->connection = this;
+
+    emit node->circuitSignalHandler->updateLines();
+    emit connection->node->circuitSignalHandler->updateLines();
 }
 
 void NodeInputSlot::disconnect()
 {
     connection = nullptr;
+    emit node->circuitSignalHandler->updateLines();
 }

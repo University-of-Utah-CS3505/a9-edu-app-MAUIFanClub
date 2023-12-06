@@ -16,6 +16,8 @@ public:
     CircuitNode(int inputCount, bool hasOutput, QWidget *parent = nullptr);
     ~CircuitNode();
 
+    int nodeSize = 200;
+
     vector<NodeInputSlot *> inputs;
     NodeOutputSlot *output = nullptr;
 
@@ -27,7 +29,6 @@ public:
     void deleteNode();
 
 protected:
-    int nodeSize = 200;
     void mousePressEvent(QMouseEvent *event) override;
 };
 

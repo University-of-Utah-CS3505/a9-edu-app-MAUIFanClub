@@ -55,7 +55,7 @@ void CircuitNode::moveWidget()
         return;
     }
 
-    emit circuitSignalHandler->updateLines();
+    emit circuitSignalHandler->nodeMoved();
 }
 
 void CircuitNode::mousePressEvent(QMouseEvent *event)
@@ -74,13 +74,21 @@ void CircuitNode::deleteNode()
             continue;
         }
 
+        CircuitNode *connectedNode = inputs[i]->connection->node;
+
         inputs[i]->connection->disconnect();
         inputs[i]->disconnect();
+
+        emit connectedNode->circuitSignalHandler->updateLines();
     }
 
     if (output != nullptr && output->connection != nullptr) {
+        CircuitNode *connectedNode = output->connection->node;
+
         output->connection->disconnect();
         output->disconnect();
+
+        emit connectedNode->circuitSignalHandler->updateLines();
     }
 
     emit circuitSignalHandler->nodeDeleted();

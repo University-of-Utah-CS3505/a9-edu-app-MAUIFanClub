@@ -11,6 +11,7 @@ signals:
     void nodeDeleted();
     void updateLines();
     void nodeSlotDrag(QPoint slotPos, QPoint mousePos);
+    void nodeMoved();
 
 public:
     CircuitSignalHandler();

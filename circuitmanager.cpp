@@ -65,6 +65,7 @@ void CircuitManager::deleteNode(CircuitNode *nodeToDelete)
 void CircuitManager::handleNewNode(CircuitNode *node)
 {
     levelWidget->layout()->addWidget(node);
+    lineManager->createCanvas(node);
 
     QPoint nodePos(10, 30);
 
@@ -81,12 +82,12 @@ void CircuitManager::handleNewNode(CircuitNode *node)
     // Node Deleted Connection
     connect(node->circuitSignalHandler, &CircuitSignalHandler::nodeDeleted, this, [=]() {
         deleteNode(node);
-        lineManager->updateLines();
+        lineManager->nodeDeleted(node);
     });
 
     // Update Lines Connection
     connect(node->circuitSignalHandler, &CircuitSignalHandler::updateLines, this, [=]() {
-        lineManager->updateLines();
+        lineManager->updateCanvas(node);
     });
 
     // Slot Drag Connection
@@ -94,8 +95,13 @@ void CircuitManager::handleNewNode(CircuitNode *node)
             &CircuitSignalHandler::nodeSlotDrag,
             this,
             [=](QPoint slotPos, QPoint mousePos) {
-                lineManager->updateLinesDrag(slotPos, mousePos);
+                lineManager->drawSlotDrag(node, slotPos, mousePos);
             });
+
+    // Node Drag Connection
+    connect(node->circuitSignalHandler, &CircuitSignalHandler::nodeMoved, this, [=]() {
+        lineManager->nodeMoved(node);
+    });
 }
 
 void CircuitManager::createAndGate()
