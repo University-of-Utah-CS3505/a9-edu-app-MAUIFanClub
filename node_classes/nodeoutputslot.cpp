@@ -32,32 +32,47 @@ void NodeOutputSlot::redrawSlot(float multiplier)
 
 void NodeOutputSlot::mousePressEvent(QMouseEvent *event)
 {
-    QPoint slotScenePos = this->parentWidget()->pos() + this->pos() + QPoint(size - 2, size / 2);
+    clicked = true;
 
     if (connection != nullptr) {
         connection->disconnect();
     }
     disconnect();
-
-    lineManager->startLineDraw(slotScenePos);
 }
 
 void NodeOutputSlot::mouseMoveEvent(QMouseEvent *event)
 {
-    lineManager->updateLineDraw(event->scenePosition().toPoint());
+    if (!clicked) {
+        return;
+    }
+
+    QPoint slotScenePos = this->parentWidget()->pos() + this->pos() + QPoint(size - 2, size / 2);
+    emit node->circuitSignalHandler->nodeSlotDrag(slotScenePos, event->scenePosition().toPoint());
 }
 
 void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
 {
+    clicked = false;
+
     QPoint pos = event->globalPosition().toPoint();
+
+    // Converts object mouse was over to inputSlot. If it is not an input slot it return null;
     NodeInputSlot *inputSlot = dynamic_cast<NodeInputSlot *>(QApplication::widgetAt(pos));
 
+    // Check if mouse was over input slot
     if (inputSlot == NULL) {
-        lineManager->endLineDraw();
-        lineManager->clearCanvas();
+        emit node->circuitSignalHandler->updateLines();
         return;
     }
 
+    // Checks to make sure input slot is not on same node
+    for (int i = 0; i < node->inputs.size(); i++) {
+        if (node->inputs[i] == inputSlot) {
+            return;
+        }
+    }
+
+    // Disconnects the input slots previous connection
     if (inputSlot->connection != nullptr) {
         inputSlot->connection->disconnect();
     }
@@ -65,21 +80,11 @@ void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
     connection = inputSlot;
     inputSlot->connection = this;
 
-    QPoint slotScenePos = this->parentWidget()->pos() + this->pos() + QPoint(size - 2, size / 2);
-    QPoint inputSlotPos = inputSlot->node->pos() + inputSlot->pos()
-                          + QPoint(2, inputSlot->size / 2);
-
-    lineManager->drawLine(slotScenePos, inputSlotPos);
-    lineManager->endLineDraw();
+    emit node->circuitSignalHandler->updateLines();
 }
 
 void NodeOutputSlot::disconnect()
 {
     connection = nullptr;
-    lineManager->clearCanvas();
-}
-
-void NodeOutputSlot::updateLinePos(QPoint p1, QPoint p2)
-{
-    lineManager->drawLine(p1, p2);
+    emit node->circuitSignalHandler->updateLines();
 }

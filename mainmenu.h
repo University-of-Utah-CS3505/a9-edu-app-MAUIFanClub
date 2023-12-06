@@ -23,6 +23,8 @@ private slots:
 
     void on_level3Button_clicked();
 
+    void on_sandboxLevelButton_clicked();
+
 private:
     Ui::MainMenu *ui;
 };

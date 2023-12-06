@@ -2,15 +2,9 @@
 #define CIRCUITELEMENTSMENU_H
 
 #include <QLayout>
-#include <QMessageBox>
 #include <QWidget>
+#include "circuitmanager.h"
 #include "dragablewidget.h"
-#include "node_classes/andgate.h"
-#include "node_classes/inputnode.h"
-#include "node_classes/nandgate.h"
-#include "node_classes/norgate.h"
-#include "node_classes/orgate.h"
-#include "node_classes/outputnode.h"
 #include <vector>
 
 namespace Ui {
@@ -22,12 +16,10 @@ class circuitElementsMenu : public DragableWidget
     Q_OBJECT
 
 public:
-    explicit circuitElementsMenu(QWidget *parent = nullptr);
+    explicit circuitElementsMenu(CircuitManager *circuitManager, QWidget *parent = nullptr);
     ~circuitElementsMenu();
 
-    vector<CircuitNode *> nodes;
-    vector<CircuitNode *> outputNodes;
-    void nodeDeleted(CircuitNode *deletedNode);
+    CircuitManager *circuitManager;
 
 private slots:
     // Button Slots
@@ -40,7 +32,6 @@ private slots:
     void on_norGateBtn_clicked();
     void on_newInputBtn_clicked();
     void on_newOutputBtn_clicked();
-
     void on_runBtn_clicked();
 
 private:

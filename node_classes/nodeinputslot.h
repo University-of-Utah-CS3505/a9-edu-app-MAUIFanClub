@@ -12,6 +12,9 @@ public:
     NodeInputSlot(int *currentNodeSize, QWidget *parent = nullptr);
     ~NodeInputSlot();
 
+    NodeOutputSlot *connection = nullptr;
+
+    bool clicked = false;
     CircuitNode *node;
 
     int size = 20;
@@ -25,6 +28,7 @@ public:
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
 };
 

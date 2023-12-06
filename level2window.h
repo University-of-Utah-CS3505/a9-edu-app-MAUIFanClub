@@ -2,6 +2,7 @@
 #define LEVEL2WINDOW_H
 
 #include <QMainWindow>
+#include "circuitmanager.h"
 
 namespace Ui {
 class Level2Window;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::Level2Window *ui;
+    CircuitManager *circuitManager;
 };
 
 #endif // LEVEL2WINDOW_H

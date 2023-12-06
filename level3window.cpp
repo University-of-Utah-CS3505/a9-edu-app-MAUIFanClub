@@ -7,8 +7,9 @@ Level3Window::Level3Window(QWidget *parent) :
     ui(new Ui::Level3Window)
 {
     ui->setupUi(this);
-    circuitElementsMenu *instance = new circuitElementsMenu(this);
-    ui->lvlLayout->layout()->addWidget(instance);
+    CircuitManager *circuitManager = new CircuitManager(this);
+    circuitElementsMenu *instance = new circuitElementsMenu(circuitManager, this);
+    this->layout()->addWidget(instance);
 }
 
 Level3Window::~Level3Window()

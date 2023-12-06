@@ -9,6 +9,8 @@
 #include "node_classes/norgate.h"
 #include "node_classes/orgate.h"
 #include "node_classes/outputnode.h"
+#include "circuitmanager.h"
+
 namespace Ui {
 class Level1Window;
 }
@@ -30,6 +32,7 @@ private:
     Ui::Level1Window *ui;
     circuitElementsMenu *instance;
     float currentZoom = 1;
+    CircuitManager *circuitManager;
 };
 
 #endif // LEVEL1WINDOW_H
