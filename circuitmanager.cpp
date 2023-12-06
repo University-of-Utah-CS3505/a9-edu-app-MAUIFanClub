@@ -117,6 +117,7 @@ void CircuitManager::zoomIn()
     currentZoom = clamp(currentZoom + 0.1, 0.4, 1);
     for (CircuitNode *x : nodes) {
         x->drawNode(currentZoom, x->pos());
+        lineManager->updateCanvas(x);
     }
 }
 
@@ -125,6 +126,7 @@ void CircuitManager::zoomOut()
     currentZoom = clamp(currentZoom - 0.1, 0.4, 1);
     for (CircuitNode *x : nodes) {
         x->drawNode(currentZoom, x->pos());
+        lineManager->updateCanvas(x);
     }
 }
 

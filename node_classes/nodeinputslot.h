@@ -25,6 +25,9 @@ public:
     void disconnect();
     void redrawSlot(float multiplier);
 
+    int currentSize;
+    int currentLocation;
+
 protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;

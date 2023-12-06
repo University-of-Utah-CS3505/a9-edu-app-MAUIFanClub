@@ -14,6 +14,10 @@ OutputNode::OutputNode(QWidget *parent)
     QFont font = outputLabel->font();
     font.setPointSize(50);
     outputLabel->setFont(font);
+
+    QPoint i0(0, 90);
+    inputs[0]->move(i0);
+    inputs[0]->position = i0;
 }
 
 OutputNode::~OutputNode() {}

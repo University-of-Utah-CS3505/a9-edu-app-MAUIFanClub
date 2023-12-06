@@ -25,8 +25,9 @@ float clamp1(float d, float min, float max)
 void NodeInputSlot::redrawSlot(float multiplier)
 {
     float localMultiplier = clamp1(multiplier, 0.6, 1);
-    int currentSize = size * localMultiplier;
-    int currentLocation = position.y() * multiplier;
+    currentSize = size * localMultiplier;
+    currentLocation = position.y() * multiplier;
+
     this->setGeometry(QRect(0, currentLocation, currentSize, currentSize));
 }
 

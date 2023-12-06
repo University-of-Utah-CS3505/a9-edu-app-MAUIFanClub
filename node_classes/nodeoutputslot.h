@@ -23,6 +23,9 @@ public:
 
     void disconnect();
 
+    int currentSize;
+    int currentLocation;
+
 protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
