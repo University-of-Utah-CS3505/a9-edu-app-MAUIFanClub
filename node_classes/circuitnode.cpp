@@ -58,7 +58,10 @@ void CircuitNode::drawNode(float sizeMultiplier, QPoint pos)
         // Output Node Text Label Scale
         else {
             QLabel *outputLabel = static_cast<QLabel *>(this->children()[1]);
-            outputLabel->setGeometry(0, 0, currentSize, currentSize);
+            outputLabel->setGeometry(QRect(25 * sizeMultiplier,
+                                           25 * sizeMultiplier,
+                                           150 * sizeMultiplier,
+                                           150 * sizeMultiplier));
         }
     }
 

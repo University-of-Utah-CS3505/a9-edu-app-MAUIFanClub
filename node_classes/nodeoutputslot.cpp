@@ -57,7 +57,7 @@ void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
 
     // Converts object mouse was over to inputSlot. If it is not an input slot it return null;
     NodeInputSlot *inputSlot = dynamic_cast<NodeInputSlot *>(QApplication::widgetAt(pos));
-
+    qDebug() << inputSlot;
     // Check if mouse was over input slot
     if (inputSlot == NULL) {
         emit node->circuitSignalHandler->updateLines();
