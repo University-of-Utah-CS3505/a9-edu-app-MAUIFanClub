@@ -113,17 +113,17 @@ float clamp(float d, float min, float max)
 }
 
 void CircuitManager::zoomIn()
-{ // Mouse wheel moved up
+{
+    currentZoom = clamp(currentZoom + 0.1, 0.4, 1);
     for (CircuitNode *x : nodes) {
-        currentZoom = clamp(currentZoom + 0.1, 0.4, 1);
         x->drawNode(currentZoom, x->pos());
     }
 }
 
 void CircuitManager::zoomOut()
 {
+    currentZoom = clamp(currentZoom - 0.1, 0.4, 1);
     for (CircuitNode *x : nodes) {
-        currentZoom = clamp(currentZoom - 0.1, 0.4, 1);
         x->drawNode(currentZoom, x->pos());
     }
 }
