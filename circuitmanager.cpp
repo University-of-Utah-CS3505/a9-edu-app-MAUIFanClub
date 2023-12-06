@@ -64,6 +64,7 @@ void CircuitManager::deleteNode(CircuitNode *nodeToDelete)
 
 void CircuitManager::handleNewNode(CircuitNode *node)
 {
+    node->drawNode(currentZoom, node->pos());
     levelWidget->layout()->addWidget(node);
     lineManager->createCanvas(node);
 
