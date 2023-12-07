@@ -5,7 +5,6 @@
 #include "circuitelementsmenu.h"
 #include "levelmanager.h"
 #include "zoomwidget.h"
-
 namespace Ui {
 class Level1Window;
 }

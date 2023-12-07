@@ -36,6 +36,7 @@ void zoomWidget::on_horizontalSlider_sliderMoved(int position)
 
 void zoomWidget::on_horizontalSlider_valueChanged(int value)
 {
-
+    double val = (((double)value - 40.0) / (100.0 - 40.0)) * (100.0 - 0.0);
+    ui->label->setText(QString::number((int)val) + "%");
 }
 

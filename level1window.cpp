@@ -2,7 +2,6 @@
 #include <QWheelEvent>
 #include "ui_level1window.h"
 #include <iostream>
-
 Level1Window::Level1Window(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Level1Window)
@@ -13,6 +12,9 @@ Level1Window::Level1Window(QWidget *parent)
     instance = new circuitElementsMenu(levelManager->circuitManager, this);
     this->layout()->addWidget(instance);
     this->layout()->addWidget(zoomWidget);
+    //ui->zoomWidget->layout()->addWidget(zoomWidget);
+   // ui->zoomWidget->layout()->addWidget(zoomWidget);
+
 }
 
 Level1Window::~Level1Window()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>42</height>
+    <width>306</width>
+    <height>43</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,47 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
+    <widget class="QLabel" name="label_2">
+     <property name="minimumSize">
+      <size>
+       <width>30</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+border-image: url(:/menuIcons/menuIcons/loupe.png);
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QSlider" name="horizontalSlider">
+     <property name="styleSheet">
+      <string notr="true">QSlider{
+background-color: rgb(103, 103, 103);
+border: 5px solid #5c5c5c;
+border-color: rgb(0, 0, 0);
+color: rgb(0,0,0);
+}
+QSlider::handle{
+background-color: rgb(44, 44, 44);
+width :5px;
+border: 3px solid rgb(0, 0, 0);
+border-radius: 5px;
+margin: -2px -2px;
+
+}</string>
+     </property>
      <property name="minimum">
       <number>40</number>
      </property>
@@ -32,7 +72,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="tickPosition">
-      <enum>QSlider::TicksBothSides</enum>
+      <enum>QSlider::NoTicks</enum>
      </property>
      <property name="tickInterval">
       <number>10</number>
@@ -40,17 +80,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QProgressBar" name="progressBar">
-     <property name="value">
-      <number>100</number>
-     </property>
-     <property name="textVisible">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </item>
-   <item>
     <widget class="QLabel" name="label">
+     <property name="styleSheet">
+      <string notr="true">border: 5px solid rgb(6, 6, 6);
+font: 9pt &quot;Terminal&quot;;
+color : rgb(0, 0, 0);</string>
+     </property>
      <property name="text">
       <string>100</string>
      </property>
