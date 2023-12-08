@@ -27,7 +27,14 @@ void Level3Window::wheelEvent(QWheelEvent *event)
         circuitManager->zoomOut();
     }
     QMainWindow::wheelEvent(event);
-    // You can also access the exact delta value using event->delta()
+}
 
-    // Pass the event to the base class for default handling
+void Level3Window::on_actionSave_triggered()
+{
+    circuitManager->saveFile();
+}
+
+void Level3Window::on_actionLoad_triggered()
+{
+    circuitManager->loadFile();
 }

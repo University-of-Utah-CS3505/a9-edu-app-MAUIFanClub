@@ -2,6 +2,10 @@
 #define CIRCUITMANAGER_H
 
 #include <QApplication>
+#include <QFile>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QLayout>
 #include <QMessageBox>
 #include <QWidget>
@@ -30,17 +34,24 @@ public:
 
     float clamp(float d, float min, float max);
 
+    int *nodeCount;
+    int *inputCount;
+    int *outputCount;
+
     vector<CircuitNode *> nodes;
     vector<OutputNode *> outputNodes;
 
     void run();
     void runEachOutput();
-	bool isGraphCompleted();
+    bool isGraphCompleted();
 
-	void deleteNode(CircuitNode *nodeToDelete);
-	void clearAllNodes();
+    void loadFile();
+    void saveFile();
 
-	void zoomIn();
+    void deleteNode(CircuitNode *nodeToDelete);
+    void clearAllNodes();
+
+    void zoomIn();
     void zoomOut();
 
     void createAndGate();
@@ -52,7 +63,7 @@ public:
 
 private:
     NodeLineConnectionManager *lineManager;
-    void handleNewNode(CircuitNode *node);
+    void handleNewNode(CircuitNode *node, QPoint nodePos = QPoint());
 };
 
 #endif // CIRCUITMANAGER_H

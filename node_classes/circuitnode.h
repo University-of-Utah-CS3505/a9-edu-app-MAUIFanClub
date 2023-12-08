@@ -2,12 +2,14 @@
 #define CIRCUITNODE_H
 
 #include <QDebug>
+#include <QFileDialog>
 #include <QLabel>
 #include <QPushButton>
 #include "circuitsignalhandler.h"
 #include "dragablewidget.h"
 #include "nodeinputslot.h"
 #include "nodeoutputslot.h"
+#include <random>
 #include <vector>
 
 using std::vector;
@@ -26,10 +28,11 @@ public:
 
     CircuitSignalHandler *circuitSignalHandler;
 
-    virtual bool run();
-    virtual void moveWidget();
     void drawNode(float sizeMultiplier, QPoint pos);
     void deleteNode();
+
+    virtual bool run();
+    virtual void moveWidget();
 
 protected:
     int currentSize = 200;

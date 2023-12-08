@@ -67,24 +67,27 @@
    </property>
    <widget class="QMenu" name="menuSave">
     <property name="title">
-     <string>Save</string>
+     <string>File</string>
     </property>
-   </widget>
-   <widget class="QMenu" name="menuLoad">
-    <property name="title">
-     <string>Load</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuClear">
-    <property name="title">
-     <string>Clear</string>
-    </property>
+    <addaction name="actionSave"/>
+    <addaction name="actionLoad"/>
    </widget>
    <addaction name="menuSave"/>
-   <addaction name="menuLoad"/>
-   <addaction name="menuClear"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="text">
+    <string>Load</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

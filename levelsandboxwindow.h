@@ -20,6 +20,11 @@ public:
 protected:
     void wheelEvent(QWheelEvent *event) override;
 
+private slots:
+    void on_actionSave_triggered();
+
+    void on_actionLoad_triggered();
+
 private:
     Ui::LevelSandboxWindow *ui;
     circuitElementsMenu *instance;

@@ -8,6 +8,8 @@
 #include <QPixmap>
 #include "circuitnode.h"
 
+using std::to_string;
+
 class AndGate : public CircuitNode
 {
 public:

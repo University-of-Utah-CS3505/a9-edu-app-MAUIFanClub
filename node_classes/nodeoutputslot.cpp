@@ -1,12 +1,14 @@
 #include "nodeoutputslot.h"
 #include "node_classes/circuitnode.h"
 
-NodeOutputSlot::NodeOutputSlot(QWidget *mainWindow, int *currentNodeSize, QWidget *parent)
+NodeOutputSlot::NodeOutputSlot(QWidget *mainWindow,
+                               int *currentNodeSize,
+                               QWidget *parent)
 {
     this->currentNodeSize = currentNodeSize;
 
     this->setParent(parent);
-    this->setObjectName("Output Node");
+    this->setObjectName("outputSlot");
     this->setStyleSheet("* {background-color:red;}");
     this->setGeometry(QRect(180, 90, size, size));
 

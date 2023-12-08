@@ -28,6 +28,10 @@ protected:
 
 private slots:
 
+    void on_actionSave_triggered();
+
+    void on_actionLoad_triggered();
+
 private:
     Ui::Level1Window *ui;
     circuitElementsMenu *instance;

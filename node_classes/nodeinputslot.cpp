@@ -6,7 +6,7 @@ NodeInputSlot::NodeInputSlot(int *currentNodeSize, QWidget *parent)
     this->currentNodeSize = currentNodeSize;
 
     this->setParent(parent);
-    this->setObjectName("Input Node");
+    this->setObjectName("inputSlot");
     this->setStyleSheet("* {background-color:green;}");
     this->setGeometry(QRect(0, 90, size, size));
 
