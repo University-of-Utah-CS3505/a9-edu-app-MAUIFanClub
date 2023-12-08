@@ -159,6 +159,56 @@ void CircuitManager::loadFile()
 
             nOrGateNode->setObjectName(nodeName);
             handleNewNode(nOrGateNode, nodePos);
+
+        } else if (nodeName.contains("notGate")) {
+            NotGate *notGateNode = new NotGate(levelWidget);
+
+            QString inSlotName1
+                = loadedNodes[i].toObject()["inputs"].toArray()[0].toObject()["inputName"].toString();
+            notGateNode->inputs[0]->setObjectName(inSlotName1);
+
+            QString outputSlotName
+                = loadedNodes[i].toObject()["output"].toObject()["outputName"].toString();
+            notGateNode->output->setObjectName(outputSlotName);
+
+            notGateNode->setObjectName(nodeName);
+            handleNewNode(notGateNode, nodePos);
+
+        } else if (nodeName.contains("xOrGateNode")) {
+            xOrGate *xOrGateNode = new xOrGate(levelWidget);
+
+            QString inSlotName1
+                = loadedNodes[i].toObject()["inputs"].toArray()[0].toObject()["inputName"].toString();
+            xOrGateNode->inputs[0]->setObjectName(inSlotName1);
+
+            QString inSlotName2
+                = loadedNodes[i].toObject()["inputs"].toArray()[1].toObject()["inputName"].toString();
+            xOrGateNode->inputs[1]->setObjectName(inSlotName2);
+
+            QString outputSlotName
+                = loadedNodes[i].toObject()["output"].toObject()["outputName"].toString();
+            xOrGateNode->output->setObjectName(outputSlotName);
+
+            xOrGateNode->setObjectName(nodeName);
+            handleNewNode(xOrGateNode, nodePos);
+
+        } else if (nodeName.contains("xnOrGateNode")) {
+            XnOrGate *xNOrGateNode = new XnOrGate(levelWidget);
+
+            QString inSlotName1
+                = loadedNodes[i].toObject()["inputs"].toArray()[0].toObject()["inputName"].toString();
+            xNOrGateNode->inputs[0]->setObjectName(inSlotName1);
+
+            QString inSlotName2
+                = loadedNodes[i].toObject()["inputs"].toArray()[1].toObject()["inputName"].toString();
+            xNOrGateNode->inputs[1]->setObjectName(inSlotName2);
+
+            QString outputSlotName
+                = loadedNodes[i].toObject()["output"].toObject()["outputName"].toString();
+            xNOrGateNode->output->setObjectName(outputSlotName);
+
+            xNOrGateNode->setObjectName(nodeName);
+            handleNewNode(xNOrGateNode, nodePos);
         }
     }
 
@@ -404,6 +454,21 @@ void CircuitManager::createOrGate()
 void CircuitManager::createNOrGate()
 {
     handleNewNode(new nOrGate(levelWidget));
+}
+
+void CircuitManager::createNotGate()
+{
+    handleNewNode(new NotGate(levelWidget));
+}
+
+void CircuitManager::createXNOrGate()
+{
+    handleNewNode(new XnOrGate(levelWidget));
+}
+
+void CircuitManager::createXOrGate()
+{
+    handleNewNode(new xOrGate(levelWidget));
 }
 
 void CircuitManager::createInputNode()

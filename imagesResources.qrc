@@ -9,6 +9,9 @@
         <file>images/orGate.png</file>
         <file>images/nAndGate.png</file>
         <file>images/nOrGate.png</file>
+        <file>images/NOT.png</file>
+        <file>images/XNOR.png</file>
+        <file>images/XOR.png</file>
     </qresource>
     <qresource prefix="/menuIcons">
         <file>menuIcons/andGateIcon.png</file>
@@ -17,5 +20,8 @@
         <file>menuIcons/orGateIcon.png</file>
         <file>menuIcons/inputPlaceholderIcon.png</file>
         <file>menuIcons/outputPlaceholderIcon.png</file>
+        <file>menuIcons/notIcon.png</file>
+        <file>menuIcons/xNORIcon.png</file>
+        <file>menuIcons/xOrIcon.png</file>
     </qresource>
 </RCC>

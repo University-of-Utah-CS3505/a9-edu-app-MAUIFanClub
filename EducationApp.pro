@@ -27,8 +27,11 @@ SOURCES += \
     node_classes/nodelineconnectionmanager.cpp \
     node_classes/nodeoutputslot.cpp \
     node_classes/norgate.cpp \
+    node_classes/notgate.cpp \
     node_classes/orgate.cpp \
-    node_classes/outputnode.cpp
+    node_classes/outputnode.cpp \
+    node_classes/xnorgate.cpp \
+    node_classes/xorgate.cpp
 
 HEADERS += \
     circuitelementsmenu.h \
@@ -48,8 +51,11 @@ HEADERS += \
     node_classes/nodelineconnectionmanager.h \
     node_classes/nodeoutputslot.h \
     node_classes/norgate.h \
+    node_classes/notgate.h \
     node_classes/orgate.h \
-    node_classes/outputnode.h
+    node_classes/outputnode.h \
+    node_classes/xnorgate.h \
+    node_classes/xorgate.h
 
 FORMS += \
     circuitelementsmenu.ui \

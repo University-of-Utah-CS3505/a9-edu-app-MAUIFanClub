@@ -1,5 +1,5 @@
-#ifndef ANDGATE_H
-#define ANDGATE_H
+#ifndef XNORGATE_H
+#define XNORGATE_H
 
 #include <QDebug>
 #include <QImage>
@@ -8,12 +8,12 @@
 #include <QPixmap>
 #include "circuitnode.h"
 
-class AndGate : public CircuitNode
+class XnOrGate : public CircuitNode
 {
 public:
-    AndGate(QWidget *parent = nullptr);
+    XnOrGate(QWidget *parent = nullptr);
 
     virtual bool run();
 };
 
-#endif // ANDGATE_H
+#endif // XNORGATE_H

@@ -18,8 +18,11 @@
 #include "node_classes/nandgate.h"
 #include "node_classes/nodelineconnectionmanager.h"
 #include "node_classes/norgate.h"
+#include "node_classes/notgate.h"
 #include "node_classes/orgate.h"
 #include "node_classes/outputnode.h"
+#include "node_classes/xnorgate.h"
+#include "node_classes/xorgate.h"
 
 using std::vector;
 
@@ -58,6 +61,9 @@ public:
     void createNAndGate();
     void createOrGate();
     void createNOrGate();
+    void createNotGate();
+    void createXNOrGate();
+    void createXOrGate();
     void createInputNode();
     void createOutputNode();
 

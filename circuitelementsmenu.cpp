@@ -94,6 +94,21 @@ void circuitElementsMenu::on_newOutputBtn_clicked()
     circuitManager->createOutputNode();
 }
 
+void circuitElementsMenu::on_notGateBtn_clicked()
+{
+    circuitManager->createNotGate();
+}
+
+void circuitElementsMenu::on_xnOrGateBtn_clicked()
+{
+    circuitManager->createXNOrGate();
+}
+
+void circuitElementsMenu::on_xOrGateBtn_clicked()
+{
+    circuitManager->createXOrGate();
+}
+
 void circuitElementsMenu::on_runBtn_clicked()
 {
     circuitManager->run();
