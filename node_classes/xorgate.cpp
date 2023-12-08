@@ -20,12 +20,12 @@ xOrGate::xOrGate(QWidget *parent)
 
     imageLabel->lower();
 
-    QPoint i0(0, 70);
+    QPoint i0(0, 71);
     inputs[0]->setObjectName("inputSlot_" + QString::number(rd()));
     inputs[0]->move(i0);
     inputs[0]->position = i0;
 
-    QPoint i1(0, 110);
+    QPoint i1(0, 112);
     inputs[0]->setObjectName("inputSlot_" + QString::number(rd()));
     inputs[1]->move(i1);
     inputs[1]->position = i1;
