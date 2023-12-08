@@ -20,7 +20,7 @@ public:
         QLabel *paintCanvas;
     };
 
-    NodeLineConnectionManager(vector<CircuitNode *> *nodes, QWidget *mainWindow);
+    NodeLineConnectionManager(float *currentZoom, vector<CircuitNode *> *nodes, QWidget *mainWindow);
 
     /// Creates a new canvas for the circuit node. Adding the canvas to the main Ui.
     void createCanvas(CircuitNode *circuitNode);
@@ -44,8 +44,10 @@ private:
 
     vector<CircuitNode *> *nodes;
 
+    float *currentZoom;
+
     /// Helper method to draw a line on the canvas.
-    void drawLine(NodeCanvas *nodeCanvas, QPoint p1, QPoint p2);
+    void drawLine(NodeCanvas *nodeCanvas, QPointF p1, QPointF p2);
     /// Clears the canvas of all drawings.
     void clearCanvas(NodeCanvas *nodeCanvas);
 };

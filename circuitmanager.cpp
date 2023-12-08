@@ -3,7 +3,7 @@
 CircuitManager::CircuitManager(QWidget *levelWidget)
 {
     this->levelWidget = levelWidget;
-    lineManager = new NodeLineConnectionManager(&nodes, levelWidget);
+    lineManager = new NodeLineConnectionManager(&currentZoom, &nodes, levelWidget);
 
     nodeCount = new int();
     inputCount = new int();
@@ -367,6 +367,8 @@ void CircuitManager::zoomIn()
     currentZoom = clamp(currentZoom + 0.1, 0.4, 1);
     for (CircuitNode *x : nodes) {
         x->drawNode(currentZoom, x->pos());
+    }
+    for (CircuitNode *x : nodes) {
         lineManager->updateCanvas(x);
     }
 }
@@ -376,6 +378,8 @@ void CircuitManager::zoomOut()
     currentZoom = clamp(currentZoom - 0.1, 0.4, 1);
     for (CircuitNode *x : nodes) {
         x->drawNode(currentZoom, x->pos());
+    }
+    for (CircuitNode *x : nodes) {
         lineManager->updateCanvas(x);
     }
 }

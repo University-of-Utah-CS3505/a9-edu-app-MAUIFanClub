@@ -18,7 +18,7 @@ NodeOutputSlot::NodeOutputSlot(QWidget *mainWindow,
 
 NodeOutputSlot::~NodeOutputSlot() {}
 
-float clamp2(float d, float min, float max)
+float NodeOutputSlot::clampMultiplier(float d, float min, float max)
 {
     const float t = d < min ? min : d;
     return t > max ? max : t;
@@ -26,7 +26,7 @@ float clamp2(float d, float min, float max)
 
 void NodeOutputSlot::redrawSlot(float multiplier)
 {
-    currentSize = size * clamp2(multiplier, 0.6, 1);
+    currentSize = size * clampMultiplier(multiplier, 0.6, 1);
     currentLocation = *currentNodeSize - currentSize;
     this->setGeometry(QRect(currentLocation, currentLocation / 2, currentSize, currentSize));
 }

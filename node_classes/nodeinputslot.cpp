@@ -16,7 +16,7 @@ NodeInputSlot::NodeInputSlot(int *currentNodeSize, QWidget *parent)
 
 NodeInputSlot::~NodeInputSlot() {}
 
-float clamp1(float d, float min, float max)
+float NodeInputSlot::clampMultiplier(float d, float min, float max)
 {
     const float t = d < min ? min : d;
     return t > max ? max : t;
@@ -24,7 +24,7 @@ float clamp1(float d, float min, float max)
 
 void NodeInputSlot::redrawSlot(float multiplier)
 {
-    float localMultiplier = clamp1(multiplier, 0.6, 1);
+    float localMultiplier = clampMultiplier(multiplier, 0.6, 1);
     currentSize = size * localMultiplier;
     currentLocation = position.y() * multiplier;
 

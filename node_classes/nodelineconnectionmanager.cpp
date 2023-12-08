@@ -3,19 +3,13 @@
 #include <QLayout>
 #include <QMainWindow>
 
-struct drawnLines
-{
-    QPoint p1;
-    QPoint p2;
-};
-
-vector<drawnLines> linesDrawn;
-
-NodeLineConnectionManager::NodeLineConnectionManager(vector<CircuitNode *> *nodes,
+NodeLineConnectionManager::NodeLineConnectionManager(float *currentZoom,
+                                                     vector<CircuitNode *> *nodes,
                                                      QWidget *mainWindow)
 {
     this->nodes = nodes;
     this->mainWindow = mainWindow;
+    this->currentZoom = currentZoom;
 
     clearPixmap = new QPixmap(1200, 800);
     clearPixmap->fill(Qt::transparent);
@@ -62,6 +56,13 @@ void NodeLineConnectionManager::nodeDeleted(CircuitNode *deletedNode)
     canvases.erase(deletedNode);
 }
 
+void NodeLineConnectionManager::drawLine(NodeCanvas *nodeCanvas, QPointF p1, QPointF p2)
+{
+    QLine line(p1.x(), p1.y(), p2.x(), p2.y());
+    nodeCanvas->painter->drawLine(line);
+    nodeCanvas->paintCanvas->setPixmap(*nodeCanvas->pixmap);
+}
+
 void NodeLineConnectionManager::updateCanvas(CircuitNode *circuitNode)
 {
     clearCanvas(canvases[circuitNode]);
@@ -84,10 +85,12 @@ void NodeLineConnectionManager::connectSlots(CircuitNode *circuitNode,
                                              NodeOutputSlot *outSlot,
                                              NodeInputSlot *inSlot)
 {
-    QPoint outPoint = outSlot->parentWidget()->pos() + outSlot->pos()
-                      + QPoint(outSlot->size - 2, outSlot->size / 2);
+    QPointF outPoint = outSlot->parentWidget()->pos().toPointF() + outSlot->pos().toPointF()
+                       + (QPointF((float) (outSlot->size - 2.0f), ((float) (outSlot->size / 2.0f)))
+                          * (*currentZoom));
 
-    QPoint inPoint = inSlot->parentWidget()->pos() + inSlot->pos() + QPoint(2, inSlot->size / 2);
+    QPointF inPoint = inSlot->parentWidget()->pos().toPointF() + inSlot->pos().toPointF()
+                      + (QPointF(2.0f, ((float) (inSlot->size / 2.0f))) * (*currentZoom));
 
     drawLine(canvases[circuitNode], outPoint, inPoint);
 }
@@ -102,13 +105,6 @@ void NodeLineConnectionManager::nodeMoved(CircuitNode *circuitNode)
             updateCanvas(circuitNode->inputs[i]->connection->node);
         }
     }
-}
-
-void NodeLineConnectionManager::drawLine(NodeCanvas *nodeCanvas, QPoint p1, QPoint p2)
-{
-    QLine line(p1.x(), p1.y(), p2.x(), p2.y());
-    nodeCanvas->painter->drawLine(line);
-    nodeCanvas->paintCanvas->setPixmap(*nodeCanvas->pixmap);
 }
 
 void NodeLineConnectionManager::clearCanvas(NodeCanvas *nodeCanvas)

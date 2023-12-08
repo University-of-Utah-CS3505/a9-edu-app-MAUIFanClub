@@ -20,13 +20,15 @@ public:
     int size = 20;
     int *currentNodeSize;
 
+    int currentSize;
+    int currentLocation;
+
     QPoint position;
+
+    float clampMultiplier(float d, float min, float max);
 
     void disconnect();
     void redrawSlot(float multiplier);
-
-    int currentSize;
-    int currentLocation;
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;

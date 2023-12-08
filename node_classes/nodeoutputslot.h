@@ -21,6 +21,8 @@ public:
     void redrawSlot(float multiplier);
     int size = 20;
 
+    float clampMultiplier(float d, float min, float max);
+
     void disconnect();
 
     int currentSize;
