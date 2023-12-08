@@ -14,6 +14,7 @@ circuitElementsMenu::circuitElementsMenu(CircuitManager *circuitManager, QWidget
     for (QWidget *currentWidget : x) {
         currentWidget->setHidden(true);
     }
+
     //ui->logicGatesButton->setStyleSheet("margin-bottom:20px;");
     ui->ElementsLayout->layout()->setContentsMargins(QMargins(0,0,0,0));
     ui->ElementsLayout->layout()->setSpacing(0);

@@ -84,6 +84,12 @@ background-color: rgb(52, 52, 52);</string>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
         <width>250</width>
@@ -221,14 +227,8 @@ border: 2px solid #000000;
              <string notr="true">background-color: rgb(255, 255, 255);</string>
             </property>
             <layout class="QGridLayout" name="gridLayout">
-             <item row="2" column="1">
-              <widget class="QPushButton" name="xnOrGateBtn">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="norGateBtn">
                <property name="minimumSize">
                 <size>
                  <width>70</width>
@@ -241,9 +241,12 @@ border: 2px solid #000000;
                  <height>70</height>
                 </size>
                </property>
+               <property name="toolTip">
+                <string>nOr Gate</string>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton{
-	border-image: url(:/menuIcons/menuIcons/xNORIcon.png);
+	border-image: url(:/menuIcons/menuIcons/nOrGateIcon.png);
 }
 QPushButton::hover{
 	background-color: rgb(72, 72, 72);
@@ -255,7 +258,7 @@ QPushButton::hover{
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
+             <item row="1" column="0">
               <widget class="QPushButton" name="orGateBtn">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -275,9 +278,43 @@ QPushButton::hover{
                  <height>70</height>
                 </size>
                </property>
+               <property name="toolTip">
+                <string>Or Gate</string>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton{
 	border-image: url(:/menuIcons/menuIcons/orGateIcon.png);
+}
+QPushButton::hover{
+	background-color: rgb(72, 72, 72);
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QPushButton" name="nandGateBtn">
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>nAnd Gate</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border-image: url(:/menuIcons/menuIcons/nAndGateIcon.png);
 }
 QPushButton::hover{
 	background-color: rgb(72, 72, 72);
@@ -303,6 +340,9 @@ QPushButton::hover{
                  <height>70</height>
                 </size>
                </property>
+               <property name="toolTip">
+                <string>And Gate</string>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton{
 	border-image: url(:/menuIcons/menuIcons/andGateIcon.png);
@@ -311,34 +351,7 @@ QPushButton::hover{
 	background-color: rgb(72, 72, 72);
 }
 
-</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QPushButton" name="norGateBtn">
-               <property name="minimumSize">
-                <size>
-                 <width>70</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>70</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton{
-	border-image: url(:/menuIcons/menuIcons/nOrGateIcon.png);
-}
-QPushButton::hover{
-	background-color: rgb(72, 72, 72);
-}
+
 </string>
                </property>
                <property name="text">
@@ -347,68 +360,6 @@ QPushButton::hover{
               </widget>
              </item>
              <item row="2" column="0">
-              <widget class="QPushButton" name="notGateBtn">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>70</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>70</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton{
-	border-image: url(:/menuIcons/menuIcons/notIcon.png);
-}
-QPushButton::hover{
-	background-color: rgb(72, 72, 72);
-}
-</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QPushButton" name="nandGateBtn">
-               <property name="minimumSize">
-                <size>
-                 <width>70</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>70</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton{
-	border-image: url(:/menuIcons/menuIcons/nAndGateIcon.png);
-}
-QPushButton::hover{
-	background-color: rgb(72, 72, 72);
-}
-</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
               <widget class="QPushButton" name="xOrGateBtn">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -428,9 +379,86 @@ QPushButton::hover{
                  <height>70</height>
                 </size>
                </property>
+               <property name="toolTip">
+                <string>xOr Gate</string>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton{
 	border-image: url(:/menuIcons/menuIcons/xOrIcon.png);
+}
+QPushButton::hover{
+	background-color: rgb(72, 72, 72);
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QPushButton" name="xnOrGateBtn">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>XnOr Gate</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border-image: url(:/menuIcons/menuIcons/xNORIcon.png);
+}
+QPushButton::hover{
+	background-color: rgb(72, 72, 72);
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QPushButton" name="notGateBtn">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>70</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Not Gate</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border-image: url(:/menuIcons/menuIcons/notIcon.png);
 }
 QPushButton::hover{
 	background-color: rgb(72, 72, 72);
@@ -530,6 +558,9 @@ border: 2px solid #000000;
                  <height>70</height>
                 </size>
                </property>
+               <property name="toolTip">
+                <string>Input Node</string>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton{
 	border-image: url(:/menuIcons/menuIcons/inputPlaceholderIcon.png);
@@ -558,6 +589,9 @@ QPushButton::hover{
                  <width>70</width>
                  <height>70</height>
                 </size>
+               </property>
+               <property name="toolTip">
+                <string>Output Node</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton{
