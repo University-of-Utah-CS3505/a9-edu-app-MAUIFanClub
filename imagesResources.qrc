@@ -24,4 +24,21 @@
         <file>menuIcons/xNORIcon.png</file>
         <file>menuIcons/xOrIcon.png</file>
     </qresource>
+    <qresource prefix="/saveFiles">
+        <file>CircuitLevels/all_1.csp</file>
+        <file>CircuitLevels/and_d.csp</file>
+        <file>CircuitLevels/andor_1.csp</file>
+        <file>CircuitLevels/andornot_1.csp</file>
+        <file>CircuitLevels/andornot_2.csp</file>
+        <file>CircuitLevels/level_fish.csp</file>
+        <file>CircuitLevels/level_star.csp</file>
+        <file>CircuitLevels/nand_d.csp</file>
+        <file>CircuitLevels/nor_d.csp</file>
+        <file>CircuitLevels/not_d.csp</file>
+        <file>CircuitLevels/or_d.csp</file>
+        <file>CircuitLevels/xnor_2.csp</file>
+        <file>CircuitLevels/xnor_d.csp</file>
+        <file>CircuitLevels/xor_2.csp</file>
+        <file>CircuitLevels/xor_d.csp</file>
+    </qresource>
 </RCC>

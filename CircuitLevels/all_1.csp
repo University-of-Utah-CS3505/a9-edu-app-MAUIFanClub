@@ -1,0 +1,252 @@
+{
+    "nodes": [
+        {
+            "inputs": [
+                {
+                    "connection": "outputSlot_3613205409",
+                    "connectionNodeName": "inputNode_1003416703",
+                    "inputName": "inputSlot_1271977701"
+                },
+                {
+                    "connection": "outputSlot_3891153087",
+                    "connectionNodeName": "inputNode_359590603",
+                    "inputName": "inputSlot"
+                }
+            ],
+            "name": "andGateNode_1216161673",
+            "output": {
+                "connection": "inputSlot_921819445",
+                "connectionNodeName": "nAndGateNode_2480082451",
+                "outputName": "outputSlot_3729518647"
+            },
+            "state": -1,
+            "x": 529,
+            "y": 115
+        },
+        {
+            "inputs": [
+                {
+                    "connection": "outputSlot_1733541427",
+                    "connectionNodeName": "inputNode_2365299147",
+                    "inputName": "inputSlot_2536673648"
+                },
+                {
+                    "connection": "outputSlot_2429568479",
+                    "connectionNodeName": "inputNode_2407410095",
+                    "inputName": "inputSlot_792370950"
+                }
+            ],
+            "name": "orGateNode_920346692",
+            "output": {
+                "connection": "inputSlot_1941608371",
+                "connectionNodeName": "nOrGateNode_1247336458",
+                "outputName": "outputSlot_3272003921"
+            },
+            "state": -1,
+            "x": 525,
+            "y": 329
+        },
+        {
+            "inputs": [
+                {
+                    "connection": "nAndGateNode_2257308829",
+                    "connectionNodeName": "nAndGateNode_2480082451",
+                    "inputName": "inputSlot_1272246735"
+                },
+                {
+                    "connection": "outputSlot_1088689647",
+                    "connectionNodeName": "nOrGateNode_1247336458",
+                    "inputName": "inputSlot"
+                }
+            ],
+            "name": "xOrGateNode_3043802553",
+            "output": {
+                "connection": "inputSlot_2688382997",
+                "connectionNodeName": "outputNode_436107089",
+                "outputName": "outputSlot_2688000552"
+            },
+            "state": -1,
+            "x": 873,
+            "y": 258
+        },
+        {
+            "inputs": [
+                {
+                    "connection": "outputSlot_3729518647",
+                    "connectionNodeName": "andGateNode_1216161673",
+                    "inputName": "inputSlot_921819445"
+                },
+                {
+                    "connection": "outputSlot_1591031965",
+                    "connectionNodeName": "xnOrGateNode_3647728785",
+                    "inputName": "inputSlot"
+                }
+            ],
+            "name": "nAndGateNode_2480082451",
+            "output": {
+                "connection": "inputSlot_1272246735",
+                "connectionNodeName": "xOrGateNode_3043802553",
+                "outputName": "nAndGateNode_2257308829"
+            },
+            "state": -1,
+            "x": 693,
+            "y": 165
+        },
+        {
+            "inputs": [
+                {
+                    "connection": "outputSlot_4189191985",
+                    "connectionNodeName": "inputNode_539976549",
+                    "inputName": "inputSlot_1240199548"
+                },
+                {
+                    "connection": "outputSlot_1916907728",
+                    "connectionNodeName": "inputNode_2841361998",
+                    "inputName": "inputSlot"
+                }
+            ],
+            "name": "xnOrGateNode_3647728785",
+            "output": {
+                "connection": "inputSlot",
+                "connectionNodeName": "nAndGateNode_2480082451",
+                "outputName": "outputSlot_1591031965"
+            },
+            "state": -1,
+            "x": 525,
+            "y": 240
+        },
+        {
+            "inputs": [
+                {
+                    "connection": "outputSlot_3272003921",
+                    "connectionNodeName": "orGateNode_920346692",
+                    "inputName": "inputSlot_1941608371"
+                },
+                {
+                    "connection": "outputSlot_2361627837",
+                    "connectionNodeName": "inputNode_2047114978",
+                    "inputName": "inputSlot_796287037"
+                }
+            ],
+            "name": "nOrGateNode_1247336458",
+            "output": {
+                "connection": "inputSlot",
+                "connectionNodeName": "xOrGateNode_3043802553",
+                "outputName": "outputSlot_1088689647"
+            },
+            "state": -1,
+            "x": 683,
+            "y": 386
+        },
+        {
+            "inputs": [
+                {
+                    "connection": "outputSlot_2688000552",
+                    "connectionNodeName": "xOrGateNode_3043802553",
+                    "inputName": "inputSlot_2688382997"
+                }
+            ],
+            "name": "outputNode_436107089",
+            "output": {
+                "connection": "",
+                "connectionNodeName": "",
+                "outputName": ""
+            },
+            "state": -1,
+            "x": 984,
+            "y": 253
+        },
+        {
+            "inputs": [
+            ],
+            "name": "inputNode_539976549",
+            "output": {
+                "connection": "inputSlot_1240199548",
+                "connectionNodeName": "xnOrGateNode_3647728785",
+                "outputName": "outputSlot_4189191985"
+            },
+            "state": 0,
+            "x": 322,
+            "y": 194
+        },
+        {
+            "inputs": [
+            ],
+            "name": "inputNode_2365299147",
+            "output": {
+                "connection": "inputSlot_2536673648",
+                "connectionNodeName": "orGateNode_920346692",
+                "outputName": "outputSlot_1733541427"
+            },
+            "state": 0,
+            "x": 322,
+            "y": 364
+        },
+        {
+            "inputs": [
+            ],
+            "name": "inputNode_359590603",
+            "output": {
+                "connection": "inputSlot",
+                "connectionNodeName": "andGateNode_1216161673",
+                "outputName": "outputSlot_3891153087"
+            },
+            "state": 0,
+            "x": 323,
+            "y": 112
+        },
+        {
+            "inputs": [
+            ],
+            "name": "inputNode_1003416703",
+            "output": {
+                "connection": "inputSlot_1271977701",
+                "connectionNodeName": "andGateNode_1216161673",
+                "outputName": "outputSlot_3613205409"
+            },
+            "state": 0,
+            "x": 323,
+            "y": 31
+        },
+        {
+            "inputs": [
+            ],
+            "name": "inputNode_2407410095",
+            "output": {
+                "connection": "inputSlot_792370950",
+                "connectionNodeName": "orGateNode_920346692",
+                "outputName": "outputSlot_2429568479"
+            },
+            "state": 0,
+            "x": 319,
+            "y": 460
+        },
+        {
+            "inputs": [
+            ],
+            "name": "inputNode_2047114978",
+            "output": {
+                "connection": "inputSlot_796287037",
+                "connectionNodeName": "nOrGateNode_1247336458",
+                "outputName": "outputSlot_2361627837"
+            },
+            "state": 0,
+            "x": 527,
+            "y": 472
+        },
+        {
+            "inputs": [
+            ],
+            "name": "inputNode_2841361998",
+            "output": {
+                "connection": "inputSlot",
+                "connectionNodeName": "xnOrGateNode_3647728785",
+                "outputName": "outputSlot_1916907728"
+            },
+            "state": 0,
+            "x": 323,
+            "y": 275
+        }
+    ],
+    "scale": 0.4000000059604645
+}

@@ -1,16 +1,16 @@
 #include "levelsandboxwindow.h"
 #include "ui_levelsandboxwindow.h"
 
-LevelSandboxWindow::LevelSandboxWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::LevelSandboxWindow)
+LevelSandboxWindow::LevelSandboxWindow(QMainWindow *mainWindow, QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::LevelSandboxWindow)
 {
+    this->mainMenu = mainWindow;
+
     ui->setupUi(this);
     circuitManager = new CircuitManager(this);
     instance = new circuitElementsMenu(circuitManager, this);
     this->layout()->addWidget(instance);
-
-    //connect(ui->menuSave, SIGNAL(aboutToShow()), this, SLOT(help()));
 }
 
 LevelSandboxWindow::~LevelSandboxWindow()
@@ -39,4 +39,10 @@ void LevelSandboxWindow::on_actionSave_triggered()
 void LevelSandboxWindow::on_actionLoad_triggered()
 {
     circuitManager->loadFile();
+}
+
+void LevelSandboxWindow::on_actionExit_triggered()
+{
+    mainMenu->show();
+    this->close();
 }

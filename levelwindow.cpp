@@ -1,24 +1,33 @@
-#include "level1window.h"
+#include "levelwindow.h"
 #include <QWheelEvent>
-#include "ui_level1window.h"
+#include "ui_levelwindow.h"
 #include <iostream>
+#include <mainmenu.h>
 
-Level1Window::Level1Window(QWidget *parent)
+LevelWindow::LevelWindow(QMainWindow *mainWindow,
+                         QString levelName,
+                         QMessageBox *lvlInfoPopup,
+                         QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Level1Window)
 {
+    this->mainMenu = mainWindow;
+
     ui->setupUi(this);
     circuitManager = new CircuitManager(this);
     instance = new circuitElementsMenu(circuitManager, this);
     this->layout()->addWidget(instance);
+
+    this->setWindowTitle(levelName);
+    circuitManager->loadFile(levelName);
 }
 
-Level1Window::~Level1Window()
+LevelWindow::~LevelWindow()
 {
     delete ui;
 }
 
-void Level1Window::wheelEvent(QWheelEvent *event)
+void LevelWindow::wheelEvent(QWheelEvent *event)
 {
     // Detect the direction of the mouse wheel movement
     if (event->angleDelta().y() > 0) {
@@ -31,12 +40,18 @@ void Level1Window::wheelEvent(QWheelEvent *event)
     QMainWindow::wheelEvent(event);
 }
 
-void Level1Window::on_actionSave_triggered()
+void LevelWindow::on_actionSave_triggered()
 {
     circuitManager->saveFile();
 }
 
-void Level1Window::on_actionLoad_triggered()
+void LevelWindow::on_actionLoad_triggered()
 {
     circuitManager->loadFile();
+}
+
+void LevelWindow::on_actionExit_triggered()
+{
+    mainMenu->show();
+    this->close();
 }

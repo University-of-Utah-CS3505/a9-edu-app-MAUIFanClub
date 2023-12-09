@@ -1,0 +1,72 @@
+{
+    "nodes": [
+        {
+            "inputs": [
+            ],
+            "name": "inputNode_2906827806",
+            "output": {
+                "connection": "inputSlot_2417037915",
+                "connectionNodeName": "andGateNode_3464258537",
+                "outputName": "outputSlot_2709213061"
+            },
+            "state": 1,
+            "x": 295,
+            "y": 147
+        },
+        {
+            "inputs": [
+                {
+                    "connection": "outputSlot_2709213061",
+                    "connectionNodeName": "inputNode_2906827806",
+                    "inputName": "inputSlot_2417037915"
+                },
+                {
+                    "connection": "outputSlot_3266525919",
+                    "connectionNodeName": "inputNode_3167710100",
+                    "inputName": "inputSlot"
+                }
+            ],
+            "name": "andGateNode_3464258537",
+            "output": {
+                "connection": "inputSlot_3107096862",
+                "connectionNodeName": "outputNode_3450215944",
+                "outputName": "outputSlot_375798441"
+            },
+            "state": -1,
+            "x": 553,
+            "y": 237
+        },
+        {
+            "inputs": [
+            ],
+            "name": "inputNode_3167710100",
+            "output": {
+                "connection": "inputSlot",
+                "connectionNodeName": "andGateNode_3464258537",
+                "outputName": "outputSlot_3266525919"
+            },
+            "state": 0,
+            "x": 293,
+            "y": 339
+        },
+        {
+            "inputs": [
+                {
+                    "connection": "outputSlot_375798441",
+                    "connectionNodeName": "andGateNode_3464258537",
+                    "inputName": "inputSlot_3107096862"
+                }
+            ],
+            "name": "outputNode_3450215944",
+            "output": {
+                "connection": "",
+                "connectionNodeName": "",
+                "outputName": ""
+            },
+            "state": -1,
+            "x": 798,
+            "y": 240
+        }
+    ],
+    "scale": 0.7000000476837158
+}

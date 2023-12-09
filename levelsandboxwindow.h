@@ -14,7 +14,7 @@ class LevelSandboxWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit LevelSandboxWindow(QWidget *parent = nullptr);
+    explicit LevelSandboxWindow(QMainWindow *mainWindow, QWidget *parent = nullptr);
     ~LevelSandboxWindow();
 
 protected:
@@ -25,7 +25,10 @@ private slots:
 
     void on_actionLoad_triggered();
 
+    void on_actionExit_triggered();
+
 private:
+    QMainWindow *mainMenu;
     Ui::LevelSandboxWindow *ui;
     circuitElementsMenu *instance;
     CircuitManager *circuitManager;

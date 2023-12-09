@@ -1,0 +1,72 @@
+{
+    "nodes": [
+        {
+            "inputs": [
+            ],
+            "name": "inputNode_3699354252",
+            "output": {
+                "connection": "inputSlot_1281131158",
+                "connectionNodeName": "nAndGateNode_733602385",
+                "outputName": "outputSlot_3773798559"
+            },
+            "state": 1,
+            "x": 316,
+            "y": 204
+        },
+        {
+            "inputs": [
+            ],
+            "name": "inputNode_2700081988",
+            "output": {
+                "connection": "inputSlot",
+                "connectionNodeName": "nAndGateNode_733602385",
+                "outputName": "outputSlot_1255387274"
+            },
+            "state": 1,
+            "x": 309,
+            "y": 405
+        },
+        {
+            "inputs": [
+                {
+                    "connection": "outputSlot_3773798559",
+                    "connectionNodeName": "inputNode_3699354252",
+                    "inputName": "inputSlot_1281131158"
+                },
+                {
+                    "connection": "outputSlot_1255387274",
+                    "connectionNodeName": "inputNode_2700081988",
+                    "inputName": "inputSlot"
+                }
+            ],
+            "name": "nAndGateNode_733602385",
+            "output": {
+                "connection": "inputSlot_520996990",
+                "connectionNodeName": "outputNode_134250481",
+                "outputName": "nAndGateNode_4120121552"
+            },
+            "state": -1,
+            "x": 575,
+            "y": 289
+        },
+        {
+            "inputs": [
+                {
+                    "connection": "nAndGateNode_4120121552",
+                    "connectionNodeName": "nAndGateNode_733602385",
+                    "inputName": "inputSlot_520996990"
+                }
+            ],
+            "name": "outputNode_134250481",
+            "output": {
+                "connection": "",
+                "connectionNodeName": "",
+                "outputName": ""
+            },
+            "state": -1,
+            "x": 779,
+            "y": 286
+        }
+    ],
+    "scale": 0.6000000238418579
+}

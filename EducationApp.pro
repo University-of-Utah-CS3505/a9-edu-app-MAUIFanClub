@@ -11,10 +11,8 @@ CONFIG += c++17
 SOURCES += \
     circuitelementsmenu.cpp \
     circuitmanager.cpp \
-    level1window.cpp \
-    level2window.cpp \
-    level3window.cpp \
     levelsandboxwindow.cpp \
+    levelwindow.cpp \
     main.cpp \
     mainmenu.cpp \
     node_classes/andgate.cpp \
@@ -36,10 +34,8 @@ SOURCES += \
 HEADERS += \
     circuitelementsmenu.h \
     circuitmanager.h \
-    level1window.h \
-    level2window.h \
-    level3window.h \
     levelsandboxwindow.h \
+    levelwindow.h \
     mainmenu.h \
     node_classes/andgate.h \
     node_classes/circuitnode.h \
@@ -59,10 +55,8 @@ HEADERS += \
 
 FORMS += \
     circuitelementsmenu.ui \
-    level1window.ui \
-    level2window.ui \
-    level3window.ui \
     levelsandboxwindow.ui \
+    levelwindow.ui \
     mainmenu.ui
 
 # Default rules for deployment.

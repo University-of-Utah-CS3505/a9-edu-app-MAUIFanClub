@@ -58,12 +58,12 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="AppNameLabel">
     <property name="geometry">
      <rect>
       <x>-80</x>
       <y>50</y>
-      <width>631</width>
+      <width>621</width>
       <height>151</height>
      </rect>
     </property>
@@ -74,130 +74,10 @@ color: rgb(231, 231, 231);
 </string>
     </property>
     <property name="text">
-     <string>APPNAME</string>
+     <string>Circuit App</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="level1Button">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>200</y>
-      <width>361</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-QPushButton{
-background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
-color: rgb(255, 255, 255);
-}
-QPushButton::hover{
-	background-color: rgba(255, 255,255, 200);
-	
-	color: rgb(17, 17, 17);
-}
-
-</string>
-    </property>
-    <property name="text">
-     <string>Level 1</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="level2Button">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>280</y>
-      <width>361</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-QPushButton{
-background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
-color: rgb(255, 255, 255);
-}
-QPushButton::hover{
-	background-color: rgba(255, 255,255, 200);
-	
-	color: rgb(17, 17, 17);
-}
-
-</string>
-    </property>
-    <property name="text">
-     <string>Level 2</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="level3Button">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>360</y>
-      <width>361</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-QPushButton{
-background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
-color: rgb(255, 255, 255);
-}
-QPushButton::hover{
-	background-color: rgba(255, 255,255, 200);
-	
-	color: rgb(17, 17, 17);
-}
-
-</string>
-    </property>
-    <property name="text">
-     <string>Level 3</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="sandboxLevelButton">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>440</y>
-      <width>361</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-QPushButton{
-background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
-color: rgb(255, 255, 255);
-}
-QPushButton::hover{
-	background-color: rgba(255, 255,255, 200);
-	color: rgb(17, 17, 17);
-}
-
-</string>
-    </property>
-    <property name="text">
-     <string>[Sandbox]</string>
     </property>
    </widget>
    <widget class="QLabel" name="Background_2">
@@ -205,7 +85,7 @@ QPushButton::hover{
      <rect>
       <x>50</x>
       <y>0</y>
-      <width>361</width>
+      <width>360</width>
       <height>601</height>
      </rect>
     </property>
@@ -223,13 +103,560 @@ QPushButton::hover{
      <string/>
     </property>
    </widget>
+   <widget class="QWidget" name="mmMainBtnsWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>159</y>
+      <width>361</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="logicGateLvlsBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>Logic Gates</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="exampleCircuitsBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>Example Circuits</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="sandboxLevelButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>Sandbox</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="mmLogicGateLvlBtns" native="true">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>100</y>
+      <width>361</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#mmLogicGateLvlBtns{background-color: rgba(0, 0, 0, 200); border-radius:5px;}</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QPushButton" name="andGateLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>AND</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="nAndGateLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>NAND</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="orGateLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>OR</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="nOrGateLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>NOR</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="xOrGateLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>XOR</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="XnOrGateLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>XNOR</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="notGateLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>NOT</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="mmCircuitExampleBtn" native="true">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>100</y>
+      <width>361</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#mmCircuitExampleBtn{background-color: rgba(0, 0, 0, 200); border-radius:5px;}</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QPushButton" name="allLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>All</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="andOrLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>AND OR</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="andOrNotLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>AND OR NOT</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="andOrNot2LvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>AND OR NOT  2</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="fishLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>Fish </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="starLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>Star</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="xOrLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>XOR</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="xnOrLvlBtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+background-color: rgba(0, 0, 0, 100);
+font: 700 20pt &quot;Source Code Pro&quot;;
+color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+	background-color: rgba(255, 255,255, 200);
+	
+	color: rgb(17, 17, 17);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>XNOR</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
    <zorder>Background</zorder>
    <zorder>Background_2</zorder>
-   <zorder>label</zorder>
-   <zorder>level1Button</zorder>
-   <zorder>level2Button</zorder>
-   <zorder>level3Button</zorder>
-   <zorder>sandboxLevelButton</zorder>
+   <zorder>AppNameLabel</zorder>
+   <zorder>mmMainBtnsWidget</zorder>
+   <zorder>mmLogicGateLvlBtns</zorder>
+   <zorder>mmCircuitExampleBtn</zorder>
   </widget>
  </widget>
  <resources/>

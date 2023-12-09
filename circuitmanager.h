@@ -48,7 +48,7 @@ public:
     void runEachOutput();
     bool isGraphCompleted();
 
-    void loadFile();
+    void loadFile(QString fileName = "");
     void saveFile();
 
     void deleteNode(CircuitNode *nodeToDelete);

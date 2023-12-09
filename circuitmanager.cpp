@@ -26,13 +26,19 @@ void CircuitManager::run()
     }
 }
 
-void CircuitManager::loadFile()
+void CircuitManager::loadFile(QString fileName)
 {
-    // Opens window to let the user pick a file to load
-    QString filepath = QFileDialog::getOpenFileName(levelWidget,
-                                                    tr("Open File"),
-                                                    "C://",
-                                                    "Circuit Schematic Project (*.csp);;");
+    QString filepath;
+
+    if (fileName == "") {
+        // Opens window to let the user pick a file to load
+        filepath = QFileDialog::getOpenFileName(levelWidget,
+                                                tr("Open File"),
+                                                "C://",
+                                                "Circuit Schematic Project (*.csp);;");
+    } else {
+        filepath = ":saveFiles/CircuitLevels/" + fileName + ".csp";
+    }
 
     QFile loadFile(filepath);
 
@@ -124,42 +130,6 @@ void CircuitManager::loadFile()
             nAndGateNode->setObjectName(nodeName);
             handleNewNode(nAndGateNode, nodePos);
 
-        } else if (nodeName.contains("orGateNode")) {
-            OrGate *orGateNode = new OrGate(levelWidget);
-
-            QString inSlotName1
-                = loadedNodes[i].toObject()["inputs"].toArray()[0].toObject()["inputName"].toString();
-            orGateNode->inputs[0]->setObjectName(inSlotName1);
-
-            QString inSlotName2
-                = loadedNodes[i].toObject()["inputs"].toArray()[1].toObject()["inputName"].toString();
-            orGateNode->inputs[1]->setObjectName(inSlotName2);
-
-            QString outputSlotName
-                = loadedNodes[i].toObject()["output"].toObject()["outputName"].toString();
-            orGateNode->output->setObjectName(outputSlotName);
-
-            orGateNode->setObjectName(nodeName);
-            handleNewNode(orGateNode, nodePos);
-
-        } else if (nodeName.contains("nOrGateNode")) {
-            nOrGate *nOrGateNode = new nOrGate(levelWidget);
-
-            QString inSlotName1
-                = loadedNodes[i].toObject()["inputs"].toArray()[0].toObject()["inputName"].toString();
-            nOrGateNode->inputs[0]->setObjectName(inSlotName1);
-
-            QString inSlotName2
-                = loadedNodes[i].toObject()["inputs"].toArray()[1].toObject()["inputName"].toString();
-            nOrGateNode->inputs[1]->setObjectName(inSlotName2);
-
-            QString outputSlotName
-                = loadedNodes[i].toObject()["output"].toObject()["outputName"].toString();
-            nOrGateNode->output->setObjectName(outputSlotName);
-
-            nOrGateNode->setObjectName(nodeName);
-            handleNewNode(nOrGateNode, nodePos);
-
         } else if (nodeName.contains("notGate")) {
             NotGate *notGateNode = new NotGate(levelWidget);
 
@@ -209,6 +179,40 @@ void CircuitManager::loadFile()
 
             xNOrGateNode->setObjectName(nodeName);
             handleNewNode(xNOrGateNode, nodePos);
+        } else if (nodeName.contains("nOrGateNode")) {
+            nOrGate *nOrGateNode = new nOrGate(levelWidget);
+
+            QString inSlotName1
+                = loadedNodes[i].toObject()["inputs"].toArray()[0].toObject()["inputName"].toString();
+            nOrGateNode->inputs[0]->setObjectName(inSlotName1);
+
+            QString inSlotName2
+                = loadedNodes[i].toObject()["inputs"].toArray()[1].toObject()["inputName"].toString();
+            nOrGateNode->inputs[1]->setObjectName(inSlotName2);
+
+            QString outputSlotName
+                = loadedNodes[i].toObject()["output"].toObject()["outputName"].toString();
+            nOrGateNode->output->setObjectName(outputSlotName);
+
+            nOrGateNode->setObjectName(nodeName);
+            handleNewNode(nOrGateNode, nodePos);
+        } else if (nodeName.contains("orGateNode")) {
+            OrGate *orGateNode = new OrGate(levelWidget);
+
+            QString inSlotName1
+                = loadedNodes[i].toObject()["inputs"].toArray()[0].toObject()["inputName"].toString();
+            orGateNode->inputs[0]->setObjectName(inSlotName1);
+
+            QString inSlotName2
+                = loadedNodes[i].toObject()["inputs"].toArray()[1].toObject()["inputName"].toString();
+            orGateNode->inputs[1]->setObjectName(inSlotName2);
+
+            QString outputSlotName
+                = loadedNodes[i].toObject()["output"].toObject()["outputName"].toString();
+            orGateNode->output->setObjectName(outputSlotName);
+
+            orGateNode->setObjectName(nodeName);
+            handleNewNode(orGateNode, nodePos);
         }
     }
 
