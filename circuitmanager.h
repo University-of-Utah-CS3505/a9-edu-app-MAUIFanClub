@@ -26,7 +26,7 @@
 
 using std::vector;
 
-class CircuitManager : QObject
+class CircuitManager : public QObject
 {
 public:
     CircuitManager(QWidget *levelWidget);
@@ -67,6 +67,8 @@ public:
     void createInputNode();
     void createOutputNode();
 
+public slots:
+    void zoomCustom(int customZoom);
 private:
     NodeLineConnectionManager *lineManager;
     void handleNewNode(CircuitNode *node, QPoint nodePos = QPoint());

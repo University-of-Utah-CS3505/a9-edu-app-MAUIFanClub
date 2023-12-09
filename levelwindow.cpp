@@ -14,12 +14,14 @@ LevelWindow::LevelWindow(QMainWindow *mainWindow,
     this->mainMenu = mainWindow;
 
     ui->setupUi(this);
-    circuitManager = new CircuitManager(this);
-    instance = new circuitElementsMenu(circuitManager, this);
+    zoomWidget = new class zoomWidget(this);
+    levelManager = new class levelManager(this, zoomWidget);
+    instance = new circuitElementsMenu(levelManager->circuitManager, this);
     this->layout()->addWidget(instance);
 
     this->setWindowTitle(levelName);
     circuitManager->loadFile(levelName);
+    this->layout()->addWidget(zoomWidget);
 }
 
 LevelWindow::~LevelWindow()
@@ -29,14 +31,7 @@ LevelWindow::~LevelWindow()
 
 void LevelWindow::wheelEvent(QWheelEvent *event)
 {
-    // Detect the direction of the mouse wheel movement
-    if (event->angleDelta().y() > 0) {
-        // Mouse wheel moved up
-        circuitManager->zoomIn();
-    } else {
-        //Mouse wheel moved down
-        circuitManager->zoomOut();
-    }
+    levelManager->handleZoom(event);
     QMainWindow::wheelEvent(event);
 }
 

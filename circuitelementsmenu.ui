@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
+    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
@@ -119,6 +119,12 @@ border: 2px solid #000000;
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>232</width>
+        <height>308</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">border: 2px solid #000000;</string>
       </property>
@@ -130,7 +136,7 @@ border: 2px solid #000000;
         <number>0</number>
        </property>
        <property name="sizeConstraint">
-        <enum>QLayout::SetMinimumSize</enum>
+        <enum>QLayout::SetMinAndMaxSize</enum>
        </property>
        <property name="topMargin">
         <number>0</number>

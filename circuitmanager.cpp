@@ -437,7 +437,16 @@ void CircuitManager::zoomOut()
         lineManager->updateCanvas(x);
     }
 }
-
+void CircuitManager::zoomCustom(int customZoom)
+{
+    //qDebug("here!!!!!");
+    currentZoom = clamp((float)customZoom / (float)100, 0.4, 1);
+    qDebug() << currentZoom;
+    for (CircuitNode *x : nodes) {
+        x->drawNode(currentZoom, x->pos());
+        lineManager->updateCanvas(x);
+    }
+}
 /*  NODE CREATION FUNCTIONS  */
 
 void CircuitManager::createAndGate()
