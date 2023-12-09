@@ -6,8 +6,10 @@ Level2Window::Level2Window(QWidget *parent) :
     ui(new Ui::Level2Window)
 {
     ui->setupUi(this);
-    //levelManager = new class levelManager(this);
-    //instance = new circuitElementsMenu(levelManager->circuitManager, this);
+    zoomWidget = new class zoomWidget(this);
+    levelManager = new class levelManager(this, zoomWidget);
+    this->layout()->addWidget(zoomWidget);
+    instance = new circuitElementsMenu(levelManager->circuitManager, this);
     this->layout()->addWidget(instance);
 }
 
@@ -18,7 +20,7 @@ Level2Window::~Level2Window()
 
 void Level2Window::wheelEvent(QWheelEvent *event)
 {
-    //levelManager->handleZoom(event);
+    levelManager->handleZoom(event);
     QMainWindow::wheelEvent(event);
     // You can also access the exact delta value using event->delta()
 

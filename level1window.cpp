@@ -12,6 +12,7 @@ Level1Window::Level1Window(QWidget *parent)
     instance = new circuitElementsMenu(levelManager->circuitManager, this);
     this->layout()->addWidget(instance);
     this->layout()->addWidget(zoomWidget);
+   // this->layout()->
     //ui->zoomWidget->layout()->addWidget(zoomWidget);
    // ui->zoomWidget->layout()->addWidget(zoomWidget);
 

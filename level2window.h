@@ -22,6 +22,7 @@ protected:
 private:
     Ui::Level2Window *ui;
     circuitElementsMenu *instance;
+    zoomWidget *zoomWidget;
     levelManager * levelManager;
 };
 
