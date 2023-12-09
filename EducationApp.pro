@@ -76,6 +76,7 @@ SOURCES += \
     node_classes/outputnode.cpp \
     zoommanager.cpp \
     zoomwidget.cpp \
+    levelmanager.cpp\
     node_classes/xnorgate.cpp \
     node_classes/xorgate.cpp
 
@@ -147,6 +148,7 @@ HEADERS += \
     node_classes/outputnode.h \
     zoommanager.h \
     zoomwidget.h \
+    levelmanager.h \
     node_classes/xnorgate.h \
     node_classes/xorgate.h
 

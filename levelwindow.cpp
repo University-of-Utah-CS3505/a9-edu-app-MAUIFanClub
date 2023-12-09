@@ -20,8 +20,9 @@ LevelWindow::LevelWindow(QMainWindow *mainWindow,
     this->layout()->addWidget(instance);
 
     this->setWindowTitle(levelName);
-    circuitManager->loadFile(levelName);
+    levelManager->circuitManager->loadFile(levelName);
     this->layout()->addWidget(zoomWidget);
+    zoomWidget->move(QPoint(0, 20));
 }
 
 LevelWindow::~LevelWindow()
@@ -37,12 +38,12 @@ void LevelWindow::wheelEvent(QWheelEvent *event)
 
 void LevelWindow::on_actionSave_triggered()
 {
-    circuitManager->saveFile();
+    levelManager->circuitManager->saveFile();
 }
 
 void LevelWindow::on_actionLoad_triggered()
 {
-    circuitManager->loadFile();
+    levelManager->circuitManager->loadFile();
 }
 
 void LevelWindow::on_actionExit_triggered()

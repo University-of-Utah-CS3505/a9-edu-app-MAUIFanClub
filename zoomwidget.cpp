@@ -30,7 +30,6 @@ void zoomWidget::on_progressBar_valueChanged(int value)
 void zoomWidget::on_horizontalSlider_sliderMoved(int position)
 {
     emit barChanged(ui->horizontalSlider->value()+0.9);
-
 }
 
 
