@@ -14,6 +14,7 @@ circuitElementsMenu::circuitElementsMenu(CircuitManager *circuitManager, QWidget
     for (QWidget *currentWidget : x) {
         currentWidget->setHidden(true);
     }
+
     //ui->logicGatesButton->setStyleSheet("margin-bottom:20px;");
     ui->ElementsLayout->layout()->setContentsMargins(QMargins(0,0,0,0));
     ui->ElementsLayout->layout()->setSpacing(0);
@@ -59,6 +60,11 @@ void circuitElementsMenu::on_inputsButton_clicked()
     }
 }
 
+void circuitElementsMenu::on_clearBtn_clicked()
+{
+	circuitManager->clearAllNodes();
+}
+
 void circuitElementsMenu::on_andGateBtn_clicked()
 {
     circuitManager->createAndGate();
@@ -87,6 +93,21 @@ void circuitElementsMenu::on_newInputBtn_clicked()
 void circuitElementsMenu::on_newOutputBtn_clicked()
 {
     circuitManager->createOutputNode();
+}
+
+void circuitElementsMenu::on_notGateBtn_clicked()
+{
+    circuitManager->createNotGate();
+}
+
+void circuitElementsMenu::on_xnOrGateBtn_clicked()
+{
+    circuitManager->createXNOrGate();
+}
+
+void circuitElementsMenu::on_xOrGateBtn_clicked()
+{
+    circuitManager->createXOrGate();
 }
 
 void circuitElementsMenu::on_runBtn_clicked()

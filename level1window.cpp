@@ -28,3 +28,13 @@ void Level1Window::wheelEvent(QWheelEvent *event)
     levelManager->handleZoom(event);
     QMainWindow::wheelEvent(event);
 }
+
+void Level1Window::on_actionSave_triggered()
+{
+    circuitManager->saveFile();
+}
+
+void Level1Window::on_actionLoad_triggered()
+{
+    circuitManager->loadFile();
+}

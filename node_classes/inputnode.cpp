@@ -3,7 +3,10 @@
 InputNode::InputNode(QWidget *parent)
     : CircuitNode(0, true, parent)
 {
-    this->setObjectName("inputNode");
+    std::random_device rd;
+
+    QString name = "inputNode_" + QString::number(rd());
+    this->setObjectName(name);
     this->setAccessibleName("inputNode");
 
     state = false;
@@ -17,6 +20,8 @@ InputNode::InputNode(QWidget *parent)
     QFont font = toggleBtn->font();
     font.setPointSize(50);
     toggleBtn->setFont(font);
+
+    output->setObjectName("outputSlot_" + QString::number(rd()));
 
     connect(toggleBtn, &QPushButton::clicked, this, &InputNode::toggleState);
 }

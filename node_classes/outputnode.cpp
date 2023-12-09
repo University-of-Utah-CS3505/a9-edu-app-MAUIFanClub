@@ -3,7 +3,10 @@
 OutputNode::OutputNode(QWidget *parent)
     : CircuitNode(1, false, parent)
 {
-    this->setObjectName("outputNode");
+    std::random_device rd;
+
+    QString name = "outputNode_" + QString::number(rd());
+    this->setObjectName(name);
     this->setAccessibleName("outputNode");
 
     outputLabel = new QLabel(this);
@@ -16,6 +19,7 @@ OutputNode::OutputNode(QWidget *parent)
     outputLabel->setFont(font);
 
     QPoint i0(0, 90);
+    inputs[0]->setObjectName("inputSlot_" + QString::number(rd()));
     inputs[0]->move(i0);
     inputs[0]->position = i0;
 }

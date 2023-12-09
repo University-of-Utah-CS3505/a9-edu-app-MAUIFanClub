@@ -9,6 +9,8 @@ LevelSandboxWindow::LevelSandboxWindow(QWidget *parent) :
     circuitManager = new CircuitManager(this);
     instance = new circuitElementsMenu(circuitManager, this);
     this->layout()->addWidget(instance);
+
+    //connect(ui->menuSave, SIGNAL(aboutToShow()), this, SLOT(help()));
 }
 
 LevelSandboxWindow::~LevelSandboxWindow()
@@ -27,7 +29,14 @@ void LevelSandboxWindow::wheelEvent(QWheelEvent *event)
         circuitManager->zoomOut();
     }
     QMainWindow::wheelEvent(event);
-    // You can also access the exact delta value using event->delta()
+}
 
-    // Pass the event to the base class for default handling
+void LevelSandboxWindow::on_actionSave_triggered()
+{
+    circuitManager->saveFile();
+}
+
+void LevelSandboxWindow::on_actionLoad_triggered()
+{
+    circuitManager->loadFile();
 }
