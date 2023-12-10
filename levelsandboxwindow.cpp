@@ -1,5 +1,6 @@
 #include "levelsandboxwindow.h"
 #include "ui_levelsandboxwindow.h"
+#include <Box2D/Box2D.h>
 
 LevelSandboxWindow::LevelSandboxWindow(QMainWindow *mainWindow, QWidget *parent)
     : QMainWindow(parent)
@@ -11,6 +12,8 @@ LevelSandboxWindow::LevelSandboxWindow(QMainWindow *mainWindow, QWidget *parent)
     circuitManager = new CircuitManager(this);
     instance = new circuitElementsMenu(circuitManager, this);
     this->layout()->addWidget(instance);
+
+    ui->stopSimBtn->setEnabled(false);
 }
 
 LevelSandboxWindow::~LevelSandboxWindow()
@@ -45,4 +48,18 @@ void LevelSandboxWindow::on_actionExit_triggered()
 {
     mainMenu->show();
     this->close();
+}
+
+void LevelSandboxWindow::on_startSimBtn_clicked()
+{
+    ui->startSimBtn->setEnabled(false);
+    circuitManager->box2DManager->startWorld();
+    ui->stopSimBtn->setEnabled(true);
+}
+
+void LevelSandboxWindow::on_stopSimBtn_clicked()
+{
+    ui->stopSimBtn->setEnabled(false);
+    circuitManager->box2DManager->stopWorld();
+    ui->startSimBtn->setEnabled(true);
 }

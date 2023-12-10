@@ -8,6 +8,8 @@ CircuitManager::CircuitManager(QWidget *levelWidget)
     nodeCount = new int();
     inputCount = new int();
     outputCount = new int();
+
+    box2DManager = new Box2DManager();
 }
 
 void CircuitManager::run()
@@ -386,6 +388,7 @@ void CircuitManager::handleNewNode(CircuitNode *node, QPoint nodePos)
     // Node Deleted Connection
     connect(node->circuitSignalHandler, &CircuitSignalHandler::nodeDeleted, this, [=]() {
         deleteNode(node);
+        box2DManager->nodeDeleted(node);
         lineManager->nodeDeleted(node);
     });
 
@@ -405,7 +408,10 @@ void CircuitManager::handleNewNode(CircuitNode *node, QPoint nodePos)
     // Node Drag Connection
     connect(node->circuitSignalHandler, &CircuitSignalHandler::nodeMoved, this, [=]() {
         lineManager->nodeMoved(node);
+        box2DManager->nodeMoved(node);
     });
+
+    box2DManager->addNode(node);
 }
 
 /*  ZOOM FUNCTIONS  */
