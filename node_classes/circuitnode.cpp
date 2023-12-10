@@ -88,24 +88,6 @@ void CircuitNode::moveWidget()
 {
     DragableWidget::moveWidget();
 
-    bool inputsHaveConnection = false;
-
-    // Checks used to see if the rest of the canvas needs to be updated. //
-
-    // Checks if input connections have a connection.
-    for (unsigned long i = 0; i < inputs.size(); i++) {
-        if (inputs[i]->connection == nullptr) {
-            continue;
-        }
-        inputsHaveConnection = true;
-        break;
-    }
-
-    // Checks if output exists / has connection & if inputs have a connection. Returns if both are false.
-    if ((output == nullptr || output->connection == nullptr) && !inputsHaveConnection) {
-        return;
-    }
-
     emit circuitSignalHandler->nodeMoved();
 }
 

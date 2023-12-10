@@ -24,6 +24,8 @@
 #include "node_classes/xnorgate.h"
 #include "node_classes/xorgate.h"
 
+#include "box2dmanager.h"
+
 using std::vector;
 
 class CircuitManager : public QObject
@@ -40,6 +42,8 @@ public:
     int *nodeCount;
     int *inputCount;
     int *outputCount;
+
+    Box2DManager *box2DManager;
 
     vector<CircuitNode *> nodes;
     vector<OutputNode *> outputNodes;
