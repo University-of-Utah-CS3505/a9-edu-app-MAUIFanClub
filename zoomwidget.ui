@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>zoomWidget</class>
- <widget class="QWidget" name="zoomWidget">
+ <class>ZoomWidget</class>
+ <widget class="QWidget" name="ZoomWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1101</width>
-    <height>74</height>
+    <width>318</width>
+    <height>48</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,10 +15,16 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="leftMargin">
-    <number>800</number>
+    <number>10</number>
    </property>
    <property name="topMargin">
-    <number>40</number>
+    <number>10</number>
+   </property>
+   <property name="rightMargin">
+    <number>10</number>
+   </property>
+   <property name="bottomMargin">
+    <number>10</number>
    </property>
    <item>
     <widget class="QLabel" name="label_2">

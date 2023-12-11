@@ -9,12 +9,12 @@ class levelManager : public QObject
 {
     Q_OBJECT
 public:
-    levelManager(QMainWindow * levelWindow, zoomWidget* zoomWidget, QObject *parent = nullptr);
+    levelManager(QMainWindow *levelWindow, ZoomWidget *zoomWidget, QObject *parent = nullptr);
     void handleZoom(QWheelEvent *event);
     CircuitManager *circuitManager;
 private:
     QMainWindow * levelWindow;
-    zoomWidget* zoomWidget;
+    //ZoomWidget* zoomWidget;
 private slots:
     //void zoomWidgetCustomVal(int val);
 };

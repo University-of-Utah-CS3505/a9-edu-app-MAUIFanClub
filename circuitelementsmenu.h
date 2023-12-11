@@ -34,16 +34,13 @@ private slots:
 	void on_newOutputBtn_clicked();
 	void on_runBtn_clicked();
 	void on_clearBtn_clicked();
-
     void on_notGateBtn_clicked();
-
     void on_xnOrGateBtn_clicked();
-
     void on_xOrGateBtn_clicked();
 
 private:
     Ui::circuitElementsMenu *ui;
-    std::vector<QWidget *> x;
+
     QWidget *levelWidget;
     QLayout *levelLayout;
 

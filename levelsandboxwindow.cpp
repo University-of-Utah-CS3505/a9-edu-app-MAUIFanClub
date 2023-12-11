@@ -9,13 +9,27 @@ LevelSandboxWindow::LevelSandboxWindow(QMainWindow *mainWindow, QWidget *parent)
     this->mainMenu = mainWindow;
 
     ui->setupUi(this);
+
+    instance = new circuitElementsMenu(circuitManager, this);
+
     circuitManager = new CircuitManager(this);
     nodeQuickMenu = new NodeQuickCreateMenu(circuitManager, this);
-    circuitManager->quickCircuitMenu = nodeQuickMenu;
     instance = new circuitElementsMenu(circuitManager, this);
+
+    zoomWidget = new ZoomWidget(circuitManager, this);
+    zoomWidget->move(QPoint(800, 20));
+
+    circuitManager->quickCircuitMenu = nodeQuickMenu;
+    circuitManager->qcInputBtn = nodeQuickMenu->inputBtn;
+    circuitManager->qcOutputBtn = nodeQuickMenu->outputBtn;
+
+    nodeQuickMenu->hide();
+
     this->layout()->addWidget(instance);
     this->layout()->addWidget(nodeQuickMenu);
-    nodeQuickMenu->hide();
+    this->layout()->addWidget(zoomWidget);
+
+    zoomWidget->updateZoom(circuitManager->currentZoom);
 
     ui->stopSimBtn->setEnabled(false);
 }
@@ -35,6 +49,7 @@ void LevelSandboxWindow::wheelEvent(QWheelEvent *event)
         //Mouse wheel moved down
         circuitManager->zoomOut();
     }
+    zoomWidget->updateZoom(circuitManager->currentZoom);
     QMainWindow::wheelEvent(event);
 }
 

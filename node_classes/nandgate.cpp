@@ -26,7 +26,7 @@ nAndGate::nAndGate(QWidget *parent)
     inputs[0]->position = i0;
 
     QPoint i1(0, 110);
-    inputs[0]->setObjectName("inputSlot_" + QString::number(rd()));
+    inputs[1]->setObjectName("inputSlot_" + QString::number(rd()));
     inputs[1]->move(i1);
     inputs[1]->position = i1;
 

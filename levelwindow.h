@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QMainWindow>
 #include <QMessageBox>
+#include "Zoomwidget.h"
 #include "circuitelementsmenu.h"
 #include "circuitmanager.h"
 #include "mainwindow.h"
@@ -12,8 +13,7 @@
 #include "node_classes/norgate.h"
 #include "node_classes/orgate.h"
 #include "node_classes/outputnode.h"
-#include "levelmanager.h"
-#include "zoomwidget.h"
+#include "nodequickcreatemenu.h"
 
 namespace Ui {
 class Level1Window;
@@ -34,19 +34,19 @@ protected:
     void wheelEvent(QWheelEvent *event) override;
 
 private slots:
-
     void on_actionSave_triggered();
-
     void on_actionLoad_triggered();
-
     void on_actionExit_triggered();
+    void on_startSimBtn_clicked();
+    void on_stopSimBtn_clicked();
 
 private:
     QMainWindow *mainMenu;
     Ui::Level1Window *ui;
+    NodeQuickCreateMenu *nodeQuickMenu;
     circuitElementsMenu *instance;
-    zoomWidget *zoomWidget;
-    levelManager * levelManager;
+    CircuitManager *circuitManager;
+    ZoomWidget *zoomWidget;
 };
 
 #endif // LEVELWINDOW_H

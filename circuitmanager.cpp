@@ -411,14 +411,30 @@ void CircuitManager::handleNewNode(CircuitNode *node, QPoint nodePos)
         box2DManager->nodeMoved(node);
     });
 
-    /// TESTING FOR CREATING A NEW NODE FROM DRAG. WORKING FOR ONE NODE AND VERY HARD CODED.
-    /// NEEDS TO BE A UI ELEMENT THEN ON CLICK IT SPAWNS SELECTED NODE.
     connect(node->circuitSignalHandler,
             &CircuitSignalHandler::outputDragConnect,
             this,
             [=](QPoint mousePos) {
                 this->mousePos = new QPoint(mousePos.x(), mousePos.y());
                 this->currentNode = node;
+                inputSlotDrag = false;
+                qcOutputBtn->setEnabled(true);
+                qcInputBtn->setEnabled(false);
+                quickCircuitMenu->move(mousePos - QPoint(10, 10));
+                quickCircuitMenu->raise();
+                quickCircuitMenu->show();
+            });
+
+    connect(node->circuitSignalHandler,
+            &CircuitSignalHandler::inputDragConnect,
+            this,
+            [=](QPoint mousePos, NodeInputSlot *inSlot) {
+                this->mousePos = new QPoint(mousePos.x(), mousePos.y());
+                this->currentNode = node;
+                inputSlotDrag = true;
+                draggedInputSlot = inSlot;
+                qcOutputBtn->setEnabled(false);
+                qcInputBtn->setEnabled(true);
                 quickCircuitMenu->move(mousePos - QPoint(10, 10));
                 quickCircuitMenu->raise();
                 quickCircuitMenu->show();

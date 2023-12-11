@@ -61,20 +61,28 @@
    <widget class="QLabel" name="AppNameLabel">
     <property name="geometry">
      <rect>
-      <x>-80</x>
+      <x>50</x>
       <y>50</y>
-      <width>621</width>
+      <width>361</width>
       <height>151</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sitka Heading</family>
+      <pointsize>38</pointsize>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">font: 700 52pt &quot;Sitka Heading&quot;;
+     <string notr="true">font: 700 38pt &quot;Sitka Heading&quot;;
 color: rgb(231, 231, 231);
 
 </string>
     </property>
     <property name="text">
-     <string>Circuit App</string>
+     <string>Circuit Learner</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

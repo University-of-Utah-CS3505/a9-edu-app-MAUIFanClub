@@ -6,9 +6,12 @@ NodeQuickCreateMenu::NodeQuickCreateMenu(CircuitManager *circuitManager, QWidget
     , ui(new Ui::NodeQuickCreateMenu)
 {
     ui->setupUi(this);
+    this->setMouseTracking(true);
     this->circuitManager = circuitManager;
-    this->mousePos = circuitManager->mousePos;
     this->currentNode = circuitManager->currentNode;
+
+    inputBtn = ui->qcInputBtn;
+    outputBtn = ui->qcOutputBtn;
 }
 
 NodeQuickCreateMenu::~NodeQuickCreateMenu()
@@ -64,17 +67,60 @@ void NodeQuickCreateMenu::on_qcOutputBtn_clicked()
     updateNewNode();
 }
 
+void NodeQuickCreateMenu::on_qcInputBtn_clicked()
+{
+    circuitManager->createInputNode();
+    updateNewNode();
+}
+
 void NodeQuickCreateMenu::updateNewNode()
 {
-    CircuitNode *newNode = circuitManager->nodes[circuitManager->nodes.size() - 1];
-    NodeInputSlot *inSlot = newNode->inputs[0];
+    if (circuitManager->inputSlotDrag) {
+        CircuitNode *newNode = circuitManager->nodes[circuitManager->nodes.size() - 1];
+        NodeOutputSlot *outSlot = newNode->output;
+        NodeInputSlot *inSlot = circuitManager->draggedInputSlot;
 
-    newNode->move((*circuitManager->mousePos) - inSlot->position
-                  - QPoint(inSlot->size / 2, inSlot->size / 2));
+        // Node position based off output slot
+        newNode->move((*circuitManager->mousePos) - outSlot->pos()
+                      - QPoint(outSlot->currentSize / 2, outSlot->currentSize / 2));
 
-    inSlot->connection = circuitManager->currentNode->output;
-    circuitManager->currentNode->output->connection = inSlot;
+        // Node position based off middle of node
+        //        newNode->move((*circuitManager->mousePos)
+        //                      - QPoint(newNode->nodeSize / 2, newNode->nodeSize / 2));
 
-    circuitManager->lineManager->updateCanvas(circuitManager->currentNode);
+        outSlot->connection = inSlot;
+        inSlot->connection = outSlot;
+
+        circuitManager->lineManager->updateCanvas(newNode);
+    } else {
+        CircuitNode *newNode = circuitManager->nodes[circuitManager->nodes.size() - 1];
+        NodeInputSlot *inSlot = newNode->inputs[0];
+
+        // Node position based off input slot pos
+        newNode->move((*circuitManager->mousePos) - inSlot->pos()
+                      - QPoint(inSlot->currentSize / 2, inSlot->currentSize / 2));
+
+        // Node position based off middle of node
+        //        newNode->move((*circuitManager->mousePos)
+        //                      - QPoint(newNode->nodeSize / 2, newNode->nodeSize / 2));
+
+        inSlot->connection = circuitManager->currentNode->output;
+        circuitManager->currentNode->output->connection = inSlot;
+
+        circuitManager->lineManager->updateCanvas(circuitManager->currentNode);
+    }
+
     this->hide();
+}
+
+void NodeQuickCreateMenu::mouseMoveEvent(QMouseEvent *event)
+{
+    // Used to place new node on the overall mouse position. Instead of mouse release pos.
+    //*circuitManager->mousePos = event->scenePosition().toPoint();
+}
+
+void NodeQuickCreateMenu::leaveEvent(QEvent *event)
+{
+    this->hide();
+    QWidget::leaveEvent(event);
 }

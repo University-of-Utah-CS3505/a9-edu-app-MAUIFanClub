@@ -46,13 +46,16 @@ public:
 
     Box2DManager *box2DManager;
     NodeLineConnectionManager *lineManager;
-
     vector<CircuitNode *> nodes;
     vector<OutputNode *> outputNodes;
 
     // Used for quick create menu
     QPoint *mousePos;
     CircuitNode *currentNode;
+    QPushButton *qcInputBtn;
+    QPushButton *qcOutputBtn;
+    bool inputSlotDrag;
+    NodeInputSlot *draggedInputSlot;
 
     void run();
     void runEachOutput();

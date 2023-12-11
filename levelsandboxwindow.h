@@ -5,6 +5,7 @@
 #include "circuitelementsmenu.h"
 #include "circuitmanager.h"
 #include "nodequickcreatemenu.h"
+#include "zoomwidget.h"
 
 namespace Ui {
 class LevelSandboxWindow;
@@ -38,6 +39,7 @@ private:
     NodeQuickCreateMenu *nodeQuickMenu;
     circuitElementsMenu *instance;
     CircuitManager *circuitManager;
+    ZoomWidget *zoomWidget;
 };
 
 #endif // LEVELSANDBOXWINDOW_H
