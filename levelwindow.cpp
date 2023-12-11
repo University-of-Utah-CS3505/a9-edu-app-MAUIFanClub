@@ -14,15 +14,32 @@ LevelWindow::LevelWindow(QMainWindow *mainWindow,
     this->mainMenu = mainWindow;
 
     ui->setupUi(this);
-    zoomWidget = new class zoomWidget(this);
-    levelManager = new class levelManager(this, zoomWidget);
-    instance = new circuitElementsMenu(levelManager->circuitManager, this);
-    this->layout()->addWidget(instance);
-
     this->setWindowTitle(levelName);
-    levelManager->circuitManager->loadFile(levelName);
+
+    instance = new circuitElementsMenu(circuitManager, this);
+
+    circuitManager = new CircuitManager(this);
+    nodeQuickMenu = new NodeQuickCreateMenu(circuitManager, this);
+    instance = new circuitElementsMenu(circuitManager, this);
+
+    zoomWidget = new ZoomWidget(circuitManager, this);
+    zoomWidget->move(QPoint(800, 20));
+
+    circuitManager->quickCircuitMenu = nodeQuickMenu;
+    circuitManager->qcInputBtn = nodeQuickMenu->inputBtn;
+    circuitManager->qcOutputBtn = nodeQuickMenu->outputBtn;
+
+    nodeQuickMenu->hide();
+
+    this->layout()->addWidget(instance);
+    this->layout()->addWidget(nodeQuickMenu);
     this->layout()->addWidget(zoomWidget);
-    zoomWidget->move(QPoint(0, 20));
+
+    circuitManager->loadFile(levelName);
+
+    zoomWidget->updateZoom(circuitManager->currentZoom);
+
+    ui->stopSimBtn->setEnabled(false);
 }
 
 LevelWindow::~LevelWindow()
@@ -32,22 +49,44 @@ LevelWindow::~LevelWindow()
 
 void LevelWindow::wheelEvent(QWheelEvent *event)
 {
-    levelManager->handleZoom(event);
+    // Detect the direction of the mouse wheel movement
+    if (event->angleDelta().y() > 0) {
+        // Mouse wheel moved up
+        circuitManager->zoomIn();
+    } else {
+        //Mouse wheel moved down
+        circuitManager->zoomOut();
+    }
+    zoomWidget->updateZoom(circuitManager->currentZoom);
     QMainWindow::wheelEvent(event);
 }
 
 void LevelWindow::on_actionSave_triggered()
 {
-    levelManager->circuitManager->saveFile();
+    circuitManager->saveFile();
 }
 
 void LevelWindow::on_actionLoad_triggered()
 {
-    levelManager->circuitManager->loadFile();
+    circuitManager->loadFile();
 }
 
 void LevelWindow::on_actionExit_triggered()
 {
     mainMenu->show();
     this->close();
+}
+
+void LevelWindow::on_startSimBtn_clicked()
+{
+    ui->startSimBtn->setEnabled(false);
+    circuitManager->box2DManager->startWorld();
+    ui->stopSimBtn->setEnabled(true);
+}
+
+void LevelWindow::on_stopSimBtn_clicked()
+{
+    ui->stopSimBtn->setEnabled(false);
+    circuitManager->box2DManager->stopWorld();
+    ui->startSimBtn->setEnabled(true);
 }

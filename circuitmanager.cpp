@@ -411,6 +411,35 @@ void CircuitManager::handleNewNode(CircuitNode *node, QPoint nodePos)
         box2DManager->nodeMoved(node);
     });
 
+    connect(node->circuitSignalHandler,
+            &CircuitSignalHandler::outputDragConnect,
+            this,
+            [=](QPoint mousePos) {
+                this->mousePos = new QPoint(mousePos.x(), mousePos.y());
+                this->currentNode = node;
+                inputSlotDrag = false;
+                qcOutputBtn->setEnabled(true);
+                qcInputBtn->setEnabled(false);
+                quickCircuitMenu->move(mousePos - QPoint(10, 10));
+                quickCircuitMenu->raise();
+                quickCircuitMenu->show();
+            });
+
+    connect(node->circuitSignalHandler,
+            &CircuitSignalHandler::inputDragConnect,
+            this,
+            [=](QPoint mousePos, NodeInputSlot *inSlot) {
+                this->mousePos = new QPoint(mousePos.x(), mousePos.y());
+                this->currentNode = node;
+                inputSlotDrag = true;
+                draggedInputSlot = inSlot;
+                qcOutputBtn->setEnabled(false);
+                qcInputBtn->setEnabled(true);
+                quickCircuitMenu->move(mousePos - QPoint(10, 10));
+                quickCircuitMenu->raise();
+                quickCircuitMenu->show();
+            });
+
     box2DManager->addNode(node);
 }
 
@@ -445,7 +474,6 @@ void CircuitManager::zoomOut()
 }
 void CircuitManager::zoomCustom(int customZoom)
 {
-    //qDebug("here!!!!!");
     currentZoom = clamp((float)customZoom / (float)100, 0.4, 1);
     qDebug() << currentZoom;
     for (CircuitNode *x : nodes) {

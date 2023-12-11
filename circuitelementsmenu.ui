@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>252</width>
-    <height>601</height>
+    <width>250</width>
+    <height>622</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -76,7 +76,7 @@ background-color: rgb(52, 52, 52);</string>
     <item>
      <widget class="QPushButton" name="CircuitElementsButton">
       <property name="enabled">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -229,7 +229,7 @@ border: 2px solid #000000;
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>400</height>
+              <height>300</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -674,7 +674,7 @@ border: 2px solid #000000;
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="widget" native="true">
+  <widget class="QWidget" name="TopBar" native="true">
    <property name="geometry">
     <rect>
      <x>0</x>

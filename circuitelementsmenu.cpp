@@ -6,16 +6,12 @@ circuitElementsMenu::circuitElementsMenu(CircuitManager *circuitManager, QWidget
     , ui(new Ui::circuitElementsMenu)
 {
     ui->setupUi(this);
-    x.push_back(ui->inputsGrid);
-    x.push_back(ui->logicGatesGrid);
+
+    ui->logicGatesGrid->setHidden(true);
+    ui->inputsGrid->setHidden(true);
 
     this->move(QPoint(20, 200));
 
-    for (QWidget *currentWidget : x) {
-        currentWidget->setHidden(true);
-    }
-
-    //ui->logicGatesButton->setStyleSheet("margin-bottom:20px;");
     ui->ElementsLayout->layout()->setContentsMargins(QMargins(0,0,0,0));
     ui->ElementsLayout->layout()->setSpacing(0);
     levelWidget = parent;
@@ -29,35 +25,32 @@ circuitElementsMenu::~circuitElementsMenu()
 
 void circuitElementsMenu::on_CircuitElementsButton_clicked()
 {
-    if (!ui->elementsList->isHidden()) {
-        ui->elementsList->setHidden(true);
-    } else {
-        ui->elementsList->setHidden(false);
-    }
+    //    if (!ui->elementsList->isHidden()) {
+    //        ui->elementsList->setHidden(true);
+    //    } else {
+    //        ui->elementsList->setHidden(false);
+    //    }
+    ui->elementsList->setHidden(!ui->elementsList->isHidden());
 }
 
 void circuitElementsMenu::on_logicGatesButton_clicked()
 {
-    if (!ui->logicGatesGrid->isHidden()) {
-        ui->logicGatesGrid->setHidden(true);
-    } else {
-        for (QWidget *currentWidget : x) {
-            currentWidget->setHidden(true);
-        }
-        ui->logicGatesGrid->setHidden(false);
-    }
+    //    if (!ui->logicGatesGrid->isHidden()) {
+    //        ui->logicGatesGrid->setHidden(true);
+    //    } else {
+    //        ui->logicGatesGrid->setHidden(false);
+    //    }
+    ui->logicGatesGrid->setHidden(!ui->logicGatesGrid->isHidden());
 }
 
 void circuitElementsMenu::on_inputsButton_clicked()
 {
-    if (!ui->inputsGrid->isHidden()) {
-        ui->inputsGrid->setHidden(true);
-    } else {
-        for (QWidget *currentWidget : x) {
-            currentWidget->setHidden(true);
-        }
-        ui->inputsGrid->setHidden(false);
-    }
+    //    if (!ui->inputsGrid->isHidden()) {
+    //        ui->inputsGrid->setHidden(true);
+    //    } else {
+    //        ui->inputsGrid->setHidden(false);
+    //    }
+    ui->inputsGrid->setHidden(!ui->inputsGrid->isHidden());
 }
 
 void circuitElementsMenu::on_clearBtn_clicked()
