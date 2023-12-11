@@ -34,6 +34,7 @@ public:
     CircuitManager(QWidget *levelWidget);
 
     QWidget *levelWidget;
+    QWidget *quickCircuitMenu;
 
     float currentZoom = 1;
 
@@ -44,9 +45,14 @@ public:
     int *outputCount;
 
     Box2DManager *box2DManager;
+    NodeLineConnectionManager *lineManager;
 
     vector<CircuitNode *> nodes;
     vector<OutputNode *> outputNodes;
+
+    // Used for quick create menu
+    QPoint *mousePos;
+    CircuitNode *currentNode;
 
     void run();
     void runEachOutput();
@@ -73,8 +79,8 @@ public:
 
 public slots:
     void zoomCustom(int customZoom);
+
 private:
-    NodeLineConnectionManager *lineManager;
     void handleNewNode(CircuitNode *node, QPoint nodePos = QPoint());
 };
 

@@ -411,6 +411,19 @@ void CircuitManager::handleNewNode(CircuitNode *node, QPoint nodePos)
         box2DManager->nodeMoved(node);
     });
 
+    /// TESTING FOR CREATING A NEW NODE FROM DRAG. WORKING FOR ONE NODE AND VERY HARD CODED.
+    /// NEEDS TO BE A UI ELEMENT THEN ON CLICK IT SPAWNS SELECTED NODE.
+    connect(node->circuitSignalHandler,
+            &CircuitSignalHandler::outputDragConnect,
+            this,
+            [=](QPoint mousePos) {
+                this->mousePos = new QPoint(mousePos.x(), mousePos.y());
+                this->currentNode = node;
+                quickCircuitMenu->move(mousePos - QPoint(10, 10));
+                quickCircuitMenu->raise();
+                quickCircuitMenu->show();
+            });
+
     box2DManager->addNode(node);
 }
 
@@ -445,7 +458,6 @@ void CircuitManager::zoomOut()
 }
 void CircuitManager::zoomCustom(int customZoom)
 {
-    //qDebug("here!!!!!");
     currentZoom = clamp((float)customZoom / (float)100, 0.4, 1);
     qDebug() << currentZoom;
     for (CircuitNode *x : nodes) {

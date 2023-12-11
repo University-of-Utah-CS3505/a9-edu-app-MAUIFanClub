@@ -75,6 +75,7 @@ SOURCES += \
     node_classes/notgate.cpp \
     node_classes/orgate.cpp \
     node_classes/outputnode.cpp \
+    nodequickcreatemenu.cpp \
     zoommanager.cpp \
     zoomwidget.cpp \
     levelmanager.cpp\
@@ -148,6 +149,7 @@ HEADERS += \
     node_classes/notgate.h \
     node_classes/orgate.h \
     node_classes/outputnode.h \
+    nodequickcreatemenu.h \
     zoommanager.h \
     zoomwidget.h \
     levelmanager.h \
@@ -159,6 +161,7 @@ FORMS += \
     levelsandboxwindow.ui \
     levelwindow.ui \
     mainmenu.ui \
+    nodequickcreatemenu.ui \
     zoommanager.ui \
     zoomwidget.ui
 

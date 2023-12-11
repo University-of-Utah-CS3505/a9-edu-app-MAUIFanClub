@@ -62,6 +62,7 @@ void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)
 
     // Check if mouse was over input slot
     if (inputSlot == NULL) {
+        emit node->circuitSignalHandler->outputDragConnect(event->scenePosition().toPoint());
         emit node->circuitSignalHandler->updateLines();
         return;
     }

@@ -10,8 +10,12 @@ LevelSandboxWindow::LevelSandboxWindow(QMainWindow *mainWindow, QWidget *parent)
 
     ui->setupUi(this);
     circuitManager = new CircuitManager(this);
+    nodeQuickMenu = new NodeQuickCreateMenu(circuitManager, this);
+    circuitManager->quickCircuitMenu = nodeQuickMenu;
     instance = new circuitElementsMenu(circuitManager, this);
     this->layout()->addWidget(instance);
+    this->layout()->addWidget(nodeQuickMenu);
+    nodeQuickMenu->hide();
 
     ui->stopSimBtn->setEnabled(false);
 }

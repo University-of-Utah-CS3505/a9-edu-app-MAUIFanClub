@@ -5,7 +5,7 @@ levelManager::levelManager(QMainWindow * levelWindow, class zoomWidget* zoomWidg
     this->levelWindow = levelWindow;
     this->zoomWidget = zoomWidget;
     circuitManager = new CircuitManager(levelWindow);
-   // connect(zoomWidget, SIGNAL(barChanged(int)), circuitManager, SLOT(zoomCustom(int)));
+    // connect(zoomWidget, SIGNAL(barChanged(int)), circuitManager, SLOT(zoomCustom(int)));
     connect(zoomWidget, &zoomWidget::barChanged ,circuitManager, &CircuitManager::zoomCustom);
 }
 float linearScale(float originalValue, float minOriginal, float maxOriginal, float minScaled, float maxScaled)

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "circuitelementsmenu.h"
 #include "circuitmanager.h"
+#include "nodequickcreatemenu.h"
 
 namespace Ui {
 class LevelSandboxWindow;
@@ -34,6 +35,7 @@ private slots:
 private:
     QMainWindow *mainMenu;
     Ui::LevelSandboxWindow *ui;
+    NodeQuickCreateMenu *nodeQuickMenu;
     circuitElementsMenu *instance;
     CircuitManager *circuitManager;
 };
