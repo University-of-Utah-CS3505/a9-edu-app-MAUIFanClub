@@ -72,13 +72,16 @@ void NodeLineConnectionManager::updateCanvas(CircuitNode *circuitNode)
     }
 }
 
-void NodeLineConnectionManager::drawSlotDrag(CircuitNode *circuitNode,
-                                             QPoint slotPos,
-                                             QPoint mousePos)
+void NodeLineConnectionManager::drawSlotDrag(
+    CircuitNode *circuitNode, QPoint parentPos, QPoint slotPos, QPointF offset, QPoint mousePos)
 {
     updateCanvas(circuitNode);
 
-    drawLine(canvases[circuitNode], slotPos, mousePos);
+    offset *= (*currentZoom);
+
+    QPointF drawStartPos = parentPos + slotPos + offset;
+
+    drawLine(canvases[circuitNode], drawStartPos, mousePos);
 }
 
 void NodeLineConnectionManager::connectSlots(CircuitNode *circuitNode,

@@ -20,6 +20,8 @@ public:
         QLabel *paintCanvas;
     };
 
+    float *currentZoom;
+
     NodeLineConnectionManager(float *currentZoom, vector<CircuitNode *> *nodes, QWidget *mainWindow);
 
     /// Creates a new canvas for the circuit node. Adding the canvas to the main Ui.
@@ -30,7 +32,8 @@ public:
     /// Updates the circuit nodes canvas. Clearing the canvas and drawing new lines to its connections.
     void updateCanvas(CircuitNode *circuitNode);
     /// Draws a line from the dragged slot pos to the mouse pos.
-    void drawSlotDrag(CircuitNode *, QPoint slotPos, QPoint mousePos);
+    void drawSlotDrag(
+        CircuitNode *, QPoint parentPos, QPoint slotPos, QPointF offset, QPoint mousePos);
     /// Takes in a Output & Input slot and draws a line between them. The circuit node in the arguments is the canvas to draw to.
     void connectSlots(CircuitNode *circuitNode, NodeOutputSlot *outSlot, NodeInputSlot *inSlot);
     /// Handles when a node is moved. Updating its Ui and the connections Ui.
@@ -43,8 +46,6 @@ private:
     QWidget *mainWindow;
 
     vector<CircuitNode *> *nodes;
-
-    float *currentZoom;
 
     /// Helper method to draw a line on the canvas.
     void drawLine(NodeCanvas *nodeCanvas, QPointF p1, QPointF p2);

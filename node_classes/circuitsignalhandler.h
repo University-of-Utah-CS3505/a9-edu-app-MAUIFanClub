@@ -11,7 +11,7 @@ class CircuitSignalHandler : public QObject
 signals:
     void nodeDeleted();
     void updateLines();
-    void nodeSlotDrag(QPoint slotPos, QPoint mousePos);
+    void nodeSlotDrag(QPoint parentPos, QPoint slotPos, QPointF offset, QPoint mousePos);
     void nodeMoved();
     void outputDragConnect(QPoint mousePos);
     void inputDragConnect(QPoint mousePos, NodeInputSlot *inSlot);

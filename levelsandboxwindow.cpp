@@ -81,4 +81,5 @@ void LevelSandboxWindow::on_stopSimBtn_clicked()
     ui->stopSimBtn->setEnabled(false);
     circuitManager->box2DManager->stopWorld();
     ui->startSimBtn->setEnabled(true);
+    zoomWidget->updateZoom(circuitManager->box2DManager->startZoom);
 }

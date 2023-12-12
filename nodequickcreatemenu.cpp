@@ -107,6 +107,7 @@ void NodeQuickCreateMenu::updateNewNode()
         inSlot->connection = circuitManager->currentNode->output;
         circuitManager->currentNode->output->connection = inSlot;
 
+        circuitManager->box2DManager->nodeMoved(newNode);
         circuitManager->lineManager->updateCanvas(circuitManager->currentNode);
     }
 

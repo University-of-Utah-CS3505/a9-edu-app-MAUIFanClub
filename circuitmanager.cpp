@@ -9,7 +9,7 @@ CircuitManager::CircuitManager(QWidget *levelWidget)
     inputCount = new int();
     outputCount = new int();
 
-    box2DManager = new Box2DManager();
+    box2DManager = new Box2DManager(lineManager);
 }
 
 void CircuitManager::run()
@@ -65,6 +65,7 @@ void CircuitManager::loadFile(QString fileName)
     QJsonDocument loadDoc(QJsonDocument::fromJson(loadData));
 
     currentZoom = loadDoc["scale"].toDouble();
+    *lineManager->currentZoom = currentZoom;
 
     QJsonArray loadedNodes = loadDoc["nodes"].toArray();
 
@@ -249,6 +250,8 @@ void CircuitManager::loadFile(QString fileName)
         }
         lineManager->updateCanvas(nodes[i]);
     }
+
+    box2DManager->updateGroundBody();
 }
 
 void CircuitManager::saveFile()
@@ -401,8 +404,9 @@ void CircuitManager::handleNewNode(CircuitNode *node, QPoint nodePos)
     connect(node->circuitSignalHandler,
             &CircuitSignalHandler::nodeSlotDrag,
             this,
-            [=](QPoint slotPos, QPoint mousePos) {
-                lineManager->drawSlotDrag(node, slotPos, mousePos);
+            [=](QPoint parentPos, QPoint slotPos, QPointF offset, QPoint mousePos) {
+                // QPoint parentPos, QPoint slotPos, int size, QPoint mousePos)
+                lineManager->drawSlotDrag(node, parentPos, slotPos, offset, mousePos);
             });
 
     // Node Drag Connection
@@ -460,6 +464,7 @@ void CircuitManager::zoomIn()
     for (CircuitNode *x : nodes) {
         lineManager->updateCanvas(x);
     }
+    box2DManager->nodesScaled();
 }
 
 void CircuitManager::zoomOut()
@@ -471,6 +476,7 @@ void CircuitManager::zoomOut()
     for (CircuitNode *x : nodes) {
         lineManager->updateCanvas(x);
     }
+    box2DManager->nodesScaled();
 }
 void CircuitManager::zoomCustom(int customZoom)
 {

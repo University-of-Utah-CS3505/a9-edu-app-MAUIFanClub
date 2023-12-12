@@ -47,8 +47,12 @@ void NodeOutputSlot::mouseMoveEvent(QMouseEvent *event)
         return;
     }
 
-    QPoint slotScenePos = this->parentWidget()->pos() + this->pos() + QPoint(size - 2, size / 2);
-    emit node->circuitSignalHandler->nodeSlotDrag(slotScenePos, event->scenePosition().toPoint());
+    QPointF offset = QPointF((float) (size - 2.0f), ((float) (size / 2.0f)));
+
+    emit node->circuitSignalHandler->nodeSlotDrag(this->parentWidget()->pos(),
+                                                  this->pos(),
+                                                  offset,
+                                                  event->scenePosition().toPoint());
 }
 
 void NodeOutputSlot::mouseReleaseEvent(QMouseEvent *event)

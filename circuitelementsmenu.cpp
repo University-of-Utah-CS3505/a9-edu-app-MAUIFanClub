@@ -25,31 +25,16 @@ circuitElementsMenu::~circuitElementsMenu()
 
 void circuitElementsMenu::on_CircuitElementsButton_clicked()
 {
-    //    if (!ui->elementsList->isHidden()) {
-    //        ui->elementsList->setHidden(true);
-    //    } else {
-    //        ui->elementsList->setHidden(false);
-    //    }
     ui->elementsList->setHidden(!ui->elementsList->isHidden());
 }
 
 void circuitElementsMenu::on_logicGatesButton_clicked()
 {
-    //    if (!ui->logicGatesGrid->isHidden()) {
-    //        ui->logicGatesGrid->setHidden(true);
-    //    } else {
-    //        ui->logicGatesGrid->setHidden(false);
-    //    }
     ui->logicGatesGrid->setHidden(!ui->logicGatesGrid->isHidden());
 }
 
 void circuitElementsMenu::on_inputsButton_clicked()
 {
-    //    if (!ui->inputsGrid->isHidden()) {
-    //        ui->inputsGrid->setHidden(true);
-    //    } else {
-    //        ui->inputsGrid->setHidden(false);
-    //    }
     ui->inputsGrid->setHidden(!ui->inputsGrid->isHidden());
 }
 

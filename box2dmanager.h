@@ -6,6 +6,7 @@
 #include <QTimer>
 
 #include "node_classes/circuitnode.h"
+#include "node_classes/nodelineconnectionmanager.h"
 #include <Box2D/Box2D.h>
 #include <vector>
 
@@ -16,12 +17,14 @@ class Box2DManager : public QObject
     Q_OBJECT
 
 public:
-    Box2DManager();
+    Box2DManager(NodeLineConnectionManager *lineManager);
 
     struct NodePhysics
     {
         CircuitNode *node = nullptr;
         b2Body *body = nullptr;
+        b2Fixture *bodyFixture;
+        b2Vec2 startPos;
 
         bool operator==(NodePhysics compareNodePhysics) const
         {
@@ -29,10 +32,18 @@ public:
         }
     };
 
+    NodeLineConnectionManager *lineManager;
+
+    float32 startZoom;
+
     void addNode(CircuitNode *node);
     void nodeDeleted(CircuitNode *node);
 
+    void nodesScaled();
+
     void nodeMoved(CircuitNode *node);
+
+    void updateGroundBody();
 
     void startWorld();
     void stopWorld();
@@ -50,18 +61,21 @@ private:
 
     vector<NodePhysics> nodesPhysics;
 
+    float32 nodesBodySize;
+
     // Prepare for simulation. Typically we use a time step of 1/60 of a
     // second (60Hz) and 10 iterations. This provides a high quality simulation
     // in most game scenarios.
     float32 timeStep = 1.0f / 60.0f;
-    int32 velocityIterations = 6;
-    int32 positionIterations = 2;
+    int32 velocityIterations = 100;
+    int32 positionIterations = 100;
 
     // Define the gravity vector.
     b2Vec2 gravity;
     // Construct a world object, which will hold and simulate the rigid bodies.
     b2World *world;
     b2Body *groundBody;
+    b2Fixture *groundBodyFixture;
 };
 
 #endif // BOX2DMANAGER_H
