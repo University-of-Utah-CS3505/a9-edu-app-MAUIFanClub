@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Sandbox</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="imagesResources.qrc">
+    <normaloff>:/menuIcons/menuIcons/CircuitLearnerIcon.png</normaloff>:/menuIcons/menuIcons/CircuitLearnerIcon.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="startSimBtn">
     <property name="geometry">
@@ -117,6 +121,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagesResources.qrc"/>
+ </resources>
  <connections/>
 </ui>

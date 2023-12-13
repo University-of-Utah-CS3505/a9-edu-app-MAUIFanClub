@@ -36,22 +36,22 @@ MainMenu::MainMenu(QWidget *parent)
     ui->mmCircuitExampleBtn->hide();
 
     // Initializes Levels
-    andGateLvl = new LevelWindow(this, "and_d");
-    nAndGateLvl = new LevelWindow(this, "nand_d");
-    orGateLvl = new LevelWindow(this, "or_d");
-    nOrGateLvl = new LevelWindow(this, "nor_d");
-    xOrGateLvl = new LevelWindow(this, "xor_d");
-    xnOrGateLvl = new LevelWindow(this, "xnor_d");
-    notGateLvl = new LevelWindow(this, "not_d");
+    andGateLvl = new LevelWindow(this, "and_d", "AND");
+    nAndGateLvl = new LevelWindow(this, "nand_d", "NAND");
+    orGateLvl = new LevelWindow(this, "or_d", "OR");
+    nOrGateLvl = new LevelWindow(this, "nor_d", "NOR");
+    xOrGateLvl = new LevelWindow(this, "xor_d", "XOR");
+    xnOrGateLvl = new LevelWindow(this, "xnor_d", "XNOR");
+    notGateLvl = new LevelWindow(this, "not_d", "NOT");
 
-    allLvl = new LevelWindow(this, "all_1");
-    andOrLvl = new LevelWindow(this, "andor_1");
-    andOrNotLvl = new LevelWindow(this, "andornot_1");
-    andOrNot2Lvl = new LevelWindow(this, "andornot_2");
-    fishLvl = new LevelWindow(this, "level_fish");
-    starLvl = new LevelWindow(this, "level_star");
-    xnOrLvl = new LevelWindow(this, "xnor_2");
-    xOrLvl = new LevelWindow(this, "xor_2");
+    allLvl = new LevelWindow(this, "all_1", "All");
+    andOrLvl = new LevelWindow(this, "andor_1", "AND OR");
+    andOrNotLvl = new LevelWindow(this, "andornot_1", "AND OR NOT");
+    andOrNot2Lvl = new LevelWindow(this, "andornot_2", "AND OR NOT v.2");
+    fishLvl = new LevelWindow(this, "level_fish", "FISH");
+    starLvl = new LevelWindow(this, "level_star", "STAR");
+    xnOrLvl = new LevelWindow(this, "xnor_2", "XNOR v.2");
+    xOrLvl = new LevelWindow(this, "xor_2", "XOR v.2");
 
     sandboxWindow = new LevelSandboxWindow(this);
 

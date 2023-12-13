@@ -33,8 +33,8 @@ private slots:
     void on_qcOutputBtn_clicked();
     void on_qcInputBtn_clicked();
 
-    void mouseMoveEvent(QMouseEvent *event) override;
     virtual void leaveEvent(QEvent *event);
+    void moveEvent(QMoveEvent *event) override;
 
 private:
     Ui::NodeQuickCreateMenu *ui;

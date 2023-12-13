@@ -21,6 +21,7 @@
         <file>menuIcons/xOrIcon.png</file>
         <file>menuIcons/Grid.png</file>
         <file>menuIcons/GridLight.png</file>
+        <file>menuIcons/CircuitLearnerIcon.png</file>
     </qresource>
     <qresource prefix="/saveFiles">
         <file>CircuitLevels/all_1.csp</file>

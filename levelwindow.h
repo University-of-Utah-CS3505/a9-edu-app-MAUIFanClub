@@ -25,8 +25,8 @@ class LevelWindow : public QMainWindow
 
 public:
     explicit LevelWindow(QMainWindow *mainWindow,
+                         QString saveFileName,
                          QString levelName,
-                         QMessageBox *lvlInfoPopup = nullptr,
                          QWidget *parent = nullptr);
     ~LevelWindow();
     circuitElementsMenu *instance;

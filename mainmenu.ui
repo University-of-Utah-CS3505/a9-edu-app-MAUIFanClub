@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Circuit Learner</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="imagesResources.qrc">
+    <normaloff>:/menuIcons/menuIcons/CircuitLearnerIcon.png</normaloff>:/menuIcons/menuIcons/CircuitLearnerIcon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -685,6 +689,8 @@ QPushButton::hover{
    <zorder>mmCircuitExampleBtn</zorder>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagesResources.qrc"/>
+ </resources>
  <connections/>
 </ui>

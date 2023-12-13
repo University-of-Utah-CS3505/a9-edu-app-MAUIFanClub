@@ -5,8 +5,8 @@
 #include <mainmenu.h>
 
 LevelWindow::LevelWindow(QMainWindow *mainWindow,
+                         QString saveFileName,
                          QString levelName,
-                         QMessageBox *lvlInfoPopup,
                          QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Level1Window)
@@ -35,7 +35,7 @@ LevelWindow::LevelWindow(QMainWindow *mainWindow,
     this->layout()->addWidget(nodeQuickMenu);
     this->layout()->addWidget(zoomWidget);
 
-    circuitManager->loadFile(levelName);
+    circuitManager->loadFile(saveFileName);
 
     zoomWidget->updateZoom(circuitManager->currentZoom);
 

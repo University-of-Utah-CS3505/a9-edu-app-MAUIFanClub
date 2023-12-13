@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Level 1</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="imagesResources.qrc">
+    <normaloff>:/menuIcons/menuIcons/CircuitLearnerIcon.png</normaloff>:/menuIcons/menuIcons/CircuitLearnerIcon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -119,6 +123,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagesResources.qrc"/>
+ </resources>
  <connections/>
 </ui>

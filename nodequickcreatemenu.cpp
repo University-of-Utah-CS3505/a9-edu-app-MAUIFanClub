@@ -84,10 +84,6 @@ void NodeQuickCreateMenu::updateNewNode()
         newNode->move((*circuitManager->mousePos) - outSlot->pos()
                       - QPoint(outSlot->currentSize / 2, outSlot->currentSize / 2));
 
-        // Node position based off middle of node
-        //        newNode->move((*circuitManager->mousePos)
-        //                      - QPoint(newNode->nodeSize / 2, newNode->nodeSize / 2));
-
         outSlot->connection = inSlot;
         inSlot->connection = outSlot;
 
@@ -100,10 +96,6 @@ void NodeQuickCreateMenu::updateNewNode()
         newNode->move((*circuitManager->mousePos) - inSlot->pos()
                       - QPoint(inSlot->currentSize / 2, inSlot->currentSize / 2));
 
-        // Node position based off middle of node
-        //        newNode->move((*circuitManager->mousePos)
-        //                      - QPoint(newNode->nodeSize / 2, newNode->nodeSize / 2));
-
         inSlot->connection = circuitManager->currentNode->output;
         circuitManager->currentNode->output->connection = inSlot;
 
@@ -114,14 +106,36 @@ void NodeQuickCreateMenu::updateNewNode()
     this->hide();
 }
 
-void NodeQuickCreateMenu::mouseMoveEvent(QMouseEvent *event)
-{
-    // Used to place new node on the overall mouse position. Instead of mouse release pos.
-    //*circuitManager->mousePos = event->scenePosition().toPoint();
-}
-
 void NodeQuickCreateMenu::leaveEvent(QEvent *event)
 {
     this->hide();
     QWidget::leaveEvent(event);
+}
+
+void NodeQuickCreateMenu::moveEvent(QMoveEvent *event)
+{
+    QPoint movePos = event->pos();
+    bool outsideScreen = false;
+
+    // Checks if X position is in the screen.
+    if (event->pos().x() > 1000) {
+        outsideScreen = true;
+        movePos.setX(1000);
+    } else if (event->pos().x() < 0) {
+        outsideScreen = true;
+        movePos.setX(0);
+    }
+
+    // Checks if Y position is in the screen.
+    if (event->pos().y() > 500) {
+        outsideScreen = true;
+        movePos.setY(500);
+    } else if (event->pos().y() < 0) {
+        outsideScreen = true;
+        movePos.setY(0);
+    }
+
+    if (outsideScreen) {
+        this->move(movePos);
+    }
 }
