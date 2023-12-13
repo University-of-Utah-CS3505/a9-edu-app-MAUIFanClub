@@ -21,6 +21,14 @@ public:
 
     CircuitManager *circuitManager;
 
+    QString andGateInfo;
+    QString nAndGateInfo;
+    QString orGateInfo;
+    QString nOrGateInfo;
+    QString xOrGateInfo;
+    QString xnOrGateInfo;
+    QString notGateInfo;
+
 private slots:
     // Button Slots
     void on_CircuitElementsButton_clicked();

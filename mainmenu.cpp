@@ -11,6 +11,7 @@ MainMenu::MainMenu(QWidget *parent) :
 
     ui->mmLogicGateLvlBtns->hide();
     ui->mmCircuitExampleBtn->hide();
+
     andGateLvl = new LevelWindow(this, "and_d");
     nAndGateLvl = new LevelWindow(this, "nand_d");
     orGateLvl = new LevelWindow(this, "or_d");
@@ -118,41 +119,62 @@ void MainMenu::on_xnOrLvlBtn_clicked()
 void MainMenu::on_XnOrGateLvlBtn_clicked()
 {
     xnOrGateLvl->show();
+    QMessageBox::information(xnOrGateLvl,
+                             tr("XNOR Gate"),
+                             tr("").append(andGateLvl->instance->xnOrGateInfo));
     this->close();
 }
 
 void MainMenu::on_andGateLvlBtn_clicked()
 {
     andGateLvl->show();
+    QMessageBox::information(andGateLvl,
+                             tr("AND Gate"),
+                             tr("").append(andGateLvl->instance->andGateInfo));
     this->close();
 }
 
 void MainMenu::on_nAndGateLvlBtn_clicked()
 {
     nAndGateLvl->show();
+    QMessageBox::information(nAndGateLvl,
+                             tr("NAND Gate"),
+                             tr("").append(andGateLvl->instance->nAndGateInfo));
     this->close();
 }
 
 void MainMenu::on_nOrGateLvlBtn_clicked()
 {
     nOrGateLvl->show();
+    QMessageBox::information(nOrGateLvl,
+                             tr("NOR Gate"),
+                             tr("").append(andGateLvl->instance->nOrGateInfo));
     this->close();
 }
 
 void MainMenu::on_notGateLvlBtn_clicked()
 {
     notGateLvl->show();
+    QMessageBox::information(notGateLvl,
+                             tr("NOT Gate"),
+                             tr("").append(andGateLvl->instance->notGateInfo));
     this->close();
 }
 
 void MainMenu::on_orGateLvlBtn_clicked()
 {
     orGateLvl->show();
+    QMessageBox::information(orGateLvl,
+                             tr("OR Gate"),
+                             tr("").append(andGateLvl->instance->orGateInfo));
     this->close();
 }
 
 void MainMenu::on_xOrGateLvlBtn_clicked()
 {
     xOrGateLvl->show();
+    QMessageBox::information(xOrGateLvl,
+                             tr("XOR Gate"),
+                             tr("").append(andGateLvl->instance->xOrGateInfo));
     this->close();
 }

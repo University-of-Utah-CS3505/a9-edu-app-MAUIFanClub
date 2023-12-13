@@ -29,6 +29,7 @@ public:
                          QMessageBox *lvlInfoPopup = nullptr,
                          QWidget *parent = nullptr);
     ~LevelWindow();
+    circuitElementsMenu *instance;
 
 protected:
     void wheelEvent(QWheelEvent *event) override;
@@ -44,7 +45,6 @@ private:
     QMainWindow *mainMenu;
     Ui::Level1Window *ui;
     NodeQuickCreateMenu *nodeQuickMenu;
-    circuitElementsMenu *instance;
     CircuitManager *circuitManager;
     ZoomWidget *zoomWidget;
 };

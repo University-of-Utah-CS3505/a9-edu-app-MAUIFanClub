@@ -7,6 +7,14 @@ circuitElementsMenu::circuitElementsMenu(CircuitManager *circuitManager, QWidget
 {
     ui->setupUi(this);
 
+    andGateInfo = ui->andGateBtn->toolTip();
+    nAndGateInfo = ui->nandGateBtn->toolTip();
+    orGateInfo = ui->orGateBtn->toolTip();
+    nOrGateInfo = ui->norGateBtn->toolTip();
+    xOrGateInfo = ui->xOrGateBtn->toolTip();
+    xnOrGateInfo = ui->xnOrGateBtn->toolTip();
+    notGateInfo = ui->notGateBtn->toolTip();
+
     ui->logicGatesGrid->setHidden(true);
     ui->inputsGrid->setHidden(true);
 
