@@ -98,6 +98,10 @@ void MainMenu::paintEvent(QPaintEvent *event)
 
 void MainMenu::updatePhysics()
 {
+    if (!this->isVisible()) {
+        return;
+    }
+
     world->Step(1.0f / 60.0f, 8, 3);
     for (int i = 0; i < ui->graphicsView->scene()->items().size(); i++) {
         if (mapWorldToScene(getBoxPosition(i)).y() >= height() - 200) {
@@ -110,6 +114,10 @@ void MainMenu::updatePhysics()
 
 void MainMenu::spawnPhysicsIcons()
 {
+    if (!this->isVisible()) {
+        return;
+    }
+
     std::uniform_real_distribution<float> distribution(-30.0, 100);
     std::random_device rd;
     std::mt19937 gen(rd());
