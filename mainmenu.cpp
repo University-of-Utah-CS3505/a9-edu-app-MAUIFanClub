@@ -1,10 +1,10 @@
 #include "mainmenu.h"
-#include "ui_mainmenu.h"
 #include <QGraphicsRectItem>
-void MyContactListener::BeginContact(b2Contact* contact) {
-    qDebug() << "Collision detected!";
-    b2Body* bodyA = contact->GetFixtureA()->GetBody();
-    b2Body* bodyB = contact->GetFixtureB()->GetBody();
+#include "ui_mainmenu.h"
+void MyContactListener::BeginContact(b2Contact *contact)
+{
+    b2Body *bodyA = contact->GetFixtureA()->GetBody();
+    b2Body *bodyB = contact->GetFixtureB()->GetBody();
 
     // Check if both bodies are dynamic
     if (bodyA->GetType() == b2_dynamicBody && bodyB->GetType() == b2_dynamicBody) {
@@ -22,16 +22,20 @@ void MyContactListener::BeginContact(b2Contact* contact) {
     // - Access the bodies involved in the collision: contact->GetFixtureA()->GetBody(), contact->GetFixtureB()->GetBody()
 }
 
-void MyContactListener::EndContact(b2Contact* contact) {
+void MyContactListener::EndContact(b2Contact *contact)
+{
     // You can perform actions when a collision ends
 }
-MainMenu::MainMenu(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainMenu)
+
+MainMenu::MainMenu(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainMenu)
 {
     ui->setupUi(this);
     ui->mmLogicGateLvlBtns->hide();
     ui->mmCircuitExampleBtn->hide();
+
+    // Initializes Levels
     andGateLvl = new LevelWindow(this, "and_d");
     nAndGateLvl = new LevelWindow(this, "nand_d");
     orGateLvl = new LevelWindow(this, "or_d");
@@ -65,48 +69,56 @@ MainMenu::MainMenu(QWidget *parent) :
     // Physics Objects Initializations
     b2Vec2 gravity(0.0f, -4.0f);
     world = new b2World(gravity);
-    MyContactListener* contactListener = new MyContactListener;
+
+    MyContactListener *contactListener = new MyContactListener;
     world->SetContactListener(contactListener);
+
     ui->graphicsView->setScene(new QGraphicsScene());
+
     updateTimer = new QTimer(this);
     connect(updateTimer, SIGNAL(timeout()), this, SLOT(updatePhysics()));
+
     updateTimer->start(16); // About 60 FPS
+
     spawnTimer = new QTimer(this);
     connect(spawnTimer, SIGNAL(timeout()), this, SLOT(spawnPhysicsIcons()));
+
     spawnTimer->start(30); // About 60 FPS
 }
+
 MainMenu::~MainMenu()
 {
     delete ui;
 }
-void MainMenu::paintEvent(QPaintEvent *event) {
+
+void MainMenu::paintEvent(QPaintEvent *event)
+{
     Q_UNUSED(event);
 }
 
 void MainMenu::updatePhysics()
 {
     world->Step(1.0f / 60.0f, 8, 3);
-    for(int i = 0; i < ui->graphicsView->scene()->items().size(); i++)
-    {
-        if(mapWorldToScene(getBoxPosition(i)).y() >= height() - 200)
-        {
+    for (int i = 0; i < ui->graphicsView->scene()->items().size(); i++) {
+        if (mapWorldToScene(getBoxPosition(i)).y() >= height() - 200) {
             ui->graphicsView->scene()->removeItem(ui->graphicsView->scene()->items()[i]);
-        }
-        else
-        {
+        } else {
             ui->graphicsView->scene()->items()[i]->setPos(mapWorldToScene(getBoxPosition(i)));
         }
     }
 }
-void MainMenu::spawnPhysicsIcons() {
+
+void MainMenu::spawnPhysicsIcons()
+{
     std::uniform_real_distribution<float> distribution(-30.0, 100);
     std::random_device rd;
     std::mt19937 gen(rd());
+
     // Generate a random float for the X coordinate to spawn the icons
     float randomX = distribution(gen);
     createPhysicsIcon(randomX, 80.0f, 2.0f, 2.0f, ui->graphicsView->scene());
-
 }
+
 void MainMenu::on_logicGateLvlsBtn_clicked()
 {
     if (ui->mmLogicGateLvlBtns->isHidden()) {
@@ -228,7 +240,9 @@ void MainMenu::on_xOrGateLvlBtn_clicked()
     xOrGateLvl->show();
     this->close();
 }
-void MainMenu::createPhysicsIcon(float x, float y, float width, float height, QGraphicsScene *scene) {
+
+void MainMenu::createPhysicsIcon(float x, float y, float width, float height, QGraphicsScene *scene)
+{
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(x, y);
@@ -240,16 +254,24 @@ void MainMenu::createPhysicsIcon(float x, float y, float width, float height, QG
     fixtureDef.shape = &dynamicBox;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.3f;
-    b2Body* body = world->CreateBody(&bodyDef);
+
+    b2Body *body = world->CreateBody(&bodyDef);
     body->CreateFixture(&fixtureDef);
+
     std::random_device rd;
     std::mt19937 gen(rd());
+
     // Create a uniform integer distribution between min and max (min = 0, max = size of the list - 1)
-    std::uniform_int_distribution<int> distribution(0, listOfIcons.size()-1);
+    std::uniform_int_distribution<int> distribution(0, listOfIcons.size() - 1);
+
     // Generate a random integer to pick an icon at random from the preset list of icons
     int randomInt = distribution(gen);
+
     QPixmap pixmap(listOfIcons[randomInt]);
-    QGraphicsPixmapItem* pixmapItem = new QGraphicsPixmapItem(pixmap); // Adding a pixmap with an icon to attach it to a physics body
+
+    // Adding a pixmap with an icon to attach it to a physics body
+    QGraphicsPixmapItem *pixmapItem = new QGraphicsPixmapItem(pixmap);
+
     pixmapItem->setPos(mapWorldToScene(body->GetPosition()));
     pixmapItem->setTransformOriginPoint(pixmapItem->boundingRect().center());
     pixmapItem->setRotation(body->GetAngle() * 180.0 / b2_pi);
@@ -258,14 +280,18 @@ void MainMenu::createPhysicsIcon(float x, float y, float width, float height, QG
     scene->addItem(pixmapItem); // Adding our item to the scene
 }
 
-b2Vec2 MainMenu::getBoxPosition(int index) {
-    b2Body* body = world->GetBodyList();
+b2Vec2 MainMenu::getBoxPosition(int index)
+{
+    b2Body *body = world->GetBodyList();
     for (int i = 0; i < index; ++i) {
         body = body->GetNext();
     }
     return body->GetPosition();
 }
-QPointF MainMenu::mapWorldToScene(const b2Vec2 &worldPoint) const {
+
+QPointF MainMenu::mapWorldToScene(const b2Vec2 &worldPoint) const
+{
     // Map Box2D world coordinates to QGraphicsScene coordinates
-    return QPointF(worldPoint.x * 10, -worldPoint.y * 10); // Scale factor 10 for better visualization
+    return QPointF(worldPoint.x * 10,
+                   -worldPoint.y * 10); // Scale factor 10 for better visualization
 }
