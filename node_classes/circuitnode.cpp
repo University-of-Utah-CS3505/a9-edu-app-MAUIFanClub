@@ -93,6 +93,8 @@ void CircuitNode::moveWidget()
 
 void CircuitNode::mousePressEvent(QMouseEvent *event)
 {
+    dragableWidgetSize = currentSize;
+
     DragableWidget::mousePressEvent(event);
 
     if (event->button() == Qt::RightButton) {

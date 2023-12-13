@@ -19,6 +19,8 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
 
+    int dragableWidgetSize;
+
 private:
     QPoint dragOffset;
     bool clicked;
