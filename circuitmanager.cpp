@@ -375,7 +375,7 @@ void CircuitManager::handleNewNode(CircuitNode *node, QPoint nodePos)
     lineManager->createCanvas(node);
 
     if (nodePos == QPoint()) {
-        nodePos = QPoint(10, 30);
+        nodePos = QPoint(300, 30);
 
         // Finds open position for node.
         for (int i = 0; i < nodes.size(); i++) {
@@ -489,6 +489,15 @@ void CircuitManager::zoomCustom(int customZoom)
         lineManager->updateCanvas(x);
     }
     box2DManager->nodesScaled();
+}
+
+void CircuitManager::togglePhysics()
+{
+    if (box2DManager->physicsActive) {
+        box2DManager->stopWorld();
+    } else {
+        box2DManager->startWorld();
+    }
 }
 
 /*  NODE CREATION FUNCTIONS  */

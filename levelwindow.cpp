@@ -23,7 +23,9 @@ LevelWindow::LevelWindow(QMainWindow *mainWindow,
     instance = new circuitElementsMenu(circuitManager, this);
 
     zoomWidget = new ZoomWidget(circuitManager, this);
-    zoomWidget->move(QPoint(800, 20));
+    zoomWidget->move(QPoint(850, 20));
+
+    instance->zoomWidget = zoomWidget;
 
     circuitManager->quickCircuitMenu = nodeQuickMenu;
     circuitManager->qcInputBtn = nodeQuickMenu->inputBtn;
@@ -38,8 +40,6 @@ LevelWindow::LevelWindow(QMainWindow *mainWindow,
     circuitManager->loadFile(saveFileName);
 
     zoomWidget->updateZoom(circuitManager->currentZoom);
-
-    ui->stopSimBtn->setEnabled(false);
 
     // Sets background image for the window.
     QPixmap bkgnd(":/menuIcons/menuIcons/GridLight.png");
@@ -80,21 +80,7 @@ void LevelWindow::on_actionLoad_triggered()
 
 void LevelWindow::on_actionExit_triggered()
 {
+    circuitManager->box2DManager->stopWorld();
     mainMenu->show();
     this->close();
-}
-
-void LevelWindow::on_startSimBtn_clicked()
-{
-    ui->startSimBtn->setEnabled(false);
-    circuitManager->box2DManager->startWorld();
-    ui->stopSimBtn->setEnabled(true);
-}
-
-void LevelWindow::on_stopSimBtn_clicked()
-{
-    ui->stopSimBtn->setEnabled(false);
-    circuitManager->box2DManager->stopWorld();
-    ui->startSimBtn->setEnabled(true);
-    zoomWidget->updateZoom(circuitManager->box2DManager->startZoom);
 }

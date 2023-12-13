@@ -44,7 +44,7 @@
     <widget class="QWidget" name="ItemsHolder" native="true">
      <property name="styleSheet">
       <string notr="true">QWidget#ItemsHolder {
-background-color:gray;
+background-color: rgb(52, 52, 52);
 border-radius:5px;}</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -73,9 +73,10 @@ border-radius:5px;}</string>
         </property>
         <property name="font">
          <font>
+          <family>OCR A Extended</family>
           <pointsize>18</pointsize>
-          <bold>true</bold>
-          <underline>true</underline>
+          <bold>false</bold>
+          <underline>false</underline>
           <kerning>false</kerning>
          </font>
         </property>
@@ -113,6 +114,8 @@ border-radius:5px;}</string>
         </property>
         <property name="font">
          <font>
+          <family>OCR A Extended</family>
+          <pointsize>11</pointsize>
           <kerning>false</kerning>
          </font>
         </property>
@@ -131,6 +134,8 @@ border-radius:5px;}</string>
         </property>
         <property name="font">
          <font>
+          <family>OCR A Extended</family>
+          <pointsize>11</pointsize>
           <kerning>false</kerning>
          </font>
         </property>
@@ -162,6 +167,8 @@ border-radius:5px;}</string>
         </property>
         <property name="font">
          <font>
+          <family>OCR A Extended</family>
+          <pointsize>11</pointsize>
           <kerning>false</kerning>
          </font>
         </property>
@@ -180,6 +187,8 @@ border-radius:5px;}</string>
         </property>
         <property name="font">
          <font>
+          <family>OCR A Extended</family>
+          <pointsize>11</pointsize>
           <kerning>false</kerning>
          </font>
         </property>
@@ -198,6 +207,8 @@ border-radius:5px;}</string>
         </property>
         <property name="font">
          <font>
+          <family>OCR A Extended</family>
+          <pointsize>11</pointsize>
           <kerning>false</kerning>
          </font>
         </property>
@@ -216,6 +227,8 @@ border-radius:5px;}</string>
         </property>
         <property name="font">
          <font>
+          <family>OCR A Extended</family>
+          <pointsize>11</pointsize>
           <kerning>false</kerning>
          </font>
         </property>
@@ -234,6 +247,8 @@ border-radius:5px;}</string>
         </property>
         <property name="font">
          <font>
+          <family>OCR A Extended</family>
+          <pointsize>11</pointsize>
           <kerning>false</kerning>
          </font>
         </property>
@@ -252,6 +267,8 @@ border-radius:5px;}</string>
         </property>
         <property name="font">
          <font>
+          <family>OCR A Extended</family>
+          <pointsize>11</pointsize>
           <kerning>false</kerning>
          </font>
         </property>
@@ -270,6 +287,8 @@ border-radius:5px;}</string>
         </property>
         <property name="font">
          <font>
+          <family>OCR A Extended</family>
+          <pointsize>11</pointsize>
           <kerning>false</kerning>
          </font>
         </property>

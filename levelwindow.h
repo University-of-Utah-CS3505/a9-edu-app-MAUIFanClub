@@ -38,8 +38,6 @@ private slots:
     void on_actionSave_triggered();
     void on_actionLoad_triggered();
     void on_actionExit_triggered();
-    void on_startSimBtn_clicked();
-    void on_stopSimBtn_clicked();
 
 private:
     QMainWindow *mainMenu;

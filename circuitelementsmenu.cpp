@@ -18,11 +18,14 @@ circuitElementsMenu::circuitElementsMenu(CircuitManager *circuitManager, QWidget
     ui->logicGatesGrid->setHidden(true);
     ui->inputsGrid->setHidden(true);
 
-    this->move(QPoint(20, 200));
+    this->move(QPoint(10, 50));
 
     ui->ElementsLayout->layout()->setContentsMargins(QMargins(0,0,0,0));
     ui->ElementsLayout->layout()->setSpacing(0);
     levelWidget = parent;
+
+    dragableWidgetSize = 100;
+
     raise();
 }
 
@@ -99,4 +102,16 @@ void circuitElementsMenu::on_xOrGateBtn_clicked()
 void circuitElementsMenu::on_runBtn_clicked()
 {
     circuitManager->run();
+}
+
+void circuitElementsMenu::on_physicsBtn_clicked()
+{
+    if (circuitManager->box2DManager->physicsActive) {
+        zoomWidget->updateZoom(circuitManager->box2DManager->startZoom);
+        ui->physicsBtn->setText("Enable Physics");
+    } else {
+        ui->physicsBtn->setText("Disable Physics");
+    }
+
+    circuitManager->togglePhysics();
 }

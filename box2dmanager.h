@@ -36,11 +36,12 @@ public:
 
     float32 startZoom;
 
+    bool physicsActive;
+
     void addNode(CircuitNode *node);
     void nodeDeleted(CircuitNode *node);
 
     void nodesScaled();
-
     void nodeMoved(CircuitNode *node);
 
     void updateGroundBody();

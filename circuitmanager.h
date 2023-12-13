@@ -49,6 +49,8 @@ public:
     vector<CircuitNode *> nodes;
     vector<OutputNode *> outputNodes;
 
+    void togglePhysics();
+
     // Used for quick create menu
     QPoint *mousePos;
     CircuitNode *currentNode;

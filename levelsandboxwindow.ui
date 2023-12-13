@@ -29,53 +29,7 @@
    <iconset resource="imagesResources.qrc">
     <normaloff>:/menuIcons/menuIcons/CircuitLearnerIcon.png</normaloff>:/menuIcons/menuIcons/CircuitLearnerIcon.png</iconset>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="startSimBtn">
-    <property name="geometry">
-     <rect>
-      <x>1020</x>
-      <y>710</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Start</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="stopSimBtn">
-    <property name="geometry">
-     <rect>
-      <x>1110</x>
-      <y>710</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stop</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>910</x>
-      <y>700</y>
-      <width>111</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>20</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Physics: </string>
-    </property>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralwidget"/>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

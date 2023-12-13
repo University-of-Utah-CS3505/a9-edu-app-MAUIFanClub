@@ -29,10 +29,6 @@ private slots:
 
     void on_actionExit_triggered();
 
-    void on_startSimBtn_clicked();
-
-    void on_stopSimBtn_clicked();
-
 private:
     QMainWindow *mainMenu;
     Ui::LevelSandboxWindow *ui;

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>250</width>
-    <height>622</height>
+    <width>256</width>
+    <height>725</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -57,18 +57,37 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: 2px solid #000000;
-background-color: rgb(52, 52, 52);</string>
+    <string notr="true">* 
+{
+border: 2px solid #000000;
+background-color: rgb(52, 52, 52);
+}
+
+QWidget#ElementsLayout
+{
+border-bottom-left-radius: 5px 5px;
+border-bottom-right-radius: 5px 5px;
+}
+
+
+
+</string>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0">
     <property name="spacing">
      <number>0</number>
     </property>
     <property name="sizeConstraint">
      <enum>QLayout::SetMinAndMaxSize</enum>
     </property>
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
     <property name="topMargin">
      <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
     </property>
     <property name="bottomMargin">
      <number>0</number>
@@ -121,7 +140,7 @@ border: 2px solid #000000;
       </property>
       <property name="minimumSize">
        <size>
-        <width>232</width>
+        <width>230</width>
         <height>308</height>
        </size>
       </property>
@@ -194,6 +213,7 @@ border: 2px solid #000000;
             <property name="styleSheet">
              <string notr="true">QPushButton{
 border: 1px solid #000000;
+border-radius:5px;
 font: 12pt &quot;OCR A Extended&quot;;
 	color: rgb(255, 255, 255);
 }
@@ -233,7 +253,9 @@ border: 2px solid #000000;
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);</string>
+             <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:5px;
+border: 1px solid #000000;</string>
             </property>
             <layout class="QGridLayout" name="gridLayout">
              <item row="1" column="1">
@@ -535,6 +557,7 @@ QPushButton::hover{
             <property name="styleSheet">
              <string notr="true">QPushButton{
 border: 1px solid #000000;
+border-radius:5px;
 font: 12pt &quot;OCR A Extended&quot;;
 	color: rgb(255, 255, 255);
 }
@@ -556,7 +579,9 @@ border: 2px solid #000000;
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(255, 255, 255);</string>
+             <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:5px;
+border: 1px solid #000000;</string>
             </property>
             <layout class="QGridLayout">
              <item row="0" column="0">
@@ -627,13 +652,45 @@ QPushButton::hover{
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="clearBtn">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>8</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="physicsBtn">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>30</height>
+             </size>
+            </property>
             <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;This button will remove all current elements from the screen.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;This button will take you to the input options&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton{
 border: 1px solid #000000;
+border-radius:5px;
 font: 12pt &quot;OCR A Extended&quot;;
 	color: rgb(255, 255, 255);
 }
@@ -642,7 +699,7 @@ border: 2px solid #000000;
 }</string>
             </property>
             <property name="text">
-             <string>Clear</string>
+             <string>Enable Physics</string>
             </property>
            </widget>
           </item>
@@ -654,12 +711,20 @@ border: 2px solid #000000;
     </item>
     <item>
      <widget class="QPushButton" name="runBtn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>55</height>
+       </size>
+      </property>
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Click here to run your design&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
 border: 1px solid #000000;
+border-radius:5px;
+margin:10px 10px 5px 10px;
 font: 12pt &quot;OCR A Extended&quot;;
 	color: rgb(255, 255, 255);
 }
@@ -672,6 +737,34 @@ border: 2px solid #000000;
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="clearBtn">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>55</height>
+       </size>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;This button will remove all current elements from the screen.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border: 1px solid #000000;
+border-radius:5px;
+margin: 5px 10px 10px 10px;
+font: 12pt &quot;OCR A Extended&quot;;
+	color: rgb(255, 255, 255);
+}
+QPushButton::hover{
+border: 2px solid #000000;
+}</string>
+      </property>
+      <property name="text">
+       <string>Clear</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="TopBar" native="true">
@@ -679,13 +772,21 @@ border: 2px solid #000000;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>251</width>
+     <width>250</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>250</width>
+     <height>16777215</height>
+    </size>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
 background-color:gray;
+border-top-left-radius: 5px 5px;
+border-top-right-radius: 5px 5px;
 }
 QWidget::hover{
 background-color:rgb(40, 40, 40);

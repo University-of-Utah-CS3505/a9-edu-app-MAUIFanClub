@@ -5,6 +5,7 @@
 #include <QWidget>
 #include "circuitmanager.h"
 #include "dragablewidget.h"
+#include "zoomwidget.h"
 #include <vector>
 
 namespace Ui {
@@ -20,6 +21,8 @@ public:
     ~circuitElementsMenu();
 
     CircuitManager *circuitManager;
+
+    ZoomWidget *zoomWidget;
 
     QString andGateInfo;
     QString nAndGateInfo;
@@ -45,6 +48,8 @@ private slots:
     void on_notGateBtn_clicked();
     void on_xnOrGateBtn_clicked();
     void on_xOrGateBtn_clicked();
+
+    void on_physicsBtn_clicked();
 
 private:
     Ui::circuitElementsMenu *ui;

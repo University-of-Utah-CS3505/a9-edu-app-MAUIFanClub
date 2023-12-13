@@ -4,6 +4,8 @@ Box2DManager::Box2DManager(NodeLineConnectionManager *lineManager)
 {
     this->lineManager = lineManager;
 
+    physicsActive = false;
+
     worldTimer = new QTimer(this);
     connect(worldTimer, &QTimer::timeout, [this]() { updateWorld(); });
 
@@ -168,6 +170,8 @@ void Box2DManager::startWorld()
         return;
     }
 
+    physicsActive = true;
+
     startZoom = (*lineManager->currentZoom);
 
     for (int i = 0; i < nodesPhysics.size(); i++) {
@@ -183,6 +187,8 @@ void Box2DManager::stopWorld()
     if (!worldTimer->isActive()) {
         return;
     }
+
+    physicsActive = false;
 
     worldTimer->stop();
 
