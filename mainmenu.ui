@@ -30,53 +30,27 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">QWidget {
-
-}
-
-</string>
+    <string notr="true"/>
    </property>
-   <widget class="QLabel" name="Background">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>801</width>
-      <height>601</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLabel{
-	border-image: url(:/mainMenuBackground/circuit2.jpg);
-}
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="AppNameLabel">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>50</y>
+      <y>40</y>
       <width>361</width>
       <height>151</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Sitka Heading</family>
-      <pointsize>38</pointsize>
+      <family>OCR A Extended</family>
+      <pointsize>28</pointsize>
       <italic>false</italic>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 700 38pt &quot;Sitka Heading&quot;;
+     <string notr="true">font: 28pt &quot;OCR A Extended&quot;;
 color: rgb(231, 231, 231);
 
 </string>
@@ -92,9 +66,9 @@ color: rgb(231, 231, 231);
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>0</y>
-      <width>360</width>
-      <height>601</height>
+      <y>-10</y>
+      <width>361</width>
+      <height>621</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -102,7 +76,8 @@ color: rgb(231, 231, 231);
     </property>
     <property name="styleSheet">
      <string notr="true">QLabel{
-	
+border: 10px solid black;
+	border-radius:5px;
 	background-color: rgba(0, 0, 0, 200);
 }
 </string>
@@ -117,7 +92,7 @@ color: rgb(231, 231, 231);
       <x>50</x>
       <y>159</y>
       <width>361</width>
-      <height>441</height>
+      <height>451</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -133,7 +108,7 @@ color: rgb(231, 231, 231);
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -161,7 +136,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -192,7 +167,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -234,7 +209,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -262,7 +237,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -290,7 +265,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -318,7 +293,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -346,7 +321,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -374,7 +349,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -402,7 +377,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -445,7 +420,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -473,7 +448,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -501,7 +476,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -529,7 +504,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -557,7 +532,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -585,7 +560,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -613,7 +588,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -641,7 +616,7 @@ QPushButton::hover{
         <string notr="true">
 QPushButton{
 background-color: rgba(0, 0, 0, 100);
-font: 700 20pt &quot;Source Code Pro&quot;;
+font: 20pt &quot;OCR A Extended&quot;;
 color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -659,7 +634,50 @@ QPushButton::hover{
      </item>
     </layout>
    </widget>
-   <zorder>Background</zorder>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>800</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>800</width>
+      <height>800</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>800</width>
+      <height>800</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(79, 79, 79);</string>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="renderHints">
+     <set>QPainter::Antialiasing</set>
+    </property>
+    <property name="optimizationFlags">
+     <set>QGraphicsView::DontAdjustForAntialiasing|QGraphicsView::DontSavePainterState|QGraphicsView::IndirectPainting</set>
+    </property>
+   </widget>
+   <zorder>graphicsView</zorder>
    <zorder>Background_2</zorder>
    <zorder>AppNameLabel</zorder>
    <zorder>mmMainBtnsWidget</zorder>

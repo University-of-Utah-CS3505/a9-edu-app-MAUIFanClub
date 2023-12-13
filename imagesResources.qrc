@@ -24,6 +24,12 @@
         <file>menuIcons/notIcon.png</file>
         <file>menuIcons/xNORIcon.png</file>
         <file>menuIcons/xOrIcon.png</file>
+        <file>menuIcons/BackgroundTest.jpg</file>
+        <file>menuIcons/72795237-circuit-board-on-white-background-processor-and-chip-engineering-and-tech-motherboard-and-computer.jpg</file>
+        <file>menuIcons/Background2.jpg</file>
+        <file>menuIcons/vecteezy_abstract-black-and-white-grid-striped-geometric-pattern_3685734.jpg</file>
+        <file>menuIcons/Grid.png</file>
+        <file>menuIcons/GridLight.png</file>
     </qresource>
     <qresource prefix="/saveFiles">
         <file>CircuitLevels/all_1.csp</file>
