@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>Level 1</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">

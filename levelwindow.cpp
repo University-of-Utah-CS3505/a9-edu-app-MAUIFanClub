@@ -40,6 +40,13 @@ LevelWindow::LevelWindow(QMainWindow *mainWindow,
     zoomWidget->updateZoom(circuitManager->currentZoom);
 
     ui->stopSimBtn->setEnabled(false);
+
+    // Sets background image for the window.
+    QPixmap bkgnd(":/menuIcons/menuIcons/GridLight.png");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bkgnd);
+    this->setPalette(palette);
 }
 
 LevelWindow::~LevelWindow()

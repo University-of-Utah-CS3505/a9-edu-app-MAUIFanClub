@@ -4,10 +4,16 @@
 #include <QMainWindow>
 #include "levelsandboxwindow.h"
 #include "levelwindow.h"
-
+#include <QGraphicsView>
+#include <QPointF>
 namespace Ui {
 class MainMenu;
 }
+class MyContactListener : public b2ContactListener {
+public:
+    void BeginContact(b2Contact* contact) override;
+    void EndContact(b2Contact* contact) override;
+};
 
 class MainMenu : public QMainWindow
 {
@@ -55,6 +61,11 @@ private slots:
 
     void on_xOrGateLvlBtn_clicked();
 
+    // Physics Objects slots for timers
+    void updatePhysics();
+
+    void spawnPhysicsIcons();
+
 private:
     Ui::MainMenu *ui;
 
@@ -74,8 +85,19 @@ private:
     LevelWindow *starLvl;
     LevelWindow *xnOrLvl;
     LevelWindow *xOrLvl;
-
     LevelSandboxWindow *sandboxWindow = nullptr;
+    // Physics Members
+    void createPhysicsIcon(float x, float y, float width, float height, QGraphicsScene *scene);
+    b2World* world;
+   // b2Body* boxBody;
+    QTimer* updateTimer;
+    QTimer* spawnTimer;
+    b2Vec2 getBoxPosition(int index);
+    QPointF mapWorldToScene(const b2Vec2 &worldPoint) const;
+    QGraphicsRectItem *bottomBoxItem;
+    vector <QString> listOfIcons;
+protected:
+    void paintEvent(QPaintEvent *event) override;
 };
 
 #endif // MAINMENU_H

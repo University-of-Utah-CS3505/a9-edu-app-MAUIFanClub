@@ -99,7 +99,7 @@ background-color: rgb(52, 52, 52);</string>
       <property name="styleSheet">
        <string notr="true">QPushButton{
 border: 1px solid #000000;
-	font: 12pt &quot;Segoe MDL2 Assets&quot;;
+font: 12pt &quot;OCR A Extended&quot;;
 	color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -194,7 +194,7 @@ border: 2px solid #000000;
             <property name="styleSheet">
              <string notr="true">QPushButton{
 border: 1px solid #000000;
-	font: 12pt &quot;Segoe MDL2 Assets&quot;;
+font: 12pt &quot;OCR A Extended&quot;;
 	color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -535,7 +535,7 @@ QPushButton::hover{
             <property name="styleSheet">
              <string notr="true">QPushButton{
 border: 1px solid #000000;
-	font: 12pt &quot;Segoe MDL2 Assets&quot;;
+font: 12pt &quot;OCR A Extended&quot;;
 	color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -634,7 +634,7 @@ QPushButton::hover{
             <property name="styleSheet">
              <string notr="true">QPushButton{
 border: 1px solid #000000;
-	font: 12pt &quot;Segoe MDL2 Assets&quot;;
+font: 12pt &quot;OCR A Extended&quot;;
 	color: rgb(255, 255, 255);
 }
 QPushButton::hover{
@@ -660,7 +660,7 @@ border: 2px solid #000000;
       <property name="styleSheet">
        <string notr="true">QPushButton{
 border: 1px solid #000000;
-	font: 12pt &quot;Segoe MDL2 Assets&quot;;
+font: 12pt &quot;OCR A Extended&quot;;
 	color: rgb(255, 255, 255);
 }
 QPushButton::hover{
